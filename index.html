@@ -1,458 +1,400 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-  <meta charset="UTF-8">
-  <title>МТАА | ТАЙЛАН 2025</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="assets/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <title>Жилийн тайлан 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/logo.png">
+
+    <!-- Фонтууд -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/d3-org-chart@3"></script>
+
+
 </head>
 <body>
+<section class="hero">
+    <div class="cover">
 
-<!-- ===== NAV BAR ===== -->
-<div class="topbar">
-  <div class="logo">
-    <span class="logo-drop"></span>
-    МТАА | ТАЙЛАН 2025
-  </div>
-  <ul class="menu">
-    <li><a href="#structure">Бүтэц</a></li>
-    <li><a href="#hr">Хүний нөөц</a></li>
-    <li><a href="#automation">Автоматжуулалт</a></li>
-    <li><a href="#software">Програм хангамж</a></li>
-    <li><a href="#metrics">Гүйцэтгэл</a></li>
-    <li><a href="#safety">ХАБЭА</a></li>
-    <li><a href="#innovation">Шинэ санаачлага</a></li>
-    <li><a href="#projects">Төслүүд</a></li>
-    <li><a href="#summary">Дүгнэлт</a></li>
-  </ul>
-</div>
+        <div class="left-menu">
+            <h2>ТАЙЛАН</h2>
+            <div class="menu-items">
+                <p>ХЭСГҮҮД</p>
+                <p>Power BI</p>
+            </div>
+        </div>
 
-<!-- ===== HERO SECTION ===== -->
-<section class="hero water-hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-chip">2025 ОНЫ ЖИЛИЙН ЭЦСИЙН ТАЙЛАН</p>
-    <img src="assets/logo.png" width="100" alt="Logo" />
-    <img src="assets/mtan.png" width="100" alt="Logo" />
-    <h1 class="hero-title">
-      МЭДЭЭЛЛИЙН ТЕХНОЛОГИ, <span>АВТОМАТЖУУЛАЛТЫН АЛБА</span>
-    </h1>
-    <h1 class="hero-title mongol-text">
-      ᠮᠡᠳᠡᢉᠡᠯᠡᠯ  ᠦ᠋ᠨ ᠲᠧᠻᠨᠤᠯᠤᢉᠢ᠂ ᠠᠦᠲ᠋ᠤᠮᠠᠲ᠋ᠵᠢᠭᠤᠯᠤᠯᠲᠠ ᠶ᠋ᠢᠨ ᠠᠯᠪᠠ
-    </h1>
+        <div class="center-block">
 
+            <div class="logo-row">
+                <img src="assets/logo.png"  class="logo" alt="">
+                <img src="assets/mtan.png" class="logo" alt="">
+            </div>
 
-    <p class="hero-subtitle">
-      Ус хангамжийн байгууллагын дижитал шилжилт, найдвартай ажиллагааг
-      24/7 хангах, автоматжуулалт, дата төвийн иж бүрэн шийдэл.
-    </p>
+            <div class="year-block">
+                <img src="assets/central.png" alt="" style="width: 30vw">
+            </div>
 
-    <div class="hero-divider">
-      <div class="flow-line"></div>
-      <span class="flow-dot"></span>
-      <div class="flow-line"></div>
+            <h1 class="main-title">
+                МЭДЭЭЛЛИЙН ТЕХНОЛОГИ,<br>
+                <span>АВТОМАТЖУУЛАЛТЫН АЛБА</span>
+            </h1>
+
+        </div>
+
+        <div class="mongol-right">
+            <div>
+                ᠠᠦᠲ᠋ᠤᠮᠠᠲ᠋ᠵᠢᠭᠤᠯᠤᠯᠲᠠ ᠶ᠋ᠢᠨ ᠠᠯᠪᠠ
+            </div>
+            <div>
+                ᠮᠡᠳᠡᢉᠡᠯᠡᠯ ᠦ᠋ᠨ ᠲᠧᠻᠨᠤᠯᠤᢉᠢ᠂
+            </div>
+        </div>
+
+    </div>
+    <div class="water-drops">
+        <span class="drop d1"></span>
+        <span class="drop d2"></span>
+        <span class="drop d3"></span>
+        <span class="drop d4"></span>
+        <span class="drop d5"></span>
+        <span class="drop d6"></span>
+        <span class="drop d7"></span>
+        <span class="drop d8"></span>
+        <span class="drop d9"></span>
+        <span class="drop d10"></span>
+        <span class="drop d11"></span>
+        <span class="drop d12"></span>
+        <span class="drop d13"></span>
+        <span class="drop d14"></span>
+        <span class="drop d15"></span>
+        <span class="drop d16"></span>
+        <span class="drop d17"></span>
+        <span class="drop d18"></span>
+
     </div>
 
-    <div class="stats">
-      <div class="stat-box animate-card">
-        <h2 class="counter" data-target="12">0</h2>
-        <span class="stat-label">Инженер</span>
-      </div>
-      <div class="stat-box animate-card">
-        <h2 class="counter" data-target="15">0</h2>
-        <span class="stat-label">Техникч</span>
-      </div>
-      <div class="stat-box animate-card">
-        <h2 class="counter" data-target="23">0</h2>
-        <span class="stat-label">Засварчин</span>
-      </div>
-    </div>
-  </div>
+</section>
+<section class="body">
+    <div style="padding:100px 0;text-align:center;">
 
-  <!-- Усны дусал анимейшн -->
-  <div class="water-drops">
-    <span class="drop d1"></span>
-    <span class="drop d2"></span>
-    <span class="drop d3"></span>
-    <span class="drop d4"></span>
-    <span class="drop d5"></span>
-    <span class="drop d6"></span>
-    <span class="drop d7"></span>
-    <span class="drop d8"></span>
-    <span class="drop d9"></span>
-    <span class="drop d10"></span>
-    <span class="drop d11"></span>
-    <span class="drop d12"></span>
-  </div>
-<!--  <div class="hero-wave hero-wave-top"></div>-->
-<!--  <div class="hero-wave hero-wave-bottom"></div>-->
+    </div>
+
+    <div>
+        <h2>Албаны бүтэц</h2>
+    </div>
+
 </section>
 
-<!-- ===== STRUCTURE ===== -->
-<section id="structure" class="section animate-on-scroll">
-  <h2>Албаны бүтэц</h2>
-  <p class="section-subtitle">
-    Ус хангамжийн байгууллагын мэдээллийн технологи, автоматжуулалтын цогц бүтэц.
-  </p>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-icon circle-icon">
-        <span class="icon-drop"></span>
-      </div>
-      <h3>Сервер, дэд бүтэц</h3>
-      <p>Дата төв, виртуалчлал, backup, DR, мониторинг.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon circle-icon">
-        <span class="icon-flow"></span>
-      </div>
-      <h3>Програм хөгжүүлэлт</h3>
-      <p>Дотоод систем, API, интеграци, мобайл шийдлүүд.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon circle-icon">
-        <span class="icon-scada"></span>
-      </div>
-      <h3>SCADA автоматжуулалт</h3>
-      <p>Эх үүсвэр, өргөгч, усан сангийн real-time хяналт.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon circle-icon">
-        <span class="icon-shield"></span>
-      </div>
-      <h3>Сүлжээ, аюулгүй байдал</h3>
-      <p>Сүлжээний найдвартай байдал, кибер аюулгүй байдал.</p>
-    </div>
-  </div>
+<section>
+    <h2>Албаны бүтэц</h2>
+    <div id="chart-container"></div>
 </section>
 
-<!-- ===== HR ===== -->
-<section id="hr" class="section light animate-on-scroll">
-  <h2>Хүний нөөц, сургалт</h2>
-  <p class="section-subtitle">
-    Мэргэшсэн инженерүүд, тасралтгүй сургалт, мэдлэгийн урсгал.
-  </p>
-  <div class="hr-grid">
-    <div class="hr-card">
-      <span class="hr-label">Нийт ажилтан</span>
-      <h3>27</h3>
-      <p>Инженер, хөгжүүлэгч, сүлжээний мэргэжилтэн.</p>
-    </div>
-    <div class="hr-card">
-      <span class="hr-label">Мэргэжил дээшлүүлэх</span>
-      <h3>14</h3>
-      <p>Дотоод, гадаад сургалт, сертификат.</p>
-    </div>
-    <div class="hr-card">
-      <span class="hr-label">Шинэ ажилтан</span>
-      <h3>5</h3>
-      <p>Шинэ үеийн IT мэргэжилтнүүдийг элсүүлсэн.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== AUTOMATION ===== -->
-<section id="automation" class="section animate-on-scroll">
-  <h2>Автоматжуулалтын ажил</h2>
-  <p class="section-subtitle">
-    Ус түгээх, өргөгч станц, усан санг нэгтгэсэн SCADA, IoT экосистем.
-  </p>
-  <div class="automation-layout">
-    <div class="automation-text">
-      <p>
-        SCADA системийн шинэчлэл, насос станцуудын real-time мониторинг,
-        автомат мэдрэгчийн интеграци бүрэн хийгдсэн. Төв SCADA-аас эх үүсвэр,
-        өргөгч, усан сангийн түвшин, урсгал, даралтын мэдээллийг нэг цонхоор
-        харах боломжтой болсон.
-      </p>
-      <ul>
-        <li>30+ насос станцын real-time SCADA холболт</li>
-        <li>Хэвийн бус горимд SMS/Email мэдэгдэл</li>
-        <li>Түүхэн дата хадгалалт, шалгалтын тайлан</li>
-      </ul>
-    </div>
-    <div class="automation-diagram">
-      <div class="node source">Эх үүсвэр</div>
-      <div class="pipe pipe-1"></div>
-      <div class="node pump">Өргөгч станц</div>
-      <div class="pipe pipe-2"></div>
-      <div class="node reservoir">Усан сан</div>
-      <div class="pipe pipe-3"></div>
-      <div class="node city">Хэрэглэгчид</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SOFTWARE ===== -->
-<section id="software" class="section light animate-on-scroll">
-  <h2>Програм хангамж</h2>
-  <p class="section-subtitle">
-    Ус хангамжийн процесст зориулсан нэгдсэн програм хангамжийн цогц шийдэл.
-  </p>
-  <div class="card-grid">
-    <div class="card">
-      <h3>HR систем</h3>
-      <p>Ажилтны мэдээлэл, гүйцэтгэл, сургалт, амралтын нэгдсэн удирдлага.</p>
-    </div>
-    <div class="card">
-      <h3>Санхүүгийн систем</h3>
-      <p>Зардал, хөрөнгө оруулалт, төсөв, тайлангийн автоматжилт.</p>
-    </div>
-    <div class="card">
-      <h3>SCADA хяналтын платформ</h3>
-      <p>Realtime, түүхэн дата, алдаа, анхааруулгын удирдлага.</p>
-    </div>
-    <div class="card">
-      <h3>Мобайл апп</h3>
-      <p>Ажилтны ажлын захиалга, дуудлага, үзлэг шалгалтын апп.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PERFORMANCE METRICS (GRAPHS) ===== -->
-<section id="metrics" class="section animate-on-scroll">
-  <h2>Гүйцэтгэлийн үзүүлэлт</h2>
-  <p class="section-subtitle">
-    Серверийн ачаалал, системийн найдвартай байдал, төслийн гүйцэтгэлийг
-    графикаар харуулав.
-  </p>
-
-  <div class="charts-grid">
-    <div class="chart-card">
-      <h3>Системийн найдвартай байдал (Uptime %)</h3>
-      <canvas id="uptimeChart" height="200"></canvas>
-    </div>
-    <div class="chart-card">
-      <h3>Төслийн гүйцэтгэл</h3>
-      <canvas id="projectChart" height="200"></canvas>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SAFETY ===== -->
-<section id="safety" class="section light animate-on-scroll">
-  <h2>ХАБЭА</h2>
-  <p class="section-subtitle">
-    Усны байгууламж, дэд бүтцийн аюулгүй ажиллагааг нэн тэргүүнд.
-  </p>
-  <p>
-    ISO 45001 стандартын дагуу аюулгүй ажиллагааг ханган ажилласан. Усны
-    эх үүсвэр, өргөгч, усан сангийн тоног төхөөрөмжид урьдчилан сэргийлэх
-    үзлэгийг тогтмол хийж, өндөр эрсдэлтэй ажилд заавал зөвшөөрөл олгодог
-    горимд шилжсэн.
-  </p>
-</section>
-
-<!-- ===== INNOVATION ===== -->
-<section id="innovation" class="section animate-on-scroll">
-  <h2>Шинэ санаачлага</h2>
-  <p class="section-subtitle">
-    Усны дата, хэрэглээний урсгалыг ухаалгаар ашиглах дижитал санаачлагууд.
-  </p>
-  <ul class="list">
-    <li>Ухаалаг датчик – урсгал, даралт, түвшин хэмжих IoT шийдэл</li>
-    <li>AI анализ систем – хэрэглээний загвар, алдагдлын эрт илрүүлэлт</li>
-    <li>Автомат тайлангийн генератор – удирдлагын тайланг автоматаар гаргах</li>
-  </ul>
-</section>
-
-<!-- ===== PROJECTS ===== -->
-<section id="projects" class="section light animate-on-scroll">
-  <h2>Төсөл хөтөлбөрүүд</h2>
-  <p class="section-subtitle">
-    Ус хангамжийн тасралтгүй, найдвартай ажиллагааг дэмжсэн гол төслүүд.
-  </p>
-  <div class="card-grid">
-    <div class="card">
-      <h3>SCADA Upgrade 2025</h3>
-      <p>Эх үүсвэр, өргөгч, усан сангийн SCADA системийн иж бүрэн шинэчлэл.</p>
-    </div>
-    <div class="card">
-      <h3>Нэгдсэн IT дата төв</h3>
-      <p>Серверүүдийг төвлөрүүлж, нөөцлөгдсөн, өргөтгөх боломжтой дата төв байгуулав.</p>
-    </div>
-    <div class="card">
-      <h3>Мобайл хэрэглэгчийн систем</h3>
-      <p>Газар дээрх үзлэг, засварын ажлыг мобайл апп-аар удирдах шийдэл.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FEATURED PROJECT ===== -->
-<section id="featured" class="section featured animate-on-scroll">
-  <h2>Онцлох ажил – 2025</h2>
-
-  <div class="featured-grid">
-    <!-- IMAGE CAROUSEL -->
-    <div class="carousel-container">
-      <div class="carousel">
-        <img src="assets/zurag-01.jpg" alt="SCADA удирдлагын дэлгэц">
-        <img src="assets/zurag-02.jpg" alt="PLC удирдлагын шкаф">
-      </div>
-
-      <div class="carousel-controls">
-        <button id="prevBtn">&#10094;</button>
-        <button id="nextBtn">&#10095;</button>
-      </div>
-    </div>
-
-    <!-- TEXT SIDE -->
-    <div class="featured-text">
-      <h3>Гачууртын эх үүсвэрийн удирдлагын системийн шинэчлэл</h3>
-
-      <p>
-        Гачууртын эх үүсвэрийн удирдлагыг шинэчилж, суурин SCADA болон Төв SCADA
-        системд бүрэн холбосон. Ингэснээр усан сангийн түвшин, урсгал, даралт, температурын
-        мэдээллийг нэгтгэн хянах боломж бүрдэв.
-      </p>
-
-      <ul>
-        <li>1-р өргөгчийн нийт 21 худгийн монтаж шинээр хийж ашиглалтад оруулсан</li>
-        <li>SCADA клиент компьютер шинээр суурилуулсан</li>
-        <li>2 усан сангийн түвшинг SCADA-д нэгтгэсэн</li>
-        <li>2 цахилгаан соронзон тоолуурын агшин зуурын утгыг SCADA-д нэгтгэсэн</li>
-        <li>Усан сангийн температурын мэдээллийг SCADA-д нэгтгэсэн</li>
-      </ul>
-
-      <div class="featured-tags">
-        <span>SCADA</span>
-        <span>Автоматжуулалт</span>
-        <span>IoT</span>
-        <span>Ус хангамж</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SUMMARY ===== -->
-<section id="summary" class="section light animate-on-scroll">
-  <h2>Цаашдын дүгнэлт</h2>
-  <p class="section-subtitle">
-    Хиймэл оюун, автомат удирдлагын бүрэн нэвтрэлт, усны дата төвшинд суурилсан удирдлага.
-  </p>
-  <p>
-    2026 онд хиймэл оюун ухаан, автомат удирдлагыг бүрэн нэвтрүүлэх зорилготой.
-    SCADA, IoT, байгууллагын дотоод системүүдийг нэгдсэн data platform дээр нэгтгэж,
-    ус хангамжийн системийг дата-д суурилсан, ухаалаг шийдвэр гаргалттай болгох
-    стратегийг хэрэгжүүлнэ.
-  </p>
-</section>
-
-<footer>
-  © 2025 | Мэдээллийн технологи, автоматжуулалтын алба
-</footer>
-
-<!-- ===== SCRIPTS ===== -->
 <script>
-  // Animated counters
-  const counters = document.querySelectorAll('.counter');
-  const speed = 150;
+    /* =======================
+       1. ТАНЫ JSON STRUCTURE
+       ======================= */
 
-  const runCounter = (counter) => {
-    const target = +counter.getAttribute('data-target');
-    const updateCount = () => {
-      const count = +counter.innerText;
-      const inc = Math.max(1, Math.floor(target / speed));
-      if (count < target) {
-        counter.innerText = count + inc;
-        requestAnimationFrame(updateCount);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    updateCount();
-  };
+    const orgTree =
+        {
+            type: "person",
+            positionName: "Дарга",
+            child: [
+                {
+                    type: "people",
+                    positionName: "IT баг",
+                    child: [
+                        {
+                            type: "people",
+                            positionName: "Системийн удирдлагийн хэсэг",
+                            child: [
+                                {
+                                    type: "person",
+                                    positionName: "Системийн администратор",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Дата инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Газар зүйн мэдээллийн системийн инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Нөөцлөлт, сэргээх техникч",
+                                    count: 1
+                                },
+                            ]
+                        },
+                        {
+                            type: "people",
+                            positionName: "Програм хангамж хөгжүүлэлтийн хэсэг",
+                            child: [
+                                {
+                                    type: "person",
+                                    positionName: "Дотоод програм хөгжүүлэгч",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Веб болон мобайл хөгжүүлэгчид",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Өгөгдлийн сангийн инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Программист",
+                                    count: 2
+                                },
+                            ]
+                        },
+                        {
+                            type: "people",
+                            positionName: "Компьютер тоног төхөөрөмжийн хэсэг",
+                            child: [
+                                {
+                                    type: "person",
+                                    positionName: "Компьютерийн инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Хяналтын камерийн системийн инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Холбооны инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Тоног төхөөрөмжийн засварчин",
+                                    count: 4
+                                },
 
-  // Animate on scroll
-  const scrollElements = document.querySelectorAll(".animate-on-scroll, .animate-card");
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        if (entry.target.classList.contains('stat-box')) {
-          const num = entry.target.querySelector('.counter');
-          if (num && !num.dataset.started) {
-            num.dataset.started = "true";
-            runCounter(num);
-          }
+                            ]
+                        },
+                        {
+                            type: "people",
+                            positionName: "Сүлжээ, аюулгүй байдлын хэсэг",
+                            child: [
+                                {
+                                    type: "person",
+                                    positionName: "Сүлжээний инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Кибер аюулгүй байдлын инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Шилэн кабелийн инженер",
+                                    count: 4
+                                },
+
+                            ]
+                        },
+                    ]
+                },
+                {
+                    type: "person",
+                    positionName: "Ахлах инженер",
+                },
+                {
+                    type: "person",
+                    positionName: "Нягтлан бодогч",
+                },
+                {
+                    type: "person",
+                    positionName: "Нярав /бичиг хэрэг/",
+                },
+                {
+                    type: "people",
+                    positionName: "OT баг",
+                    child: [
+
+                        {
+                            type: "people",
+                            positionName: "Үйлдвэрлэлийн удирдлагын хэсэг",
+                            child: [
+                                {
+                                    type: "person",
+                                    positionName: "SCADA инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Хяналтын системийн инженер",
+                                    count: 4
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Хяналтын системийн техникч",
+                                    count: 1
+                                },
+                            ]
+                        },
+                        {
+                            type: "people",
+                            positionName: "Дата хяналтын хэсэг",
+                            child: [
+                                {
+                                    type: "person",
+                                    positionName: "Хяналтын цэгүүдийн инженер (IoT)",
+                                    count: 3
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Хяналтын цэгүүдийн техникч (IoT)",
+                                    count: 3
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Ус түгээх ухаалаг системийн инженер",
+                                    count: 1
+                                },
+                                {
+                                    type: "person",
+                                    positionName: "Ус түгээх ухаалаг системийн техникч",
+                                    count: 4
+                                },
+                            ]
+                        },
+                        {
+                            type: "people",
+                            positionName: "Тоног төхөөрөмжийн засварын хэсэг",
+                            child: [
+
+                                {
+                                    type: "people",
+                                    positionName: "Бохир усны тоног төхөөрөмжийн засварын хэсэг",
+                                    child: [
+                                        {
+                                            type: "person",
+                                            positionName: "Цэвэрлэх байгууламжийн автоматик хянах хэрэгсэл, програмчлагдах логик контроллерын инженер",
+                                            count: 1
+                                        },
+                                        {
+                                            type: "person",
+                                            positionName: "Ус дахин боловсруулах үйлдвэрлэл хариуцсан автоматжуулалтын инженер",
+                                            count: 1
+                                        },
+                                        {
+                                            type: "person",
+                                            positionName: "Цэвэрлэх байгууламжийн автоматик хянах хэмжих хэрэгслийн техникч",
+                                            count: 2
+                                        },
+                                        {
+                                            type: "person",
+                                            positionName: "Цэвэрлэх байгууламжийн автоматик хянах хэмжих хэрэгслийн засварчин",
+                                            count: 2
+                                        },
+
+                                    ]
+                                },
+                                {
+                                    type: "people",
+                                    positionName: "Цэвэр усны тоног төхөөрөмжийн засварын хэсэг",
+                                    child: [
+                                        {
+                                            type: "person",
+                                            positionName: "Үйлдвэрлэлийн тоног төхөөрөмж, программчлагдах логик контроллерийн инженер",
+                                            count: 2
+                                        },
+                                        {
+                                            type: "person",
+                                            positionName: "Үйлдвэрлэлийн тоног төхөөрөмжийн техникч",
+                                            count: 4
+                                        },
+                                        {
+                                            type: "person",
+                                            positionName: "Үйлдвэрлэлийн тоног төхөөрөмжийн засварчин",
+                                            count: 5
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                },
+            ]
+        };
+</script>
+
+<script>
+    /* =======================
+       2. TREE → FLAT CONVERTER
+       ======================= */
+    function flattenTree(tree) {
+        let flat = [];
+        let id = 1;
+
+        function walk(node, parentId = null) {
+            const currentId = id++;
+
+            flat.push({
+                id: currentId,
+                parentId: parentId,
+                name: node.positionName,
+                type: node.type,
+                count: node.count || null
+            });
+
+            if (node.child) {
+                node.child.forEach(c => walk(c, currentId));
+            }
         }
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
 
-  scrollElements.forEach(el => observer.observe(el));
+        walk(tree);
+        return flat;
+    }
+</script>
 
-  // Carousel
-  let index = 0;
-  const carousel = document.querySelector(".carousel");
-  const totalSlides = carousel.children.length;
+<script>
+    /* =======================
+       3. d3-org-chart RENDER
+       ======================= */
+    const data = flattenTree(orgTree);
 
-  const goToSlide = (i) => {
-    index = (i + totalSlides) % totalSlides;
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-  };
-
-  document.getElementById("nextBtn").addEventListener("click", () => {
-    goToSlide(index + 1);
-  });
-
-  document.getElementById("prevBtn").addEventListener("click", () => {
-    goToSlide(index - 1);
-  });
-
-  setInterval(() => {
-    goToSlide(index + 1);
-  }, 6000);
-
-  // Charts
-  window.addEventListener('load', () => {
-    const uptimeCtx = document.getElementById('uptimeChart').getContext('2d');
-    new Chart(uptimeCtx, {
-      type: 'line',
-      data: {
-        labels: ['I улирал', 'II улирал', 'III улирал', 'IV улирал'],
-        datasets: [{
-          label: 'Uptime %',
-          data: [95.2, 96.1, 96.4, 96.8],
-          tension: 0.4,
-          borderWidth: 2,
-          pointRadius: 3
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { beginAtZero: false, min: 94, max: 100 }
-        }
-      }
-    });
-
-    const projectCtx = document.getElementById('projectChart').getContext('2d');
-    new Chart(projectCtx, {
-      type: 'bar',
-      data: {
-        labels: ['SCADA', 'Програм', 'Инфра', 'Мобайл'],
-        datasets: [{
-          label: 'Төслийн тоо',
-          data: [6, 4, 5, 3],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { beginAtZero: true, ticks: { stepSize: 1 } }
-        }
-      }
-    });
-  });
+    const chart = new d3.OrgChart()
+        .container("#chart-container")
+        .data(data)
+        .nodeWidth(() => 340)
+        .nodeHeight(() => 90)
+        .childrenMargin(() => 50)
+        .compact(false)
+        .nodeContent(d => `
+        <div style="
+            background:#ffffff;
+            border-radius:16px;
+            padding:14px;
+            border-left:6px solid ${d.data.type === 'people' ? '#0ea5e9' : '#22c55e'};
+            box-shadow:0 8px 30px rgba(0,0,0,0.08);
+        ">
+            <div style="font-weight:700;font-size:14px;">
+                ${d.data.name}
+            </div>
+            ${d.data.count ? `<div style="font-size:12px;color:#555;margin-top:4px;">
+                Нийт: ${d.data.count}
+            </div>` : ""}
+        </div>
+    `)
+        .onNodeClick(d => chart.setExpanded(d.id, !d.expanded))
+        .render();
 </script>
 </body>
 </html>
