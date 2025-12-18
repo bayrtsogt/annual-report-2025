@@ -243,25 +243,39 @@
                             <div style="max-width:1100px;margin:40px auto">
                                 <canvas id="workChart"></canvas>
                             </div>
-
                         </figure>
+                        <div class="detail-grid-col">
 
-                        <div class="r-card">
-                            <h3>2025 онд хэрэгжүүлсэн компьютер, сүлжээний ажлууд</h3>
-                            <ul class="r-list">
-                                <li>Байгууллагын 2025 оны төлөвлөгөөнд тусгагдсан 54 компьютер, 11 notebook, 13 принтер,
-                                    10
-                                    дэлгэц, 410 антивирусын лиценз, 30 ширхэг тог баригч-ийг программчилан тохируулж,
-                                    ашиглалтад
-                                    бэлэн болгон хүлээлгэн өгсөн.
-                                </li>
-                                <li>Мянганы сорилтын сангаас нийлүүлэгдсэн 20 компьютер-т сүлжээний тохиргоо хийж,
-                                    шаардлагатай
-                                    хэрэглээний программуудыг суулган, хуваарийн дагуу зохион байгуулалтын нэгжүүдэд
-                                    бүрэн
-                                    хүлээлгэн өгч ажилласан.
-                                </li>
-                            </ul>
+                            <div class="r-card">
+                                <h3>2025 онд хэрэгжүүлсэн компьютер, сүлжээний ажлууд</h3>
+                                <ul class="r-list">
+                                    <li>Байгууллагын 2025 оны төлөвлөгөөнд тусгагдсан 54 компьютер, 11 notebook, 13
+                                        принтер,
+                                        10
+                                        дэлгэц, 410 антивирусын лиценз, 30 ширхэг тог баригч-ийг программчилан
+                                        тохируулж,
+                                        ашиглалтад
+                                        бэлэн болгон хүлээлгэн өгсөн.
+                                    </li>
+                                    <li>Мянганы сорилтын сангаас нийлүүлэгдсэн 20 компьютер-т сүлжээний тохиргоо хийж,
+                                        шаардлагатай
+                                        хэрэглээний программуудыг суулган, хуваарийн дагуу зохион байгуулалтын нэгжүүдэд
+                                        бүрэн
+                                        хүлээлгэн өгч ажилласан.
+                                    </li>
+                                </ul>
+                            </div>
+                            <section class="gallery-section">
+                                <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+
+                                <div class="gallery-track" id="galleryTrack">
+                                    <img src="assets/komputer/photo_2025-12-18_09-23-28.jpg"/>
+                                    <img src="assets/komputer/photo_2025-12-18_09-23-46.jpg"/>
+                                    <img src="assets/komputer/photo_2025-12-18_09-23-38.jpg"/>
+                                    <img src="assets/komputer/photo_2025-12-18_09-23-18.jpg"/>
+                                    <img src="assets/komputer/photo_2025-10-01_16-12-39.jpg"/>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -390,20 +404,30 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="detail-grid">
+                        <div class="detail-grid-col">
                             <div class="detail-panel">
-                                <div class="chart-wrap">
+                                <div style="width:100%;height: 390px">
                                     <h2>2025 оны Камерын засвар үйлчилгээ (сараар)</h2>
                                     <canvas id="serviceChart"></canvas>
                                 </div>
                             </div>
+                            <section class="gallery-section">
+                                <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                                <div class="gallery-track" id="galleryTrack">
+                                    <img src="assets/komputer/kamer/Picture1.png"/>
+                                    <img src="assets/komputer/kamer/Picture11.png"/>
+                                    <img src="assets/komputer/kamer/Picture12.png"/>
+                                    <img src="assets/komputer/kamer/Picture2.png"/>
+                                    <img src="assets/komputer/kamer/Picture3.png"/>
+                                    <img src="assets/komputer/kamer/Picture4.png"/>
+                                    <img src="assets/komputer/kamer/Picture5.png"/>
+                                    <img src="assets/komputer/kamer/Picture6.png"/>
+                                    <img src="assets/komputer/kamer/Picture7.png"/>
+                                    <img src="assets/komputer/kamer/Picture8.png"/>
+                                    <img src="assets/komputer/kamer/Picture9.png"/>
+                                </div>
+                            </section>
                         </div>
-                        <!-- Зураг (optional) -->
-                        <!--            <div class="detail-gallery">-->
-                        <!--                <img src="assets/camera1.jpg" alt="Камер суурилуулалт">-->
-                        <!--                <img src="assets/camera2.jpg" alt="Хяналтын дэлгэц">-->
-                        <!--                <img src="assets/camera3.jpg" alt="Насос станцын камер">-->
-                        <!--            </div>-->
                     </div>
                 </div>
                 <div class="detail-card">
@@ -544,20 +568,20 @@
                             </div>
                         </div>
                         <!-- Шинээр санаачилсан ажил -->
-                        <div class="detail-panel">
-                            <div class="carousel-container">
-                                <div class="carousel">
-                                    <img src="assets/komputer/photo_2025-12-18_09-23-28.jpg"
-                                         alt="SCADA удирдлагын дэлгэц">
-                                    <img src="assets/komputer/photo_2025-12-18_09-23-42.jpg" alt="PLC удирдлагын шкаф">
-                                </div>
 
-                                <div class="carousel-controls">
-                                    <button id="prevBtn">&#10094;</button>
-                                    <button id="nextBtn">&#10095;</button>
-                                </div>
+                        <!--                            <div class="carousel-container">-->
+                        <section class="gallery-section">
+                            <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                            <div class="gallery-track" id="galleryTrack">
+                                <img src="assets/komputer/holboo/Picture14.png"/>
+                                <img src="assets/komputer/holboo/Picture15.png"/>
+                                <img src="assets/komputer/holboo/Picture16.png"/>
+                                <img src="assets/komputer/holboo/Picture17.png"/>
+                                <img src="assets/komputer/holboo/Picture18.png"/>
+                                <img src="assets/komputer/holboo/Picture14.png"/>
                             </div>
-                        </div>
+                        </section>
+                        <!--                            </div>-->
                     </div>
                 </div>
                 <div class="detail-card">
@@ -783,22 +807,18 @@
                     </div>
                 </div>
                 <div class="detail-card">
-
-                    <!-- HEADER -->
                     <div class="detail-head">
                         <h2>Телеметр хяналтын систем</h2>
                         <p class="detail-sub">
                             2025 оны жилийн эцсийн тайлан · Мэдээллийн технологи, автоматжуулалтын алба
                         </p>
                     </div>
-                    <!-- KPI -->
                     <div class="detail-stats">
                         <div class="d-stat"><b>6</b><span>Хөрсний устай цэг</span></div>
                         <div class="d-stat"><b>30 см</b><span>Хөрсний усны дээд түвшин</span></div>
                         <div class="d-stat"><b>2</b><span>Нарны эрчим хүчтэй цэг</span></div>
                         <div class="d-stat"><b>1+</b><span>Алсын удирдлагатай хаалт</span></div>
                     </div>
-
                     <div class="detail-grid">
                         <div class="detail-grid-col">
                             <div class="detail-panel">
@@ -850,26 +870,42 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-grid">
+
+                        <div class="gallery-section">
                             <div class="detail-panel">
-                                <div class="detail-section">
-                                    <h3>Видео</h3>
-                                    <video class="tele" autoplay muted loop playsinline>
-                                        <source src="assets/telemetr/худаг%20доторлогоо%202.mp4" type="video/mp4">
-                                        Таны браузер видеог дэмжихгүй байна.
-                                    </video>
-                                    <video class="tele1" autoplay muted loop playsinline>
-                                        <source src="assets/telemetr/Худаг%20доторлогоо.mp4" type="video/mp4">
-                                        Таны браузер видеог дэмжихгүй байна.
-                                    </video>
-                                    <img style="width:300px; height:300px;"
-                                         src="assets/komputer/photo_2025-12-18_09-23-28.jpg"
-                                         alt="SCADA удирдлагын дэлгэц">
+                                <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                                <div class="gallery-track" id="galleryTrack">
+                                    <img src="assets/telemetr/zurag%201.jpg"/>
+                                    <img src="assets/telemetr/zurag%202.jpg"/>
+                                    <img src="assets/telemetr/zurag%203.jpg"/>
+                                    <img src="assets/telemetr/zurag%204.jpg"/>
+                                    <img src="assets/telemetr/zurag%205.jpg"/>
+                                    <img src="assets/telemetr/zurag%206.jpg"/>
+                                    <img src="assets/telemetr/zurag%207.jpg"/>
+                                    <img src="assets/telemetr/zurag%208.jpg"/>
+                                    <img src="assets/telemetr/zurag%209.jpg"/>
+                                    <img src="assets/telemetr/zurag%210.jpg"/>
+                                    <img src="assets/telemetr/zurag%211.jpg"/>
+                                    <img src="assets/telemetr/zurag%212.jpg"/>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="card-grid">
+                        <div class="detail-panel">
+                            <div class="detail-section">
+                                <h3>Видео</h3>
+                                <video class="tele" autoplay muted loop playsinline>
+                                    <source src="assets/telemetr/худаг%20доторлогоо%202.mp4" type="video/mp4">
+                                    Таны браузер видеог дэмжихгүй байна.
+                                </video>
+                                <video class="tele1" autoplay muted loop playsinline>
+                                    <source src="assets/telemetr/Худаг%20доторлогоо.mp4" type="video/mp4">
+                                    Таны браузер видеог дэмжихгүй байна.
+                                </video>
+                            </div>
+                        </div>
                         <div class="detail-panel">
                             <div style="width:320px; margin:40px auto;">
                                 <canvas id="statusChart"></canvas>
@@ -981,13 +1017,28 @@
                             </div>
                         </div>
                         <div class="detail-panel">
-                            <div class="detail-section">
-                                <h3>Видео</h3>
-                                <video class="tele" autoplay muted loop playsinline>
-                                    <source src="assets/gps/5.Bichleg.mp4" type="video/mp4">
-                                    Таны браузер видеог дэмжихгүй байна.
-                                </video>
-                                <small class="note">* График дээр тоо автоматаар харагдана</small>
+                            <div class="detail-grid">
+                                <div class="detail-section">
+                                    <h3>Видео</h3>
+                                    <video class="texnik" autoplay muted loop playsinline>
+                                        <source src="assets/gps/5.Bichleg.mp4" type="video/mp4">
+                                        Таны браузер видеог дэмжихгүй байна.
+                                    </video>
+                                </div>
+<!--                                <div class="detail-section">-->
+                                    <div class="gallery-section">
+                                        <div class="detail-panel">
+                                            <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                                            <div class="gallery-track1" id="galleryTrack">
+                                                <img src="assets/gps/Zurag1.png"/>
+                                                <img src="assets/gps/Zurag2.png"/>
+                                                <img src="assets/gps/Zurag3.png"/>
+                                                <img src="assets/gps/Zurag4.JPG"/>
+                                                <img src="assets/gps/Zurag5.png"/>
+                                            </div>
+<!--                                        </div>-->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1511,16 +1562,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-panel">
+                        <div class="gallery-section">
+                            <div class="detail-panel">
+                                <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                                <div class="gallery-track" id="galleryTrack">
+                                    <img src="assets/tsewer/zurag-01.jpg"/>
+                                    <img src="assets/tsewer/zurag-02.jpg"/>
+                                    <img src="assets/tsewer/zurag-03.jpg"/>
+                                    <img src="assets/tsewer/zurag-04.jpg"/>
+                                    <img src="assets/tsewer/zurag-05.jpg"/>
+                                    <img src="assets/tsewer/zurag-06.jpg"/>
+                                    <img src="assets/tsewer/zurag-07.jpg"/>
+                                    <img src="assets/tsewer/zurag-08.jpg"/>
+                                    <img src="assets/tsewer/zurag-09.jpg"/>
+                                    <img src="assets/tsewer/zurag-10.jpg"/>
+                                    <img src="assets/tsewer/zurag-11.jpg"/>
+                                    <img src="assets/tsewer/zurag-12.jpg"/>
+                                    <img src="assets/tsewer/zurag-13.jpg"/>
+                                    <img src="assets/tsewer/zurag-14.jpg"/>
+                                    <img src="assets/tsewer/zurag-15.jpg"/>
 
-                            <div class="detail-section">
-                                <h3>Ажлын зургуудаас</h3>
-                                <img style="width:300px; height:300px;"
-                                     src="assets/komputer/photo_2025-12-18_09-23-28.jpg"
-                                     alt="SCADA удирдлагын дэлгэц">
-                                <img style="width:300px; height:300px;"
-                                     src="assets/komputer/photo_2025-12-18_09-23-28.jpg"
-                                     alt="SCADA удирдлагын дэлгэц">
+                                </div>
                             </div>
                         </div>
 

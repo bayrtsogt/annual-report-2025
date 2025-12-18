@@ -103,7 +103,7 @@
 }
 
 .node.leaf {
-    background: #f0f8ff;
+    background: #a3cdf3;
 }
 
 /* responsive */
@@ -152,6 +152,10 @@
         margin: 0 auto;
         font-size: 14px;
         line-height: 1.4;
+    }
+
+    .node .leaf {
+        background: #73b6ef;
     }
 
     /* хүүхэд салбарууд – accordion */
@@ -845,7 +849,7 @@ canvas {
 
 .tele {
     max-width: 1000px;
-    height: 300px;
+    height: 500px;
     margin: 20px auto;
 }
 
@@ -854,9 +858,20 @@ canvas {
     border-radius: 12px;
 }
 
-.tele1 {
+.texnik {
     max-width: 1000px;
     height: 300px;
+    margin: 20px auto;
+}
+
+.texnik video {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.tele1 {
+    max-width: 1000px;
+    height: 500px;
     margin: 20px auto;
 }
 
@@ -1207,4 +1222,68 @@ svg {
     left: 90%;
     animation-delay: 1.8s;
     animation-duration: 3.2s;
+}
+
+.gallery-section {
+    padding: 40px 0;
+    background: #f4f6f9;
+    overflow: hidden;
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollGallery 40s linear infinite;
+}
+
+.gallery-track1 {
+    display: flex;
+    gap: 16px;
+    width: max-content; /* 🔑 хамгийн чухал */
+    animation: scrollGallery 30s linear infinite;
+}
+
+.gallery-track1 img {
+    width: 200px; /* жижиг зураг */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallery-track img {
+    width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform .3s;
+}
+
+.gallery-track img:hover {
+    transform: scale(1.05);
+}
+
+/* animation */
+@keyframes scrollGallery {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .gallery-track img {
+        width: 220px;
+        height: 150px;
+    }
 }
