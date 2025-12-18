@@ -1,4 +1,3 @@
-
 const lb = document.getElementById("lightbox");
 const lbImg = document.getElementById("lbImg");
 const lbClose = document.getElementById("lbClose");
@@ -103,7 +102,7 @@ new Chart(ctx, {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend: { position: 'bottom' },
+            legend: {position: 'bottom'},
 
             // 🔥 ЭНЭ ХЭСЭГ
             datalabels: {
@@ -118,7 +117,7 @@ new Chart(ctx, {
             }
         },
         scales: {
-            y: { beginAtZero: true }
+            y: {beginAtZero: true}
         }
     },
     plugins: [ChartDataLabels] // 🔥 заавал
@@ -214,16 +213,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     display: true,
                     text: "Дуудлага барагдуулалт (ажлын төрлөөр)"
                 },
-                legend: { display: false },
+                legend: {display: false},
                 datalabels: {
                     anchor: "end",
                     align: "end",
                     color: "#000",
-                    font: { weight: "bold" }
+                    font: {weight: "bold"}
                 }
             },
             scales: {
-                y: { beginAtZero: true }
+                y: {beginAtZero: true}
             }
         },
         plugins: [ChartDataLabels]
@@ -236,8 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "bar",
         data: {
             labels: [
-                "1 сар","2 сар","3 сар","4 сар","5 сар","6 сар",
-                "7 сар","8 сар","9 сар","10 сар","11 сар","12 сар"
+                "1 сар", "2 сар", "3 сар", "4 сар", "5 сар", "6 сар",
+                "7 сар", "8 сар", "9 сар", "10 сар", "11 сар", "12 сар"
             ],
             datasets: [{
                 label: "Шилэн кабель – дуудлага барагдуулалт",
@@ -253,18 +252,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     display: true,
                     text: "Шилэн кабель – гэмтэл саатал, дуудлага барагдуулалт"
                 },
-                legend: { display: false },
+                legend: {display: false},
                 datalabels: {
                     anchor: "center",
                     align: "center",
                     color: "#000",
-                    font: { weight: "bold" }
+                    font: {weight: "bold"}
                 }
             },
             scales: {
                 y: {
                     beginAtZero: true,
-                    ticks: { stepSize: 2 }
+                    ticks: {stepSize: 2}
                 }
             }
         },
@@ -279,8 +278,8 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "bar",
         data: {
             labels: [
-                "1 сар","2 сар","3 сар","4 сар","5 сар","6 сар",
-                "7 сар","8 сар","9 сар","10 сар","11 сар","12 сар"
+                "1 сар", "2 сар", "3 сар", "4 сар", "5 сар", "6 сар",
+                "7 сар", "8 сар", "9 сар", "10 сар", "11 сар", "12 сар"
             ],
             datasets: [{
                 label: "Камер засвар – 2025",
@@ -292,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { display: false },
+                legend: {display: false},
                 title: {
                     display: true,
                     text: "2025 оны Камер засвар үйлчилгээ (сараар)"
@@ -310,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scales: {
                 y: {
                     beginAtZero: true,
-                    ticks: { stepSize: 5 }
+                    ticks: {stepSize: 5}
                 }
             }
         },
@@ -346,16 +345,16 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { display: false },
+                legend: {display: false},
                 datalabels: {
                     color: "#000",
                     anchor: "end",
                     align: "end",
-                    font: { weight: "bold", size: 12 }
+                    font: {weight: "bold", size: 12}
                 }
             },
             scales: {
-                y: { beginAtZero: true }
+                y: {beginAtZero: true}
             }
         },
         plugins: [ChartDataLabels]
@@ -368,29 +367,29 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "bar",
         data: {
             labels: [
-                "Сервер тохиргоо","VPN тохиргоо","Компани эрх нэмэх тохиргоо",
-                "Компани эрхийн үйлчилгээ","Компаниас файл сэргээх",
-                "Дотоод мессенжер тохиргоо","Автоматжуулалтын тохиргоо",
-                "Программ хангамж","XCMS тохиргоо",
+                "Сервер тохиргоо", "VPN тохиргоо", "Компани эрх нэмэх тохиргоо",
+                "Компани эрхийн үйлчилгээ", "Компаниас файл сэргээх",
+                "Дотоод мессенжер тохиргоо", "Автоматжуулалтын тохиргоо",
+                "Программ хангамж", "XCMS тохиргоо",
                 "Вэб сайт, мэдээлэл байршуулалт",
                 "Шинэ дансанд мэдээлэл байршуулалт",
                 "Байгууллагын дотоод үйл ажиллагаа",
-                "Арга хэмжээний зураг авалт","Арга хэмжээний дүрс бичлэг",
+                "Арга хэмжээний зураг авалт", "Арга хэмжээний дүрс бичлэг",
                 "Хөргөлтийн тоног төхөөрөмжийн үйлчилгээ",
                 "Дүрс бичлэг эвдрэл, мэдээ эх бэлтгэл",
                 "Зураг хуудас, постерын эх бэлтгэл",
-                "Захирлын үйлчилгээ","Нэвшлэлт","Сэргээх"
+                "Захирлын үйлчилгээ", "Нэвшлэлт", "Сэргээх"
             ],
             datasets: [
                 {
                     label: "2024",
-                    data: [134,156,48,0,19,33,32,27,76,210,104,110,55,45,83,48,67,0,0,0],
+                    data: [134, 156, 48, 0, 19, 33, 32, 27, 76, 210, 104, 110, 55, 45, 83, 48, 67, 0, 0, 0],
                     backgroundColor: "#5b78c7",
                     barThickness: 16
                 },
                 {
                     label: "2025",
-                    data: [151,166,48,27,24,13,79,27,46,88,188,109,105,107,80,125,91,93,27,47],
+                    data: [151, 166, 48, 27, 24, 13, 79, 27, 46, 88, 188, 109, 105, 107, 80, 125, 91, 93, 27, 47],
                     backgroundColor: "#f1c40f",
                     barThickness: 16
                 }
@@ -400,11 +399,11 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             layout: {
-                padding: { top: 30, bottom: 40 }   // 🔴 тоо тасрахгүй
+                padding: {top: 30, bottom: 40}   // 🔴 тоо тасрахгүй
             },
             plugins: {
                 legend: {
-                    labels: { color: "#f80e0e" }
+                    labels: {color: "#f80e0e"}
                 },
                 datalabels: {
                     color: "rgba(189,0,0,0.84)",
@@ -413,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     offset: 2,
                     clip: false,                    // 🔴 маш чухал
                     formatter: (v) => v > 0 ? v : "",
-                    font: { weight: "bold", size: 10 }
+                    font: {weight: "bold", size: 10}
                 }
             },
             scales: {
@@ -424,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         maxRotation: 60,
                         minRotation: 60
                     },
-                    grid: { display: false }
+                    grid: {display: false}
                 },
                 y: {
                     beginAtZero: true,
@@ -432,7 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         color: "#ccc",
                         precision: 0
                     },
-                    grid: { color: "#333" }
+                    grid: {color: "#333"}
                 }
             }
         },
@@ -471,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             layout: {
-                padding: { top: 20 }
+                padding: {top: 20}
             },
             plugins: {
                 legend: {
@@ -547,14 +546,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     display: true,
                     text: "2025",
                     color: "#000000",
-                    font: { size: 28, weight: "bold" },
-                    padding: { bottom: 20 }
+                    font: {size: 28, weight: "bold"},
+                    padding: {bottom: 20}
                 },
                 legend: {
                     position: "bottom",
                     labels: {
                         color: "#131313",
-                        font: { size: 14 }
+                        font: {size: 14}
                     }
                 },
                 datalabels: {
@@ -598,15 +597,15 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             layout: {
-                padding: { top: 30 }
+                padding: {top: 30}
             },
             plugins: {
                 title: {
                     display: true,
                     text: "2025 оны үзлэг үйлчилгээний график",
                     color: "#aaa",
-                    font: { size: 20, weight: "bold" },
-                    padding: { bottom: 20 }
+                    font: {size: 20, weight: "bold"},
+                    padding: {bottom: 20}
                 },
                 legend: {
                     display: false
@@ -626,7 +625,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 x: {
                     ticks: {
                         color: "#aaa",
-                        font: { size: 12 }
+                        font: {size: 12}
                     },
                     grid: {
                         color: "#333"
@@ -658,23 +657,23 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: "2025",
                 data: [100, 23, 4],
-                backgroundColor: ["#5b78c7","#7ed957","#f1c40f"]
+                backgroundColor: ["#5b78c7", "#7ed957", "#f1c40f"]
             }]
         },
         options: {
-            responsive:true,
-            maintainAspectRatio:false,
-            plugins:{
-                legend:{display:false},
-                datalabels:{
-                    anchor:"end",
-                    align:"end",
-                    font:{weight:"bold"}
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {display: false},
+                datalabels: {
+                    anchor: "end",
+                    align: "end",
+                    font: {weight: "bold"}
                 }
             },
-            scales:{ y:{beginAtZero:true} }
+            scales: {y: {beginAtZero: true}}
         },
-        plugins:[ChartDataLabels]
+        plugins: [ChartDataLabels]
     });
 });
 document.addEventListener("DOMContentLoaded", () => {
@@ -686,19 +685,19 @@ document.addEventListener("DOMContentLoaded", () => {
     new Chart(ctx, {
         type: "bar",
         data: {
-            labels: ["Хуваарьт үзлэг","Засвар үйлчилгээ","Тохиргоо","АКТ"],
+            labels: ["Хуваарьт үзлэг", "Засвар үйлчилгээ", "Тохиргоо", "АКТ"],
             datasets: [
-                { label:"2025", data:[442,183,9,9], backgroundColor:"#c5e1b5", barThickness:22 },
-                { label:"2024", data:[242,182,49,16], backgroundColor:"#a7cbe8", barThickness:22 }
+                {label: "2025", data: [442, 183, 9, 9], backgroundColor: "#c5e1b5", barThickness: 22},
+                {label: "2024", data: [242, 182, 49, 16], backgroundColor: "#a7cbe8", barThickness: 22}
             ]
         },
         options: {
             indexAxis: "y",
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { right: 32 } },
+            layout: {padding: {right: 32}},
             plugins: {
-                legend: { position: "bottom", labels: { color: "#ccc" } },
+                legend: {position: "bottom", labels: {color: "#ccc"}},
                 datalabels: {
                     display: true,
                     formatter: v => v,
@@ -708,18 +707,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     offset: 6,
                     clamp: true,
                     clip: false,
-                    font: { weight: "bold", size: 12 }
+                    font: {weight: "bold", size: 12}
                 }
             },
             scales: {
                 x: {
                     beginAtZero: true,
-                    ticks: { color: "#ccc", stepSize: 50 },
-                    grid: { color: "#333" }
+                    ticks: {color: "#ccc", stepSize: 50},
+                    grid: {color: "#333"}
                 },
                 y: {
-                    ticks: { color: "#ccc" },
-                    grid: { display: false }
+                    ticks: {color: "#ccc"},
+                    grid: {display: false}
                 }
             }
         }
@@ -761,7 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             layout: {
-                padding: { top: 30 }
+                padding: {top: 30}
             },
             plugins: {
                 legend: {
@@ -805,6 +804,197 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         }
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("summaryChart");
+    Chart.register(ChartDataLabels);
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [
+                "Ажил 1", "Ажил 2", "Ажил 3", "Ажил 4",
+                "Ажил 5", "Ажил 6", "Ажил 7", "Ажил 8",
+                "Ажил 9", "Ажил 10", "Ажил 11"
+            ],
+            datasets: [
+                {
+                    label: "2024 оны нийт 188",
+                    data: [61, 26, 22, 1, 2, 8, 11, 13, 9, 25, 13],
+                    backgroundColor: "#9fc5e8",
+                    barThickness: 22
+                },
+                {
+                    label: "2025 оны нийт 174",
+                    data: [64, 14, 7, 2, 3, 13, 10, 16, 2, 16, 28],
+                    backgroundColor: "#f6b26b",
+                    barThickness: 22
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {top: 28}
+            },
+            plugins: {
+                legend: {
+                    position: "bottom",
+                    labels: {
+                        color: "#ccc",
+                        boxWidth: 14
+                    }
+                },
+                datalabels: {
+                    color: "#000",
+                    backgroundColor: "#fff",
+                    borderRadius: 4,
+                    padding: 4,
+                    anchor: "end",
+                    align: "end",
+                    formatter: v => v,
+                    font: {
+                        weight: "bold",
+                        size: 11
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {display: false}
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#333"
+                    }
+                }
+            }
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    Chart.register(ChartDataLabels);
+
+    const labels = [
+        "Бага оврын станц",
+        "Төв цэвэрлэх байгууламж",
+        "Өргөх станц",
+        "Бусад"
+    ];
+
+    const colors = ["#9E9E9E", "#4A90E2", "#D81B60", "#2E7D32"];
+
+    // ===== 2024 =====
+    new Chart(document.getElementById("chart2024"), {
+        type: "doughnut",
+        data: {
+            labels,
+            datasets: [{
+                data: [61, 89, 25, 13],
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: "2024 оны байдлаар",
+                    font: {size: 16}
+                },
+                datalabels: {
+                    color: "#000",
+                    font: {weight: "bold"},
+                    formatter: (v) => v
+                },
+                legend: {
+                    position: "bottom"
+                }
+            }
+        }
+    });
+
+    // ===== 2025 =====
+    new Chart(document.getElementById("chart2025"), {
+        type: "doughnut",
+        data: {
+            labels,
+            datasets: [{
+                data: [64, 66, 16, 28],
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: "2025 оны байдлаар",
+                    font: {size: 16}
+                },
+                datalabels: {
+                    color: "#000",
+                    font: {weight: "bold"},
+                    formatter: (v) => v
+                },
+                legend: {
+                    position: "bottom"
+                }
+            }
+        }
+    });
+});
+
+new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+        labels: [
+            "Алсын удирдлага",
+            "Автоматик хянах хэрэгсэл",
+            "Сервер программ",
+            "Камер",
+            "Холбоо сүлжээ",
+            "Бусад"
+        ],
+        datasets: [{
+            label: "Дуудлага барагдуулалт",
+            data: [32, 25, 13, 6, 4, 15],
+            backgroundColor: [
+                "#9DB7A0", "#D58C7A", "#B9C37D", "#9FB5BF", "#E5C97A", "#55D6BE"
+            ]
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {display: false},
+            datalabels: {
+                anchor: "end",
+                align: "top",
+                font: {weight: "bold"}
+            }
+        },
+        scales: {
+            y: {beginAtZero: true}
+        }
+    },
+    plugins: [ChartDataLabels]
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("menu");
+
+    if (!menuToggle || !menu) return;
+
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
     });
 });
 // Carousel

@@ -26,18 +26,19 @@ body {
 
 .left-menu h2 {
     color: #77d6ff;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 800;
     letter-spacing: 1px;
-    margin: 0;
+    /*margin: 0;*/
 }
 
-.menu-items p {
-    margin: 40px 0;
+.left-menu p {
+    /*margin: 40px 0;*/
     font-size: 20px;
     color: #ffffff;
 }
-.menu-items p:hover{
+
+.menu-items p:hover {
     text-decoration: underline;
     text-underline-offset: 10px;
     text-decoration-thickness: 2px;
@@ -126,10 +127,11 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50% 50% 50% 30%;
-    background: rgba(79,195,247,0.5);
-    box-shadow: 0 0 10px rgba(79,195,247,0.9);
+    background: rgba(79, 195, 247, 0.5);
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.9);
     animation: dropFloat 9s linear infinite;
 }
+
 .drop:nth-child(6) {
     width: 8px;
     height: 8px;
@@ -140,32 +142,133 @@ body {
     height: 8px;
 }
 
-.d1 { left: 5%; top: 10%; animation-delay: 0s; }
-.d2 { left: 80%; top: 16%; animation-delay: 3s; }
-.d3 { left: 80%; top: 78%; animation-delay: 6s; }
-.d4 { left: 20%; top: 90%; animation-delay: 0s; }
-.d5 { left: 30%; top: 55%; animation-delay: 3s; }
-.d6 { left: 40%; top: 80%; animation-delay: 6s; }
-.d7 { left: 0%; top: 20%; animation-delay: 0s; }
-.d8 { left: 50%; top: 35%; animation-delay: 3s; }
-.d9 { left: 80%; top: 48%; animation-delay: 6s; }
-.d10 { left: 70%; top: 50%; animation-delay: 0s; }
-.d11 { left: 60%; top: 55%; animation-delay: 3s; }
-.d12 { left: 40%; top: 30%; animation-delay: 6s; }
-.d13 { left: 15%; top: 25%; animation-delay: 1s; }
-.d14 { left: 65%; top: 15%; animation-delay: 4s; }
-.d15 { left: 90%; top: 35%; animation-delay: 7s; }
-.d16 { left: 10%; top: 70%; animation-delay: 2s; }
-.d17 { left: 55%; top: 85%; animation-delay: 5s; }
-.d18 { left: 35%; top: 10%; animation-delay: 8s; }
+.d1 {
+    left: 5%;
+    top: 10%;
+    animation-delay: 0s;
+}
+
+.d2 {
+    left: 80%;
+    top: 16%;
+    animation-delay: 3s;
+}
+
+.d3 {
+    left: 80%;
+    top: 78%;
+    animation-delay: 6s;
+}
+
+.d4 {
+    left: 20%;
+    top: 90%;
+    animation-delay: 0s;
+}
+
+.d5 {
+    left: 30%;
+    top: 55%;
+    animation-delay: 3s;
+}
+
+.d6 {
+    left: 40%;
+    top: 80%;
+    animation-delay: 6s;
+}
+
+.d7 {
+    left: 0%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.d8 {
+    left: 50%;
+    top: 35%;
+    animation-delay: 3s;
+}
+
+.d9 {
+    left: 80%;
+    top: 48%;
+    animation-delay: 6s;
+}
+
+.d10 {
+    left: 70%;
+    top: 50%;
+    animation-delay: 0s;
+}
+
+.d11 {
+    left: 60%;
+    top: 55%;
+    animation-delay: 3s;
+}
+
+.d12 {
+    left: 40%;
+    top: 30%;
+    animation-delay: 6s;
+}
+
+.d13 {
+    left: 15%;
+    top: 25%;
+    animation-delay: 1s;
+}
+
+.d14 {
+    left: 65%;
+    top: 15%;
+    animation-delay: 4s;
+}
+
+.d15 {
+    left: 90%;
+    top: 35%;
+    animation-delay: 7s;
+}
+
+.d16 {
+    left: 10%;
+    top: 70%;
+    animation-delay: 2s;
+}
+
+.d17 {
+    left: 55%;
+    top: 85%;
+    animation-delay: 5s;
+}
+
+.d18 {
+    left: 35%;
+    top: 10%;
+    animation-delay: 8s;
+}
 
 
 @keyframes dropFloat {
-    0% { transform: translateY(0) scale(1); opacity: 0; }
-    10% { opacity: 1; }
-    50% { transform: translateY(-60px) scale(1.05); opacity: 0.9; }
-    100% { transform: translateY(-120px) scale(0.95); opacity: 0; }
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-60px) scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-120px) scale(0.95);
+        opacity: 0;
+    }
 }
+
 /* === BREATH ANIMATION === */
 /*.center-block {*/
 /*    animation: breath 6s ease-in-out infinite;*/
@@ -186,7 +289,6 @@ body {
 /*        opacity: 0.96;*/
 /*    }*/
 /*}*/
-
 
 
 .center-block {
@@ -285,7 +387,9 @@ body {
 
 /* Animations */
 @keyframes drawLine {
-    to { stroke-dashoffset: 0; }
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 
 @keyframes slideUp {
@@ -298,6 +402,7 @@ body {
         transform: translate(-50%, 0);
     }
 }
+
 /* =========================
    RESPONSIVE – HERO
    ========================= */
@@ -380,6 +485,7 @@ body {
         font-size: 20px;
     }
 }
+
 /* =========================
    RESPONSIVE – ORG CHART
    ========================= */
@@ -416,10 +522,47 @@ body {
         padding: 40px 16px;
     }
 }
+
 .menu-link {
     display: block;
     color: #ffffff;
     text-decoration: none;
     padding: 8px 0;
     font-size: 16px;
+}
+
+.bubbles span {
+    position: absolute;
+    /*bottom: -100px;*/
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: bubble 12s infinite ease-in;
+}
+
+.bubbles span:nth-child(1) {
+    left: 20%;
+    animation-duration: 10s;
+}
+
+.bubbles span:nth-child(2) {
+    left: 50%;
+    animation-duration: 14s;
+}
+
+.bubbles span:nth-child(3) {
+    left: 80%;
+    animation-duration: 18s;
+}
+
+@keyframes bubble {
+    from {
+        transform: translateY(0) scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-120vh) scale(1);
+        opacity: 1;
+    }
 }

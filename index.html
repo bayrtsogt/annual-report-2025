@@ -5,45 +5,39 @@
     <title>Жилийн тайлан 2025</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/logo.png">
-
     <!-- Фонтууд -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap"
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/d3-org-chart@3"></script>
-
-
 </head>
 <body>
-<section class="hero">
-    <div class="cover">
 
+<section class="hero water-hero">
+    <div class="bubbles">
+        <span></span><span></span><span></span>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="cover">
         <div class="left-menu">
             <a href="testing.html" class="menu-link"><h2>ТАЙЛАН</h2></a>
-            <div class="menu-items">
-                <a href="tailan.html" class="menu-link"><p>ХЭСГИЙН ТАЙЛАН</p></a>
-                <a href="tailan.html" class="menu-link"><p>Power BI</p></a>
-            </div>
+            <a href="tailan.html" class="menu-link"><p>ХЭСГИЙН ТАЙЛАН</p></a>
+            <a href="power.html" class="menu-link"><p>Power BI</p></a>
         </div>
-
         <div class="center-block">
-
             <div class="logo-row">
-                <img src="assets/logo.png"  class="logo" alt="">
+                <img src="assets/logo.png" class="logo" alt="">
                 <img src="assets/mtan.png" class="logo" alt="">
             </div>
-
             <div class="year-block">
                 <img src="assets/central.png" alt="" style="width: 30vw">
             </div>
-
             <h1 class="main-title">
                 МЭДЭЭЛЛИЙН ТЕХНОЛОГИ,<br>
                 <span>АВТОМАТЖУУЛАЛТЫН АЛБА</span>
             </h1>
-
         </div>
-
         <div class="mongol-right">
             <div>
                 ᠠᠦᠲ᠋ᠤᠮᠠᠲ᠋ᠵᠢᠭᠤᠯᠤᠯᠲᠠ ᠶ᠋ᠢᠨ ᠠᠯᠪᠠ
@@ -52,349 +46,8 @@
                 ᠮᠡᠳᠡᢉᠡᠯᠡᠯ ᠦ᠋ᠨ ᠲᠧᠻᠨᠤᠯᠤᢉᠢ᠂
             </div>
         </div>
-
     </div>
-<!--    <div class="water-drops">-->
-<!--        <span class="drop d1"></span>-->
-<!--        <span class="drop d2"></span>-->
-<!--        <span class="drop d3"></span>-->
-<!--        <span class="drop d4"></span>-->
-<!--        <span class="drop d5"></span>-->
-<!--        <span class="drop d6"></span>-->
-<!--        <span class="drop d7"></span>-->
-<!--        <span class="drop d8"></span>-->
-<!--        <span class="drop d9"></span>-->
-<!--        <span class="drop d10"></span>-->
-<!--        <span class="drop d11"></span>-->
-<!--        <span class="drop d12"></span>-->
-<!--        <span class="drop d13"></span>-->
-<!--        <span class="drop d14"></span>-->
-<!--        <span class="drop d15"></span>-->
-<!--        <span class="drop d16"></span>-->
-<!--        <span class="drop d17"></span>-->
-<!--        <span class="drop d18"></span>-->
-
-<!--    </div>-->
-
 </section>
-<!--<section class="body">-->
-<!--    <div style="padding:100px 0;text-align:center;">-->
 
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <h2>Албаны бүтэц</h2>-->
-<!--    </div>-->
-
-<!--</section>-->
-
-<!--<section>-->
-<!--    <h2>Албаны бүтэц</h2>-->
-<!--    <div id="chart-container"></div>-->
-<!--</section>-->
-
-<script>
-    /* =======================
-       1. ТАНЫ JSON STRUCTURE
-       ======================= */
-
-    const orgTree =
-        {
-            type: "person",
-            positionName: "Дарга",
-            child: [
-                {
-                    type: "people",
-                    positionName: "IT баг",
-                    child: [
-                        {
-                            type: "people",
-                            positionName: "Системийн удирдлагийн хэсэг",
-                            child: [
-                                {
-                                    type: "person",
-                                    positionName: "Системийн администратор",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Дата инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Газар зүйн мэдээллийн системийн инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Нөөцлөлт, сэргээх техникч",
-                                    count: 1
-                                },
-                            ]
-                        },
-                        {
-                            type: "people",
-                            positionName: "Програм хангамж хөгжүүлэлтийн хэсэг",
-                            child: [
-                                {
-                                    type: "person",
-                                    positionName: "Дотоод програм хөгжүүлэгч",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Веб болон мобайл хөгжүүлэгчид",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Өгөгдлийн сангийн инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Программист",
-                                    count: 2
-                                },
-                            ]
-                        },
-                        {
-                            type: "people",
-                            positionName: "Компьютер тоног төхөөрөмжийн хэсэг",
-                            child: [
-                                {
-                                    type: "person",
-                                    positionName: "Компьютерийн инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Хяналтын камерийн системийн инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Холбооны инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Тоног төхөөрөмжийн засварчин",
-                                    count: 4
-                                },
-
-                            ]
-                        },
-                        {
-                            type: "people",
-                            positionName: "Сүлжээ, аюулгүй байдлын хэсэг",
-                            child: [
-                                {
-                                    type: "person",
-                                    positionName: "Сүлжээний инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Кибер аюулгүй байдлын инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Шилэн кабелийн инженер",
-                                    count: 4
-                                },
-
-                            ]
-                        },
-                    ]
-                },
-                {
-                    type: "person",
-                    positionName: "Ахлах инженер",
-                },
-                {
-                    type: "person",
-                    positionName: "Нягтлан бодогч",
-                },
-                {
-                    type: "person",
-                    positionName: "Нярав /бичиг хэрэг/",
-                },
-                {
-                    type: "people",
-                    positionName: "OT баг",
-                    child: [
-
-                        {
-                            type: "people",
-                            positionName: "Үйлдвэрлэлийн удирдлагын хэсэг",
-                            child: [
-                                {
-                                    type: "person",
-                                    positionName: "SCADA инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Хяналтын системийн инженер",
-                                    count: 4
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Хяналтын системийн техникч",
-                                    count: 1
-                                },
-                            ]
-                        },
-                        {
-                            type: "people",
-                            positionName: "Дата хяналтын хэсэг",
-                            child: [
-                                {
-                                    type: "person",
-                                    positionName: "Хяналтын цэгүүдийн инженер (IoT)",
-                                    count: 3
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Хяналтын цэгүүдийн техникч (IoT)",
-                                    count: 3
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Ус түгээх ухаалаг системийн инженер",
-                                    count: 1
-                                },
-                                {
-                                    type: "person",
-                                    positionName: "Ус түгээх ухаалаг системийн техникч",
-                                    count: 4
-                                },
-                            ]
-                        },
-                        {
-                            type: "people",
-                            positionName: "Тоног төхөөрөмжийн засварын хэсэг",
-                            child: [
-
-                                {
-                                    type: "people",
-                                    positionName: "Бохир усны тоног төхөөрөмжийн засварын хэсэг",
-                                    child: [
-                                        {
-                                            type: "person",
-                                            positionName: "Цэвэрлэх байгууламжийн автоматик хянах хэрэгсэл, програмчлагдах логик контроллерын инженер",
-                                            count: 1
-                                        },
-                                        {
-                                            type: "person",
-                                            positionName: "Ус дахин боловсруулах үйлдвэрлэл хариуцсан автоматжуулалтын инженер",
-                                            count: 1
-                                        },
-                                        {
-                                            type: "person",
-                                            positionName: "Цэвэрлэх байгууламжийн автоматик хянах хэмжих хэрэгслийн техникч",
-                                            count: 2
-                                        },
-                                        {
-                                            type: "person",
-                                            positionName: "Цэвэрлэх байгууламжийн автоматик хянах хэмжих хэрэгслийн засварчин",
-                                            count: 2
-                                        },
-
-                                    ]
-                                },
-                                {
-                                    type: "people",
-                                    positionName: "Цэвэр усны тоног төхөөрөмжийн засварын хэсэг",
-                                    child: [
-                                        {
-                                            type: "person",
-                                            positionName: "Үйлдвэрлэлийн тоног төхөөрөмж, программчлагдах логик контроллерийн инженер",
-                                            count: 2
-                                        },
-                                        {
-                                            type: "person",
-                                            positionName: "Үйлдвэрлэлийн тоног төхөөрөмжийн техникч",
-                                            count: 4
-                                        },
-                                        {
-                                            type: "person",
-                                            positionName: "Үйлдвэрлэлийн тоног төхөөрөмжийн засварчин",
-                                            count: 5
-                                        },
-                                    ]
-                                },
-                            ]
-                        },
-                    ]
-                },
-            ]
-        };
-</script>
-
-<script>
-    /* =======================
-       2. TREE → FLAT CONVERTER
-       ======================= */
-    function flattenTree(tree) {
-        let flat = [];
-        let id = 1;
-
-        function walk(node, parentId = null) {
-            const currentId = id++;
-
-            flat.push({
-                id: currentId,
-                parentId: parentId,
-                name: node.positionName,
-                type: node.type,
-                count: node.count || null
-            });
-
-            if (node.child) {
-                node.child.forEach(c => walk(c, currentId));
-            }
-        }
-
-        walk(tree);
-        return flat;
-    }
-</script>
-
-<script>
-    /* =======================
-       3. d3-org-chart RENDER
-       ======================= */
-    const data = flattenTree(orgTree);
-
-    const chart = new d3.OrgChart()
-        .container("#chart-container")
-        .data(data)
-        .nodeWidth(() => 340)
-        .nodeHeight(() => 90)
-        .childrenMargin(() => 50)
-        .compact(false)
-        .nodeContent(d => `
-        <div style="
-            background:#ffffff;
-            border-radius:16px;
-            padding:14px;
-            border-left:6px solid ${d.data.type === 'people' ? '#0ea5e9' : '#22c55e'};
-            box-shadow:0 8px 30px rgba(0,0,0,0.08);
-        ">
-            <div style="font-weight:700;font-size:14px;">
-                ${d.data.name}
-            </div>
-            ${d.data.count ? `<div style="font-size:12px;color:#555;margin-top:4px;">
-                Нийт: ${d.data.count}
-            </div>` : ""}
-        </div>
-    `)
-        .onNodeClick(d => chart.setExpanded(d.id, !d.expanded))
-        .render();
-</script>
 </body>
 </html>
