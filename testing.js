@@ -145,6 +145,197 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: [ChartDataLabels]
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("expenseChart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [
+                "Боловсон хүч",
+                "Материал",
+                "Ашиглалт",
+                "Засвар үйлчилгээ",
+                "Албан хэрэгцээ",
+                "ХАБЭА",
+                "Лабораторийн зардал",
+                "Бусад",
+                "Элэгдэл"
+            ],
+            datasets: [
+                {
+                    label: "2025 гүйцэтгэл",
+                    data: [
+                        2823343987.69,
+                        39595426.28,
+                        1102500,
+                        242695532.02,
+                        183487383.30,
+                        25810136.26,
+                        "",
+                        826666.66,
+                        1377380952.56
+                    ],
+                    backgroundColor: "#9cc9ee"
+                },
+                {
+                    label: "2025 төлөвлөгөө",
+                    data: [
+                        3221679900,
+                        64755100,
+                        3868000,
+                        263198400,
+                        201883600,
+                        21487200,
+                        "",
+                        3400000,
+                        1507818900
+                    ],
+                    backgroundColor: "#8fd04f"
+                },
+                {
+                    label: "Хэмнэлт хэтрэлт",
+                    data: [
+                        309045488,
+                        13434441,
+                        3868000,
+                        176000,
+                        39227298,
+                        9664720,
+                        2833558,
+                        "",
+                        573333,
+                        80506899
+                    ],
+                    backgroundColor: "#8fd04f"
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: "bottom"
+                },
+                datalabels: {
+                    anchor: "end",
+                    align: "top",
+                    color: "#333",
+                    font: {
+                        weight: "bold",
+                        size: 11
+                    },
+                    formatter: (value) => {
+                        return value.toLocaleString() + " ₮";
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: (value) => value.toLocaleString() + " ₮"
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("pieExpense");
+
+    const dataValues = [
+        2823343987.69,
+        39595426.28,
+        1102500,
+        242695532.02,
+        183487383.30,
+        25810136.26,
+        826666.66,
+        1377380952.56
+    ];
+
+    const total = dataValues.reduce((a, b) => a + b, 0);
+
+    new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: [
+                "Боловсон хүчний зардал",
+                "Материаллаг зардал",
+                "Ашиглалтын зардал",
+                "Засвар үйлчилгээний зардал",
+                "Албан хэрэгцээний зардал",
+                "Хөдөлмөр хамгааллын зардал",
+                "Бусад зардал",
+                "Элэгдлийн зардал"
+            ],
+            datasets: [{
+                data: dataValues,
+                backgroundColor: [
+                    "#f28c38", // orange
+                    "#f1c232", // yellow
+                    "#6aa84f", // green
+                    "#b45f06", // brown
+                    "#7f6000",
+                    "#38761d",
+                    "#ffd966",
+                    "#93c47d"
+                ],
+                borderWidth: 2,
+                borderColor: "#fff"
+            }]
+        },
+        datalabels: {
+            color: "#333",
+            anchor: "end",
+            align: "end",
+            offset: 10,
+            formatter: (value, ctx) => {
+                const data = ctx.chart.data.datasets[0].data;
+                const total = data.reduce((a, b) => a + b, 0);
+                const percent = (value / total) * 100;
+                return percent.toFixed(0) + "%";
+            }
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: "right"
+                },
+                title: {
+                    display: true,
+                    text: "Зардлын гүйцэтгэл ХБГ"
+                },
+                datalabels: {
+                    color: "#fff",
+                    font: {
+                        weight: "bold",
+                        size: 13
+                    },
+                    formatter: (value) => {
+                        const percent = (value / total * 100).toFixed(0);
+                        return percent + "%";
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const val = ctx.parsed;
+                            const percent = (val / total * 100).toFixed(1);
+                            return `${ctx.label}: ${val.toLocaleString()} ₮ (${percent}%)`;
+                        }
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+});
 // Animated counters
 const counters = document.querySelectorAll('.counter');
 const speed = 150;

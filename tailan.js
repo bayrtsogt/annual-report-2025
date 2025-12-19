@@ -896,25 +896,25 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "bar",
         data: {
             labels: [
-                "Дуудлага 1",
-                "Дуудлага 2",
-                "Дуудлага 3",
-                "Нийт",
-                "Дуудлага 4",
-                "Дуудлага 5",
-                "Дуудлага 6"
+                "Гэмтлийн акт",
+                "ХУТ-с ирсэн дуудлага",
+                "Програм тохиргоо",
+                "Автоматик",
+                "Засвар үйлчилгээ",
+                "Сүлжээний тохиргоо",
+                "Бусад"
             ],
             datasets: [
                 {
                     label: "2024",
                     data: [47, 53, 6, 284, 18, 7, 15],
-                    backgroundColor: "#9fc5e8",
+                    backgroundColor: "#9cc9ee",
                     barThickness: 28
                 },
                 {
                     label: "2025",
                     data: [66, 26, 8, 177, 20, 9, 18],
-                    backgroundColor: "#f6b26b",
+                    backgroundColor: "#8fd04f",
                     barThickness: 28
                 }
             ]

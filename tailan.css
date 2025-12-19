@@ -863,7 +863,7 @@ canvas {
 
 .tele {
     max-width: 1000px;
-    height: 100px;
+    height: 325px;
     margin: 20px auto;
 }
 
@@ -885,7 +885,7 @@ canvas {
 
 .tele1 {
     max-width: 1000px;
-    height: 100px;
+    height: 325px;
     margin: 20px auto;
 }
 
@@ -1244,6 +1244,12 @@ svg {
     overflow: hidden;
 }
 
+.gallery-section1 {
+    /*padding: 40px 0;*/
+    background: #fff;
+    overflow: hidden;
+}
+
 .gallery-title {
     text-align: center;
     margin-bottom: 20px;
@@ -1301,3 +1307,71 @@ svg {
         height: 150px;
     }
 }
+
+.report-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+.report-card h3 {
+    margin-bottom: 12px;
+    color: #1f3a5f;
+}
+
+.report-card h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #2c5aa0;
+}
+
+.summary {
+    background: #f4f8ff;
+    padding: 12px 16px;
+    border-left: 4px solid #4a90e2;
+    border-radius: 8px;
+}
+
+.saving {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.expense-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expense-list li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.expense-list li:last-child {
+    border-bottom: none;
+}
+
+.title {
+    font-weight: 600;
+    color: #333;
+}
+
+.amount {
+    float: right;
+    font-weight: 700;
+}
+
+.amount.negative {
+    color: #2e7d32; /* хэмнэлт */
+}
+
+.desc {
+    margin-top: 6px;
+    color: #555;
+    font-size: 14px;
+}
+

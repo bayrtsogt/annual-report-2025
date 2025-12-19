@@ -73,10 +73,10 @@
                             <h1>Оффисын хэсэг</h1>
                         </div>
                         <div class="r-kpis">
-                            <div class="r-kpi"><a href="#kom" style="color: white; text-decoration: none"><span>Компьютер</span></a>
+                            <div class="r-kpi"><a href="#kom" style="color: white; text-decoration: none"><span>Компьютер, Сүлжээ</span></a>
                             </div>
                             <div class="r-kpi"><a href="#sul"
-                                                  style="color: white; text-decoration: none"><span>Сүлжээ</span></a>
+                                                  style="color: white; text-decoration: none"><span>Шилэн кабель</span></a>
                             </div>
                             <div class="r-kpi"><a href="#camera" style="color: white; text-decoration: none"><span>Хяналтын камер</span></a>
                             </div>
@@ -84,8 +84,8 @@
                             </div>
                             <div class="r-kpi"><a href="#holboo" style="color: white; text-decoration: none"><span>Холбоо</span></a>
                             </div>
-                            <div class="r-kpi"><a href="#dotood" style="color: white; text-decoration: none"><span>Дотоод сүлжээ</span></a>
-                            </div>
+                            <!--                            <div class="r-kpi"><a href="#dotood" style="color: white; text-decoration: none"><span>Дотоод сүлжээ</span></a>-->
+                            <!--                            </div>-->
                         </div>
                     </div>
 
@@ -272,13 +272,15 @@
                                 <div class="d-stat"><b>40%</b><span>Мониторинг гүйцэтгэл</span></div>
                                 <div class="d-stat"><b>1</b><span>Нэвтрэлтийн нэгдсэн систем</span></div>
                             </div>
-                            <div style="max-width:1100px;margin:40px auto">
-                                <canvas id=""></canvas>
+                            <div class="kamer">
+                                <canvas id="kiberchart"></canvas>
                             </div>
                         </figure>
-                        <div class="detail-panel">
-                            <div class="detail-section">
-                                <h3>I. 1–5 дугаар сар: Бодлого, төлөвлөлт</h3>
+                        <div class="detail-grid-col">
+                            <!-- LEFT: LIST -->
+                            <div class="detail-panel">
+                                <!-- Гол гүйцэтгэл -->
+                                <h4>Хяналтын камерийн ажлууд</h4>
                                 <ul class="detail-list">
                                     <li>2025 оны кибер аюулгүй байдлын ажлын төлөвлөгөө боловсруулсан.</li>
                                     <li>Дотоод бодлого, журам, баримт бичгүүдийг шинэчилж батлуулсан.</li>
@@ -288,50 +290,60 @@
                                         хүргэсэн.
                                     </li>
                                 </ul>
-                                <div class="detail-section">
-                                    <h3>II. 6 дугаар сар: Нэвтрэлтийн хяналт</h3>
-                                    <ul class="detail-list">
-                                        <li>Байгууллагын үүд болон 1–12 давхарт нэвтрэлтийн нэгдсэн систем
-                                            нэвтрүүлсэн.
-                                        </li>
-                                        <li>Ажилчдын нэвтрэх эрхийн тохиргоо хийж ашиглалтад оруулсан.</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="detail-section">
-                                <h3>III. 7–11 дүгээр сар: Дэвшилтэт хамгаалалт</h3>
                                 <ul class="detail-list">
-                                    <li>WatchGuard Firebox firewall-ыг автоматжуулалтын сүлжээнд холбож Network
-                                        Security,
-                                        Application Control, Geolocation Filter тохиргоо хийсэн.
+                                    <li>Байгууллагын үүд болон 1–12 давхарт нэвтрэлтийн нэгдсэн систем
+                                        нэвтрүүлсэн.
                                     </li>
-                                    <li>DLP сервер суурилуулж туршилтын тохиргоо хийж, судалгаа боловсруулан
-                                        удирдлагад
-                                        танилцуулсан.
+                                    <li>Ажилчдын нэвтрэх эрхийн тохиргоо хийж ашиглалтад оруулсан.</li>
+                                </ul>
+                                <ul class="detail-list">
+                                    <li>
+                                        Төвийн диспетчерийн өрөөнд хяналтын дэлгэц суурилуулж,
+                                        бодит цагийн хяналтын боломжийг бүрдүүлсэн.
                                     </li>
-                                    <li>WAF системийг серверт дахин deploy хийж туршилтын тохиргоо гүйцэтгэсэн.</li>
-                                    <li>Сүлжээний мониторинг болон лог цуглуулах системийг туршилтаар
-                                        суурилуулсан.
+                                    <li>
+                                        Бохир зөөврийн цэгүүдийн төв диспетчерийн байнгын хяналтад оруулж, тоног
+                                        төхөөрөмжийн
+                                        ашиглалтын зааврыг багтаасан гарын авлага боловсруулж,
+                                        холбогдох ажилтануудад хүлээлгэн өгсөн.
                                     </li>
-                                    <li>SIEM системийг туршилтаар суурилуулж alarm, malware detection, threat
-                                        intelligence
-                                        тохиргоо хийсэн.
+                                </ul>
+                                <ul class="detail-list">
+                                    <li>
+                                        Шугам ашиглалт, угсралт засварын албаны төвийн хэсэгт
+                                        бичигч, 4TB hard, switch, 2 камер суурилуулж хяналт оруулсан.
+                                    </li>
+                                    <li>
+                                        Дусалхүү цэцэрлэгт бичигч, 4TB hard суурилуулж,
+                                        тохиргоо хийж хяналт оруулсан.
+                                    </li>
+                                    <li>
+                                        Орбит насос станцад 1 камерыг үүд рүү чиглүүлэн
+                                        шинээр суурилуулж ашиглалтад оруулсан.
+                                    </li>
+                                    <li>
+                                        Төв байрны 9 давхарт 360° дуу дүрс бичлэг хийх
+                                        камер суурилуулсан.
+                                    </li>
+                                    <li>
+                                        603-р худагт камер, бичигч, hard суурилуулж
+                                        холболт, тохиргоо хийж хүлээлгэн өгсөн.
                                     </li>
                                 </ul>
                             </div>
+                            <section class="gallery-section">
+                                <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                                <div class="gallery-track" id="galleryTrack">
+                                    <img src="assets/komputer/kamer/Picture1.png"/>
+                                    <img src="assets/komputer/kamer/Picture2.png"/>
+                                    <img src="assets/komputer/kamer/Picture3.png"/>
+                                    <img src="assets/komputer/kamer/Picture4.png"/>
+                                    <img src="assets/komputer/kamer/Picture5.png"/>
+                                </div>
+                            </section>
                         </div>
-                        <section class="gallery-section">
-                            <h2 class="gallery-title">Ажлын явцын зургууд</h2>
-                            <div class="gallery-track" id="galleryTrack">
-                                <img src="assets/komputer/kamer/Picture1.png"/>
-                                <img src="assets/komputer/kamer/Picture2.png"/>
-                                <img src="assets/komputer/kamer/Picture3.png"/>
-                                <img src="assets/komputer/kamer/Picture4.png"/>
-                                <img src="assets/komputer/kamer/Picture5.png"/>
-                            </div>
-                        </section>
                     </div>
+
                 </div>
                 <div class="detail-card" id="holboo">
                     <div class="r-split">
@@ -563,30 +575,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-panel">
-                            <div class="detail-section">
-                                <h3>Видео</h3>
-                                <video class="tele" autoplay muted loop playsinline>
-                                    <source src="assets/telemetr/худаг%20доторлогоо%202.mp4" type="video/mp4">
-                                    Таны браузер видеог дэмжихгүй байна.
-                                </video>
-                                <video class="tele1" autoplay muted loop playsinline>
-                                    <source src="assets/telemetr/Худаг%20доторлогоо.mp4" type="video/mp4">
-                                    Таны браузер видеог дэмжихгүй байна.
-                                </video>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="card-grid">
-                        <div class="detail-panel">
-                            <div class="chart-wrap">
-                                <canvas id="tele"></canvas>
-                            </div>
-                            <small class="note">* Chart дээр тоо автоматаар харагдана.</small>
-                        </div>
-                        <div class="gallery-section">
+                        <div class="gallery-section1">
                             <div class="detail-panel">
                                 <h2 class="gallery-title">Ажлын явцын зургууд</h2>
                                 <div class="gallery-track" id="galleryTrack">
@@ -605,6 +594,30 @@
                                 </div>
                             </div>
                         </div>
+
+
+                    </div>
+                    <div class="card-grid">
+                        <div class="detail-panel">
+                            <div class="chart-wrap">
+                                <canvas id="tele"></canvas>
+                            </div>
+                            <small class="note">* Chart дээр тоо автоматаар харагдана.</small>
+                        </div>
+                        <div class="detail-panel">
+                            <div class="detail-section">
+                                <h3>Видео</h3>
+                                <video class="tele" autoplay muted loop playsinline>
+                                    <source src="assets/telemetr/худаг%20доторлогоо%202.mp4" type="video/mp4">
+                                    Таны браузер видеог дэмжихгүй байна.
+                                </video>
+                                <video class="tele1" autoplay muted loop playsinline>
+                                    <source src="assets/telemetr/Худаг%20доторлогоо.mp4" type="video/mp4">
+                                    Таны браузер видеог дэмжихгүй байна.
+                                </video>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="detail-card" id="gps">
@@ -618,9 +631,9 @@
                     <div class="detail-stats">
                         <!--                        <div class="d-stat"><b>23</b><span>ХАБЭА ажлын зөвшөөрөл</span></div>-->
                         <div class="d-stat"><b>113</b><span>Нийт</span></div>
-                        <div class="d-stat"><b>9</b><span>Бохир усны машин</span></div>
-                        <div class="d-stat"><b>76</b><span>Цэвэр усны машин</span></div>
-                        <div class="d-stat"><b>23</b><span>Үйлчилгээний машин</span></div>
+                        <div class="d-stat"><b>12</b><span>Бохир усны машин</span></div>
+                        <div class="d-stat"><b>70</b><span>Цэвэр усны машин</span></div>
+                        <div class="d-stat"><b>26</b><span>Үйлчилгээний машин</span></div>
                         <div class="d-stat"><b>5</b><span>Генератор</span></div>
                     </div>
                     <div class="detail-grid">
@@ -751,9 +764,7 @@
                         </div>
 
                         <div class="r-kpis">
-                            <div class="r-kpi"><span>GIS(Газарзүйн мэдээллийн систем)</span></div>
-                            <div class="r-kpi"><span>Програм</span></div>
-                            <div class="r-kpi"><span>Автоматжуулалт (SCADA/PLS)</span></div>
+                            <div class="r-kpi"><span>Программ хангамж</span></div>
                         </div>
                     </div>
 
@@ -770,9 +781,9 @@
                         <!--                        </p>-->
                     </div>
                     <div class="detail-stats">
-                        <div class="d-stat"><b>2</b><span>GIS</span></div>
+                        <div class="d-stat"><b>42935</b><span>GIS</span></div>
                         <div class="d-stat"><b>60</b><span>Програм хангамж</span></div>
-                        <div class="d-stat"><b>27</b><span>Сервер</span></div>
+                        <div class="d-stat"><b>31</b><span>Сервер</span></div>
                         <div class="d-stat"><b>168</b><span>Шилэн данс</span></div>
                         <div class="d-stat"><b>77</b><span>Веб сайт</span></div>
                         <div class="d-stat"><b>47 нөөцлөлт / 8 сэргээх</b><span>SCADA нөөцлөлт / сэргээх</span></div>
@@ -830,11 +841,10 @@
                         <section class="gallery-section">
                             <h2 class="gallery-title">Ажлын явцын зургууд</h2>
                             <div class="gallery-track" id="galleryTrack">
-                                <img src="assets/gps/Zurag1.png"/>
-                                <img src="assets/gps/Zurag2.png"/>
-                                <img src="assets/gps/Zurag3.png"/>
-                                <img src="assets/gps/Zurag4.png"/>
-                                <img src="assets/gps/Zurag5.png"/>
+                                <img src="assets/program/photo_2025-12-19_16-00-49.jpg"/>
+                                <img src="assets/program/photo_2025-12-19_16-02-00.jpg"/>
+                                <img src="assets/program/pic.jpg"/>
+                                <img src="assets/program/photo_2025-12-19_16-02-00.jpg"/>
                             </div>
                         </section>
                     </div>
@@ -961,7 +971,7 @@
                         </div>
                         <div class="detail-panel">
                             <h2>Дуудлага барагдуулалт</h2>
-                            <div style=" height: 200px;background: #fff;">
+                            <div class="chart-box">
                                 <canvas id="barChart"></canvas>
                             </div>
                         </div>
@@ -982,19 +992,16 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="detail-panel">
-                            <div class="detail-section">
-                                <h3>Камер, сүлжээ, холбоо</h3>
-                                <ul class="detail-list">
-                                    <li>Камерын бичлэгийн төхөөрөмж, дэлгэцийн гэмтлийг илрүүлж засварласан.</li>
-                                    <li>Шилэн кабель, медиа конвертерийн гэмтлийг засварлаж мэдээлэл дамжуулалтыг
-                                        сэргээсэн.
-                                    </li>
-                                    <li>Нэвтрэх систем, дугаар таних программын гацалтыг дахин ачаалж хэвийн болгосон.
-                                    </li>
-                                </ul>
+                        <section class="gallery-section">
+                            <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                            <div class="gallery-track" id="galleryTrack">
+                                <img src="assets/hynalt/1.jpg"/>
+                                <img src="assets/hynalt/2.jpg"/>
+                                <img src="assets/hynalt/3.jpg"/>
+                                <img src="assets/hynalt/Picture1.png"/>
+                                <img src="assets/hynalt/5.png"/>
                             </div>
-                        </div>
+                        </section>
                     </div>
                     <!-- CONCLUSION -->
                     <div class="detail-section">
@@ -1039,13 +1046,13 @@
 
                     <!-- KPI -->
                     <div class="detail-stats">
-                        <div class="d-stat"><b>21 худгийн монтаж шинээр хийсэн</b><span>Худаг (1-р өргөгч)</span></div>
-                        <div class="d-stat">
-                            <b>11</b><span>Цахилгаан соронзон тоолуур скадад хоцрогдолгүй хянадаг болсон</span>
-                        </div>
-                        <div class="d-stat"><b>2 усан сангийн түвшин скадад нэгтгэсэн</b><span>Усан сан (түвшин)</span>
-                        </div>
-                        <div class="d-stat"><b>80–90 сая ₮</b><span>Хэмнэлт</span></div>
+                        <div class="d-stat"><b>8</b><span>Эх үүсвэр</span></div>
+                        <div class="d-stat"><b>13</b><span>Дахин дамжуулах станц</span></div>
+                        <div class="d-stat"><b>35</b><span>Усан сан</span></div>
+                        <div class="d-stat"><b>227</b><span>Гүний худаг</span></div>
+                        <div class="d-stat"><b>39</b><span>Дамтамж хувиргагч</span></div>
+                        <div class="d-stat"><b>60</b><span>Зөөлөн асаагч</span></div>
+                        <div class="d-stat"><b>445</b><span>Удирдлагын самбар</span></div>
                     </div>
 
                     <!-- ҮНДСЭН ҮЙЛ АЖИЛЛАГАА -->
@@ -1058,16 +1065,10 @@
                                         <li>
                                             Гачууртын эх үүсвэрийн удирдлагыг шинэчилж,
                                             <b>суурин SCADA</b> болон <b>төв SCADA</b> системд холбосон.
-                                        </li>
-                                        <li>
                                             1-р өргөгчийн <b>нийт 21 худгийн монтаж</b>-ийг шинээр хийж,
                                             хэвийн ажиллагаанд оруулсан.
-                                        </li>
-                                        <li>
                                             Шинэ клиент компьютер суурилуулснаар
                                             SCADA системийн найдвартай ажиллагааг хангасан.
-                                        </li>
-                                        <li>
                                             <b>2 усан сангийн түвшин</b>,
                                             <b>2 цахилгаан соронзон тоолуурын агшин зуурын утга</b>,
                                             усан сангийн <b>температурын мэдээллийг</b> SCADA-д нэгтгэсэн.
@@ -1083,148 +1084,83 @@
                                             <b>хулгай, галын дохиолол</b> суурилуулж,
                                             main SCADA-гаас хянах боломж бүрдүүлсэн.
                                         </li>
+                                        <li>
+                                            Төвийн эх үүсвэр - Цахилгаан соронзон тоолуур (Endress+Hauser
+                                            DN700),Тасганы насос станц,Үйлдвэрийн эх үүсвэр - Ультрасоник түвшин
+                                            хэмжигч, Махын эх үүсвэр - Давтамж хувиргагчийг засварлаж
+                                            ажиллагаанд оруулснаар
+                                            <b>нийт 80–90 сая төгрөгийн хэмнэлт</b> гаргасан.
+                                        </li>
                                     </ul>
                                 </div>
-                                <!-- ШИНЭ САНААЧЛАГА -->
-                                <div class="detail-section highlight">
-                                    <h3>Шинээр санаачилж хийсэн ажил</h3>
-                                    <p>
-                                        Багахангай ус сувгийн ашиглалтын товчооны
-                                        1-р өргөгчийн худаг, усан сангийн түвшингөөс
-                                        хамаарч <b>хүний оролцоогүй автомат ажиллагаатай</b> болгосон.
-                                        Мөн өвлийн улиралд үүсэх халилт, хоосролтын эрсдэлийг
-                                        бууруулах зорилгоор
-                                        <b>халилт, хоосролтын мэдрэгч</b> суурилуулж,
-                                        насос станцыг автомат удирдлагатай болгосон.
-                                    </p>
-                                </div>
+                                <!--                                &lt;!&ndash; ШИНЭ САНААЧЛАГА &ndash;&gt;-->
+                                <!--                                <div class="detail-section highlight">-->
+                                <!--                                    <h3>Шинээр санаачилж хийсэн ажил</h3>-->
+                                <!--                                    <p>-->
+                                <!--                                        Багахангай ус сувгийн ашиглалтын товчооны-->
+                                <!--                                        1-р өргөгчийн худаг, усан сангийн түвшингөөс-->
+                                <!--                                        хамаарч <b>хүний оролцоогүй автомат ажиллагаатай</b> болгосон.-->
+                                <!--                                        Мөн өвлийн улиралд үүсэх халилт, хоосролтын эрсдэлийг-->
+                                <!--                                        бууруулах зорилгоор-->
+                                <!--                                        <b>халилт, хоосролтын мэдрэгч</b> суурилуулж,-->
+                                <!--                                        насос станцыг автомат удирдлагатай болгосон.-->
+                                <!--                                    </p>-->
+                                <!--                                </div>-->
                             </div>
                         </div>
+                        <div class="detail-panel">
+                            <div class="detail-section">
+                                <p>Видео</p>
+                                <video class="tsewer" autoplay muted loop playsinline>
+                                    <source src="assets/tsewer/4.Бичлэг%20-%20Баруун%20доод%20эх%20үүсвэр%20ЦУТТЗХ.mp4"
+                                            type="video/mp4">
+                                    Таны браузер видеог дэмжихгүй байна.
+                                </video>
+                                <!--                            <p style="font-size: small">Цэвэр усны станц цэг салбар хариуцсан хэсэг</p>-->
+                                <video class="tsewer1" autoplay muted loop playsinline>
+                                    <source src="assets/tsewer/4.%20Бичлэг.%20Цэвэр_усны_станц_цэг_салбар_хариуцсан_хэсэг.mp4"
+                                            type="video/mp4">
+                                    Таны браузер видеог дэмжихгүй байна.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ОНЦЛОХ АЖИЛ -->
+                    <!--                    <div class="detail-grid">-->
+                    <!--                        <div class="detail-grid-col">-->
+                    <!--                            <div class="detail-section">-->
+                    <!--                                <h3>Онцлох ажил</h3>-->
+
+                    <!--                            </div>-->
+                    <!--                            <div class="detail-section">-->
+                    <!--                                <h3>Шинээр санаачилсан ажлын хүрээнд</h3>-->
+                    <!--                                <ul class="detail-list">-->
+                    <!--                                    <li>-->
+                    <!--                                        Хүйтний улиралд усан сангуудын түвшин хэмжигч цантах, гацах, гэмтэх механик-->
+                    <!--                                        эрсдэл-->
+                    <!--                                        үүссэний улмаас усан сан халих хоосрох эрсдэл үүсдэг. Энэ асуудыг шийдэх-->
+                    <!--                                        зорилгоор-->
+                    <!--                                        21-р хорооллын усан санд халилт, хоосролтын мэдрэгч суурилуулж Баруун-->
+                    <!--                                        дүүргийн-->
+                    <!--                                        насос-->
+                    <!--                                        станцыг мэдрэгчээс хамаарч насос ажиллах, зогсох автомат ажиллагаатай-->
+                    <!--                                        болгосон.-->
+                    <!--                                        /zurag-13,14,15/-->
+                    <!--                                    </li>-->
+                    <!--                                </ul>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="detail-grid">
+
+
                         <div class="detail-panel">
                             <h2>Ажлын үзүүлэлт (2024 / 2025)</h2>
                             <div class="chart-box">
                                 <canvas id="us"></canvas>
                             </div>
                             <small>* Chart дээр тоо автоматаар харагдана</small>
-                        </div>
-                    </div>
-
-                    <!-- ОНЦЛОХ АЖИЛ -->
-                    <div class="detail-panel">
-
-                        <div class="detail-grid">
-                            <div class="detail-grid-col">
-                                <div class="detail-section">
-                                    <h3>Онцлох ажил</h3>
-                                    <ul class="detail-list">
-                                        <li>
-                                            Тоног төхөөрөмжийг засварлаж,
-                                            ус хангамжийн тасалдлаас сэргийлснээр
-                                            <b>нийт 80–90 сая төгрөгийн хэмнэлт</b> гаргасан.
-                                        </li>
-                                        <li>
-                                            Засварласан тоног төхөөрөмжүүдийг нэрлэвэл:
-                                            <ul>
-                                                <li>Цахилгаан соронзон тоолуур (Endress+Hauser DN700)</li>
-                                                <li>Ультрасоник түвшин хэмжигч – 2 ширхэг</li>
-                                                <li>Давтамж хувиргагч – 2 ширхэг</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="detail-section">
-                                    <h3>Шинээр санаачилсан ажлын хүрээнд</h3>
-                                    <ul class="detail-list">
-                                        <li>
-                                            Хүйтний улиралд усан сангуудын түвшин хэмжигч цантах, гацах, гэмтэх механик
-                                            эрсдэл
-                                            үүссэний улмаас усан сан халих хоосрох эрсдэл үүсдэг. Энэ асуудыг шийдэх
-                                            зорилгоор
-                                            21-р хорооллын усан санд халилт, хоосролтын мэдрэгч суурилуулж Баруун
-                                            дүүргийн
-                                            насос
-                                            станцыг мэдрэгчээс хамаарч насос ажиллах, зогсох автомат ажиллагаатай
-                                            болгосон.
-                                            /zurag-13,14,15/
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="detail-panel">
-                                <div class="detail-section">
-                                    <p>Баруун доод эх үүсвэр</p>
-                                    <video class="tsewer" autoplay muted loop playsinline>
-                                        <source src="assets/tsewer/4.Бичлэг%20-%20Баруун%20доод%20эх%20үүсвэр%20ЦУТТЗХ.mp4"
-                                                type="video/mp4">
-                                        Таны браузер видеог дэмжихгүй байна.
-                                    </video>
-                                    <!--                            <p style="font-size: small">Цэвэр усны станц цэг салбар хариуцсан хэсэг</p>-->
-                                    <video class="tsewer1" autoplay muted loop playsinline>
-                                        <source src="assets/tsewer/4.%20Бичлэг.%20Цэвэр_усны_станц_цэг_салбар_хариуцсан_хэсэг.mp4"
-                                                type="video/mp4">
-                                        Таны браузер видеог дэмжихгүй байна.
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail-grid">
-                        <div class="detail-panel">
-                            <!--                            <div class="vs-wrap">-->
-                            <!--                                <div class="circle-card">-->
-                            <!--                                    <div class="ring">-->
-                            <!--                                        <svg viewBox="0 0 200 200">-->
-                            <!--                                            &lt;!&ndash; outer dashed &ndash;&gt;-->
-                            <!--                                            <circle cx="100" cy="100" r="90" class="ring-dashed"/>-->
-                            <!--                                            &lt;!&ndash; colored arcs &ndash;&gt;-->
-                            <!--                                            <circle cx="100" cy="100" r="70" class="arc green"/>-->
-                            <!--                                            <circle cx="100" cy="100" r="70" class="arc red"/>-->
-                            <!--                                            <circle cx="100" cy="100" r="70" class="arc lime"/>-->
-                            <!--                                        </svg>-->
-                            <!--                                        <div class="center">-->
-                            <!--                                            <b>2024</b>-->
-                            <!--                                            <span>жилийн<br>эцсийн<br>байдлаар</span>-->
-                            <!--                                        </div>-->
-                            <!--                                    </div>-->
-                            <!--                                    <div class="checks">-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                        <span class="bad">✓</span>-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                        <span class="bad">✓</span>-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                                <div class="vs">-->
-                            <!--                                    <span>VS</span>-->
-                            <!--                                </div>-->
-                            <!--                                <div class="circle-card">-->
-                            <!--                                    <div class="ring">-->
-                            <!--                                        <svg viewBox="0 0 200 200">-->
-                            <!--                                            <circle cx="100" cy="100" r="90" class="ring-dashed"/>-->
-                            <!--                                            <circle cx="100" cy="100" r="70" class="arc green"/>-->
-                            <!--                                            <circle cx="100" cy="100" r="70" class="arc red"/>-->
-                            <!--                                            <circle cx="100" cy="100" r="70" class="arc lime"/>-->
-                            <!--                                        </svg>-->
-
-                            <!--                                        <div class="center">-->
-                            <!--                                            <b>2025</b>-->
-                            <!--                                            <span>жилийн<br>эцсийн<br>байдлаар</span>-->
-                            <!--                                        </div>-->
-                            <!--                                    </div>-->
-
-                            <!--                                    <div class="checks">-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                        <span class="bad">✓</span>-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                        <span class="bad">✓</span>-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                        <span class="ok">✓</span>-->
-                            <!--                                    </div>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-                            <!--                            <img src="assets/bohir/zagwar.png" width="100" height="100">-->
                         </div>
                         <div class="gallery-section">
                             <div class="detail-panel">
@@ -1249,6 +1185,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
         </section>
@@ -1277,23 +1214,22 @@
                         <h2>Бохир усны тоног төхөөрөмжийн засварын хэсэг</h2>
                     </div>
                     <div class="detail-stats">
-                        <div class="d-stat"><b>35</b><span>Давтамж хувиргагч</span></div>
-                        <div class="d-stat">
-                            <b>26</b><span>Цэвэрлэгээ үйлчилгээ</span>
-                        </div>
-                        <div class="d-stat"><b>45</b><span>Тохиргоо үйлчилгээ</span>
-                        </div>
+                        <div class="d-stat"><b>5</b><span>Бага оврийн станц</span></div>
+                        <div class="d-stat"><b>8</b><span>Төв цэвэрлэх байгууламж</span></div>
+                        <div class="d-stat"><b>8</b><span>Өргөх станц</span></div>
+                        <div class="d-stat"><b>64</b><span>Давтамж хувиргагч</span></div>
+                        <div class="d-stat"><b>23</b><span>Зөөлөн асаагч</span></div>
+                        <div class="d-stat"><b>82</b><span>Удирдлагын самбар</span></div>
                     </div>
                     <div class="card-grid">
                         <div class="detail-panel">
                             <div class="detail-section">
-                                <h3>Онцлох ажил</h3>
+                                <h3>Үндсэн үйл ажиллагаа</h3>
                                 <ul class="detail-list">
                                     <li>
-                                        <p>
-                                            МОРИНГИЙН ЦЭВЭРЛЭХ БАЙГУУЛАМЖИЙН <b>СКАДА СИСТЕМИЙГ SCHNIDER SCADA </b>
-                                            ПРОГРАММЧИЛЖ
-                                            ШИНЭЭР ХИЙСЭН
+                                        <p style="">
+                                            Морингийн цэвэрлэх байгууламжийн <b>СКАДА системийг SCHNIDER SCADA </b>
+                                            программчилж шинээр хийсэн.
                                         </p>
                                     </li>
                                     <li>
@@ -1343,15 +1279,15 @@
                             </div>
                             <small>* Chart дээр тоо автоматаар харагдана</small>
                         </div>
-                        <div class="card-grid">
+                        <div class="gallery-section">
                             <div class="detail-panel">
-                                <div style="width:300px;">
-                                    <canvas id="chart2024"></canvas>
-                                </div>
-                            </div>
-                            <div class="detail-panel">
-                                <div style="width:300px;">
-                                    <canvas id="chart2025"></canvas>
+                                <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                                <div class="gallery-track" id="galleryTrack">
+                                    <img src="assets/bohir/1.jpg"/>
+                                    <img src="assets/bohir/2.jpg"/>
+                                    <img src="assets/bohir/3.jpg"/>
+                                    <img src="assets/bohir/4.jpg"/>
+                                    <img src="assets/bohir/photo_2025-08-27_12-08-09.jpg.jpg"/>
                                 </div>
                             </div>
                         </div>
@@ -1380,28 +1316,7 @@
                         <!--                                </ul>-->
                         <!--                            </div>-->
                         <!--                        </div>-->
-                        <div class="gallery-section">
-                            <div class="detail-panel">
-                                <h2 class="gallery-title">Ажлын явцын зургууд</h2>
-                                <div class="gallery-track" id="galleryTrack">
-                                    <img src="assets/bohir/photo_2025-07-30_19-10-25.jpg"/>
-                                    <img src="assets/bohir/photo_2025-08-27_12-08-07.jpg"/>
-                                    <img src="assets/bohir/photo_2025-12-02_16-50-45.jpg"/>
-                                    <img src="assets/bohir/photo_2025-11-04_10-45-40.jpg"/>
-                                    <img src="assets/bohir/photo_2025-09-15_14-39-37.jpg"/>
-                                    <img src="assets/bohir/photo_2025-11-10_16-55-22.jpg"/>
-                                    <img src="assets/bohir/photo_2025-11-10_16-55-22.jpg"/>
-                                    <img src="assets/bohir/photo_2025-10-01_18-02-19.jpg"/>
-                                    <img src="assets/bohir/photo_2025-08-27_12-08-09.jpg"/>
-                                    <img src="assets/bohir/photo_2025-08-27_12-08-09.jpg"/>
-                                    <img src="assets/bohir/photo_2025-07-30_19-10-25.jpg"/>
-                                    <img src="assets/bohir/photo_2025-08-28_14-47-05.jpg"/>
-                                    <img src="assets/bohir/zurag-13.jpg"/>
-                                    <img src="assets/bohir/zurag-14.jpg"/>
-                                    <img src="assets/bohir/zurag-15.jpg"/>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </section>
