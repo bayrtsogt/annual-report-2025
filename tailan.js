@@ -78,7 +78,7 @@ new Chart(ctx, {
         labels: [
             'Компьютер формат',
             'Программын тохиргоо',
-            'Принтер, сүлжээ',
+            'Принтер, тохиргоо',
             'Сүлжээ тохиргоо',
             'Гэмтлийн акт',
             'Цаг бүртгэл',
@@ -122,6 +122,7 @@ new Chart(ctx, {
     },
     plugins: [ChartDataLabels] // 🔥 заавал
 });
+
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("callChart");
 
@@ -141,12 +142,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                     label: "2024 он",
                     data: [38, 99, 46, 24, 15, 0, 222],
-                    backgroundColor: "#5b84c4"
+                    backgroundColor: "#9cc9ee"
                 },
                 {
                     label: "2025 он",
                     data: [13, 106, 8, 11, 8, 152, 298],
-                    backgroundColor: "#f28c38"
+                    backgroundColor: "#8fd04f"
                 }
             ]
         },
@@ -272,44 +273,121 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("serviceChart");
-    if (!ctx) return;
 
     new Chart(ctx, {
         type: "bar",
         data: {
             labels: [
-                "1 сар", "2 сар", "3 сар", "4 сар", "5 сар", "6 сар",
-                "7 сар", "8 сар", "9 сар", "10 сар", "11 сар", "12 сар"
+                "Үүдний програм гацалт",
+                "Камер засвар",
+                "Акт",
+                "Машиний дугаар таниулалт",
+                "Дис дуудлага",
+                "Үзлэг үйлчилгээ",
+                "Бохир цэг",
+                "Албан бичиг",
+                "Камер шүүх",
+                "Нийт"
             ],
-            datasets: [{
-                label: "Камер засвар – 2025",
-                data: [1, 1, 1, 2, 1, 6, 20, 2, 6, 25, 3, 0],
-                backgroundColor: "#f28c38"
-            }]
+            datasets: [
+                {
+                    label: "2024 он",
+                    data: [59, 34, 151, 34, 21, 84, 11, 41, 82, 483],
+                    backgroundColor: "#9cc9ee"
+                },
+                {
+                    label: "2025 он",
+                    data: [76, 68, 23, 508, 56, 92, 26, 22, 31, 394],
+                    backgroundColor: "#8fd04f"
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: {display: false},
+                legend: {
+                    position: "bottom"
+                },
                 title: {
                     display: true,
-                    text: "2025 оны Камер засвар үйлчилгээ (сараар)"
+                    text: "Дуудлага барагдуулалт"
                 },
                 datalabels: {
-                    anchor: "center",
-                    align: "center",
-                    color: "#000",
+                    color: "#333",
+                    anchor: "end",
+                    align: "end",
                     font: {
                         weight: "bold",
                         size: 12
-                    }
+                    },
+                    formatter: (value) => value
                 }
             },
             scales: {
                 y: {
                     beginAtZero: true,
-                    ticks: {stepSize: 5}
+                    ticks: {
+                        stepSize: 50
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("holboocan");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [
+                "Шинээр дугаар авах",
+                "Заавар зөвлөгөө",
+                "Засвар угсралт",
+            ],
+            datasets: [
+                {
+                    label: "2024 он",
+                    data: [53, 3, 71],
+                    backgroundColor: "#9cc9ee"
+                },
+                {
+                    label: "2025 он",
+                    data: [5, 5, 45],
+                    backgroundColor: "#8fd04f"
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: "bottom"
+                },
+                title: {
+                    display: true,
+                    text: "Дуудлага барагдуулалт"
+                },
+                datalabels: {
+                    color: "#333",
+                    anchor: "end",
+                    align: "end",
+                    font: {
+                        weight: "bold",
+                        size: 12
+                    },
+                    formatter: (value) => value
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 50
+                    }
                 }
             }
         },
@@ -367,30 +445,27 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "bar",
         data: {
             labels: [
-                "Сервер тохиргоо", "VPN тохиргоо", "Компани эрх нэмэх тохиргоо",
-                "Компани эрхийн үйлчилгээ", "Компаниас файл сэргээх",
+                "Сервер, VPN, Компани тохиргоо",
+                "Компани эрх болон файл сэргээх",
                 "Дотоод мессенжер тохиргоо", "Автоматжуулалтын тохиргоо",
-                "Программ хангамж", "XCMS тохиргоо",
+                "Программ хангамж тохиргоо",
                 "Вэб сайт, мэдээлэл байршуулалт",
                 "Шинэ дансанд мэдээлэл байршуулалт",
-                "Байгууллагын дотоод үйл ажиллагаа",
                 "Арга хэмжээний зураг авалт", "Арга хэмжээний дүрс бичлэг",
-                "Хөргөлтийн тоног төхөөрөмжийн үйлчилгээ",
-                "Дүрс бичлэг эвдрэл, мэдээ эх бэлтгэл",
-                "Зураг хуудас, постерын эх бэлтгэл",
-                "Захирлын үйлчилгээ", "Нэвшлэлт", "Сэргээх"
+                "Дүрс бичлэг эвдрэл,постер, мэдээ эх бэлтгэл",
+                "Үзлэг үйлчилгээ, Нөөцлөлт, Сэргээх"
             ],
             datasets: [
                 {
                     label: "2024",
-                    data: [134, 156, 48, 0, 19, 33, 32, 27, 76, 210, 104, 110, 55, 45, 83, 48, 67, 0, 0, 0],
-                    backgroundColor: "#5b78c7",
+                    data: [238, 19, 33, 32, 27, 76, 210, 104, 110, 55, 45, 83, 48, 67, 0, 0, 0],
+                    backgroundColor: "#9cc9ee",
                     barThickness: 16
                 },
                 {
                     label: "2025",
                     data: [151, 166, 48, 27, 24, 13, 79, 27, 46, 88, 188, 109, 105, 107, 80, 125, 91, 93, 27, 47],
-                    backgroundColor: "#f1c40f",
+                    backgroundColor: "#8fd04f",
                     barThickness: 16
                 }
             ]
@@ -431,7 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         color: "#ccc",
                         precision: 0
                     },
-                    grid: {color: "#333"}
+                    grid: {color: "#ffffff"}
                 }
             }
         },
@@ -445,24 +520,24 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "bar",
         data: {
             labels: [
-                "Ажил 1",
-                "Ажил 2",
-                "Ажил 3",
-                "Нийт",
-                "Ажил 4",
-                "Ажил 5",
-                "Ажил 6"
+                "Гэмтлийн акт",
+                "Хяналт удирдлагын төвөөс ирсэн дуудлага ",
+                "Программ тохиргоо",
+                "Автоматик",
+                "Засвар үйлчилгээ",
+                "Сүлжээний тохиргоо",
+                "Бусад"
             ],
             datasets: [
                 {
                     label: "2024",
                     data: [32, 28, 41, 307, 26, 19, 33],
-                    backgroundColor: "#bcd6ff"
+                    backgroundColor: "#9cc9ee"
                 },
                 {
                     label: "2025",
                     data: [24, 31, 48, 276, 22, 15, 29],
-                    backgroundColor: "#ffb3b3"
+                    backgroundColor: "#8fd04f"
                 }
             ]
         },
@@ -476,7 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 legend: {
                     position: "bottom",
                     labels: {
-                        color: "#fff",
+                        color: "#000000",
                         boxWidth: 14
                     }
                 },
@@ -509,13 +584,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         color: "#ccc"
                     },
                     grid: {
-                        color: "#444"
+                        color: "#000000"
                     }
                 }
             }
         },
         plugins: [ChartDataLabels]
     });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const video = document.querySelector(".video-box1");
+    if (video) {
+        video.playbackRate = 6;
+    }
 });
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("statusChart");
@@ -586,8 +668,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 data: [22, 49, 179, 3],
                 backgroundColor: [
                     "#E6FF00", // шар
-                    "#0070C0", // цэнхэр
-                    "#7030A0", // ягаан
+                    "#9cc9ee", // цэнхэр
+                    "#8fd04f", // ягаан
                     "#92D050"  // ногоон
                 ],
                 barThickness: 42
@@ -647,83 +729,164 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("vehicleChart");
 
     new Chart(ctx, {
         type: "bar",
         data: {
-            labels: ["Системийн хяналт", "ХАБЭА", "Түлш хэмжигч суурилуулалт"],
-            datasets: [{
-                label: "2025",
-                data: [100, 23, 4],
-                backgroundColor: ["#5b78c7", "#7ed957", "#f1c40f"]
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {display: false},
-                datalabels: {
-                    anchor: "end",
-                    align: "end",
-                    font: {weight: "bold"}
-                }
-            },
-            scales: {y: {beginAtZero: true}}
-        },
-        plugins: [ChartDataLabels]
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const ctx = document.getElementById("hBarChart");
-    if (!ctx) return;
-
-    Chart.register(ChartDataLabels);
-
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: ["Хуваарьт үзлэг", "Засвар үйлчилгээ", "Тохиргоо", "АКТ"],
+            labels: [
+                "Түлшний огцом багасалт",
+                "Гэмтлийн акт",
+                "Төхөөрөмжийн гацалт",
+                "Дуудлага",
+                "GPS-тохиргоо",
+                "Засвар үйлчилгээ",
+                "Хуваарьт үзлэг"
+            ],
             datasets: [
-                {label: "2025", data: [442, 183, 9, 9], backgroundColor: "#c5e1b5", barThickness: 22},
-                {label: "2024", data: [242, 182, 49, 16], backgroundColor: "#a7cbe8", barThickness: 22}
+                {
+                    label: "2024",
+                    data: [88, 55, 20, 26, 5, 0, 8],
+                    backgroundColor: "#9cc9ee"
+                },
+                {
+                    label: "2025",
+                    data: [128, 52, 14, 23, 5, 2, 13],
+                    backgroundColor: "#8fd04f"
+                }
             ]
         },
         options: {
-            indexAxis: "y",
             responsive: true,
             maintainAspectRatio: false,
-            layout: {padding: {right: 32}},
+            layout: {
+                padding: {top: 20}
+            },
             plugins: {
-                legend: {position: "bottom", labels: {color: "#ccc"}},
+                legend: {
+                    position: "bottom",
+                    labels: {
+                        color: "#000000",
+                        boxWidth: 14
+                    }
+                },
                 datalabels: {
-                    display: true,
-                    formatter: v => v,
-                    color: "#fff",
+                    color: "#000",
+                    backgroundColor: "#fff",
+                    borderRadius: 4,
+                    padding: 4,
                     anchor: "end",
                     align: "end",
-                    offset: 6,
-                    clamp: true,
-                    clip: false,
-                    font: {weight: "bold", size: 12}
+                    font: {
+                        weight: "bold",
+                        size: 12
+                    },
+                    formatter: v => v
                 }
             },
             scales: {
                 x: {
-                    beginAtZero: true,
-                    ticks: {color: "#ccc", stepSize: 50},
-                    grid: {color: "#333"}
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        display: false
+                    }
                 },
                 y: {
-                    ticks: {color: "#ccc"},
-                    grid: {display: false}
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#000000"
+                    }
                 }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("hBarChart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [
+                "Хуваарьт үзлэг",
+                "Засвар үйлчилгээ",
+                "Тохиргоо",
+                "Акт"
+            ],
+            datasets: [
+                {
+                    label: "2024",
+                    data: [242, 182, 49, 16],
+                    backgroundColor: "#9cc9ee"
+                },
+                {
+                    label: "2025",
+                    data: [442, 183, 9, 9],
+                    backgroundColor: "#8fd04f"
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {top: 20}
+            },
+            plugins: {
+                legend: {
+                    position: "bottom",
+                    labels: {
+                        color: "#000000",
+                        boxWidth: 14
+                    }
+                },
+                datalabels: {
+                    color: "#000",
+                    backgroundColor: "#fff",
+                    borderRadius: 4,
+                    padding: 4,
+                    anchor: "end",
+                    align: "end",
+                    font: {
+                        weight: "bold",
+                        size: 12
+                    },
+                    formatter: v => v
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#000000"
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("us");
 

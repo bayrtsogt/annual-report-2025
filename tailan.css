@@ -268,7 +268,8 @@
     color: #fff;
     padding: 24px 28px;
 }
-.r-hero__content{
+
+.r-hero__content {
 
 }
 
@@ -539,6 +540,16 @@
 canvas {
     width: 100% !important;
     height: 360px !important;
+}
+
+.kamer canvas {
+    width: 100% !important;
+    height: 600px !important;
+}
+
+.holboo canvas {
+    width: 100% !important;
+    height: 500px !important;
 }
 
 /* ===== DETAIL CARD ===== */
@@ -841,7 +852,7 @@ canvas {
 
 .video-box1 {
     max-width: 1000px;
-    height: 350px;
+    height: 410px;
     margin: 20px auto;
 }
 
@@ -852,7 +863,7 @@ canvas {
 
 .tele {
     max-width: 1000px;
-    height: 500px;
+    height: 100px;
     margin: 20px auto;
 }
 
@@ -874,7 +885,7 @@ canvas {
 
 .tele1 {
     max-width: 1000px;
-    height: 500px;
+    height: 100px;
     margin: 20px auto;
 }
 
@@ -1229,7 +1240,7 @@ svg {
 
 .gallery-section {
     padding: 40px 0;
-    background: #f4f6f9;
+    background: #fff;
     overflow: hidden;
 }
 
