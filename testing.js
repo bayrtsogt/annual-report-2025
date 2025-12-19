@@ -97,6 +97,103 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("progressChart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [
+                "1.1 Тоног төхөөрөмжийн",
+                "1.4 Компьютер техник",
+                "1.5 Аж ахуйн эд хогшил",
+                "3.1 Тоног төхөөрөмжийн",
+                "4. БУСАД",
+                "НИЙТ"
+            ],
+            datasets: [
+                {
+                    label: "100%",
+                    data: [7, 11, 5, 8, 3, 34],
+                    backgroundColor: "#4caf50"
+                },
+                {
+                    label: "75%",
+                    data: [0, 0, 0, 1, 2, 3],
+                    backgroundColor: "#ffc107"
+                },
+                {
+                    label: "50%",
+                    data: [0, 0, 0, 0, 0, 0],
+                    backgroundColor: "#ff9800"
+                },
+                {
+                    label: "0%",
+                    data: [1, 0, 0, 3, 0, 4],
+                    backgroundColor: "#f44336"
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: "bottom"
+                },
+                datalabels: {
+                    color: "#000",
+                    font: {
+                        weight: "bold",
+                        size: 11
+                    },
+                    formatter: (value, context) => {
+                        if (!value || value === 0) return "";
+
+                        const percentLabel = context.dataset.label; // "100%", "75%" ...
+                        const index = context.dataIndex;
+
+                        // НИЙТ тоо (баганын нийлбэр)
+                        const total = context.chart.data.datasets.reduce(
+                            (sum, ds) => sum + (ds.data[index] || 0),
+                            0
+                        );
+
+                        const isLastDataset =
+                            context.datasetIndex === context.chart.data.datasets.length - 1;
+
+                        // 🔹 Сегмент дотор: "75%-тай 1"
+                        // 🔹 Дээд талд: "8" (нийт)
+                        return isLastDataset
+                            ? total
+                            : `${percentLabel}-тай ${value}`;
+                    },
+                    anchor: (context) =>
+                        context.datasetIndex === context.chart.data.datasets.length - 1
+                            ? "end"
+                            : "center",
+                    align: (context) =>
+                        context.datasetIndex === context.chart.data.datasets.length - 1
+                            ? "end"
+                            : "center"
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Ажлын тоо"
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("surgalt");
 
     new Chart(ctx, {
@@ -164,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             datasets: [
                 {
-                    label: "2025 гүйцэтгэл",
+                    label: "2025 гүйцэтгэл (сая ₮)",
                     data: [
                         2823343987.69,
                         39595426.28,
@@ -179,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     backgroundColor: "#9cc9ee"
                 },
                 {
-                    label: "2025 төлөвлөгөө",
+                    label: "2025 төлөвлөгөө (сая ₮)",
                     data: [
                         3221679900,
                         64755100,
@@ -194,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     backgroundColor: "#8fd04f"
                 },
                 {
-                    label: "Хэмнэлт хэтрэлт",
+                    label: "Хэмнэлт хэтрэлт (сая ₮)",
                     data: [
                         309045488,
                         13434441,
@@ -222,6 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     anchor: "end",
                     align: "top",
                     color: "#333",
+                    rotation: -90,
                     font: {
                         weight: "bold",
                         size: 11
@@ -336,6 +434,20 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: [ChartDataLabels]
     });
 });
+const dropdownToggle = document.querySelector(".dropdown-toggle");
+const dropdown = document.querySelector(".dropdown");
+
+dropdownToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("open");
+});
+
+// гадна дархад хаагдана
+document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+    }
+});
 // Animated counters
 const counters = document.querySelectorAll('.counter');
 const speed = 150;
@@ -354,7 +466,28 @@ const runCounter = (counter) => {
     };
     updateCount();
 };
+document.querySelectorAll(".node").forEach(node => {
+    node.addEventListener("click", (e) => {
+        e.stopPropagation(); // эцэг node руу дамжуулахгүй
 
+        const li = node.closest("li");
+        if (!li) return;
+
+        // тухайн node-ийн яг доорх хүүхэд ul
+        const children = li.querySelectorAll(":scope > ul");
+        if (!children.length) return;
+
+        // open / close
+        const isOpen = li.classList.contains("open");
+
+        children.forEach(ul => {
+            ul.style.display = isOpen ? "none" : "block";
+        });
+
+        li.classList.toggle("open", !isOpen);
+        node.classList.toggle("expanded", !isOpen);
+    });
+});
 // Animate on scroll
 const scrollElements = document.querySelectorAll(".animate-on-scroll, .animate-card");
 const observer = new IntersectionObserver((entries, obs) => {

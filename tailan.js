@@ -11,28 +11,75 @@ document.querySelectorAll(".r-thumb").forEach(img => {
 });
 
 // ===== ORG TREE NODE TOGGLE =====
-document.querySelectorAll(".node").forEach(node => {
-    node.addEventListener("click", (e) => {
-        e.stopPropagation(); // эцэг node руу дамжуулахгүй
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("hab");
 
-        const li = node.closest("li");
-        if (!li) return;
-
-        // тухайн node-ийн яг доорх хүүхэд ul
-        const children = li.querySelectorAll(":scope > ul");
-        if (!children.length) return;
-
-        // open / close
-        const isOpen = li.classList.contains("open");
-
-        children.forEach(ul => {
-            ul.style.display = isOpen ? "none" : "block";
-        });
-
-        li.classList.toggle("open", !isOpen);
-        node.classList.toggle("expanded", !isOpen);
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [
+                "Анхан шатны",
+                "2-р шатны",
+                "Явцын",
+                "Удирдлагаас өгсөн даалгавар",
+                "Хийгдсэн үзлэг шалгалт",
+                "Үзлэг шалгалтад хамрагдсан нийт ажилтан",
+                "Илэрсэн зөрчил, дутагдал /аюул/"
+            ],
+            datasets: [
+                {
+                    label: "Тоо хэмжээ",
+                    data: [184, 51, 15, 6, 202, 51, 7],
+                    backgroundColor: [
+                        "#4f5d75",
+                        "#9fa2b2",
+                        "#f2c94c",
+                        "#6c63ff",
+                        "#2d3142",
+                        "#8d99ae",
+                        "#f2994a"
+                    ],
+                    borderRadius: 6
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                datalabels: {
+                    anchor: "end",
+                    align: "top",
+                    font: {
+                        weight: "bold",
+                        size: 12
+                    },
+                    formatter: (value) => value
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Тоо"
+                    }
+                },
+                x: {
+                    ticks: {
+                        maxRotation: 30,
+                        minRotation: 30
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
     });
 });
+
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".hero-block").forEach(block => {
         const hero = block.querySelector(".r-hero");
@@ -227,6 +274,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         },
         plugins: [ChartDataLabels]
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("galleryTrack");
+
+    // анхны зургуудыг clone хийж нэмнэ
+    const images = Array.from(track.children);
+    images.forEach(img => {
+        const clone = img.cloneNode(true);
+        track.appendChild(clone);
     });
 });
 document.addEventListener("DOMContentLoaded", () => {

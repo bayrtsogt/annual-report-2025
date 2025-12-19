@@ -1,7 +1,7 @@
-body {
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-}
+/*body {*/
+/*    margin: 0;*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*}*/
 
 .cover {
     width: 100vw;
@@ -16,47 +16,6 @@ body {
     color: white;
 }
 
-/* LEFT MENU */
-.left-menu {
-    display: flex;
-    flex-direction: column;
-    margin-left: 60px;
-    cursor: pointer;
-}
-
-.left-menu h2 {
-    color: #77d6ff;
-    font-size: 30px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    /*margin: 0;*/
-}
-
-.left-menu p {
-    /*margin: 40px 0;*/
-    font-size: 20px;
-    color: #ffffff;
-}
-
-.menu-items p:hover {
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-thickness: 2px;
-    text-decoration-color: #77d6ff;
-    transition: 0.5s ease-in-out;
-}
-
-/* CENTER */
-.center-block {
-    text-align: center;
-}
-
-.logo-row {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
-}
 
 .logo {
     height: 150px;
@@ -105,7 +64,7 @@ body {
 
 /* RIGHT SIDE MONGOL TEXT */
 .mongol-right {
-    margin-right: 60px;
+    /*margin-right: 0px;*/
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-size: 40px;

@@ -13,20 +13,6 @@ body {
 }
 
 /* ===== TOP BAR (MODERN GLASS NAV) ===== */
-.topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(10, 20, 40, 0.7);
-    backdrop-filter: blur(18px);
-    padding: 18px 140px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 999;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
 
 .logo {
     font-weight: 800;

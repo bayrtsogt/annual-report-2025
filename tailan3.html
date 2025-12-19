@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>МТАА | Хэсгийн тайлан 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tailan.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="wrap">
+        <div class="brand">
+            <span class="brand-dot"></span>
+            <span style="font-size: 18px">MTAA | ТАЙЛАН 2025</span>
+        </div>
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <ul class="menu" id="navMenu">
+            <li class="highlight-soft"><a href="index.html" class="active">Нүүр</a></li>
+            <li class="highlight-soft"><a href="testing.html">Мэдээллийн ил тод байдал</a></li>
+            <li class="dropdown highlight-soft">
+                <a href="#" class="dropdown-toggle">
+                    Онцлох тайлан <span class="arrow">▾</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="tailan.html">Office хэсэг</a></li>
+                    <li><a href="tailan1.html">Дата хяналт хэсэг</a></li>
+                    <li><a href="tailan2.html">Программын хэсэг</a></li>
+                    <li><a href="tailan3.html">Хяналт удирдлагын хэсэг</a></li>
+                    <li><a href="tailan4.html">Цэвэр усны тоног төхөөрөмжийн засварын хэсэг</a></li>
+                    <li><a href="tailan5.html">Бохир усны тоног төхөөрөмжийн засварын хэсэг</a></li>
+                    <li><a href="tailan6.html">ХАБЭА</a></li>
+                </ul>
+            </li>
+            <li class="highlight-soft"><a href="power.html">power BI</a></li>
+            <li class="highlight-soft"><a href="#new">Шинээр санаачилсан ажил</a></li>
+        </ul>
+    </div>
+</div>
+
+<section id="heseg">
+    <!-- ===== Компьютер ===== -->
+    <div class="detail-grid-col-all">
+
+        <section class="hero-block">
+            <section class="hero-detail">
+                <div class="detail-card">
+                    <!-- HEADER -->
+                    <div class="detail-head">
+                        <!--                    <h2>Хяналт, удирдлагын хэсэг – 2025</h2>-->
+                        <p class="detail-sub">
+                            Хяналт удирдлагын хэсгийн жилийн эцсийн тайлан
+                        </p>
+                    </div>
+                    <div class="detail-stats">
+                        <div class="d-stat"><b>95</b><span>Нийт дуудлага</span></div>
+                        <div class="d-stat"><b>32</b><span>Алсын удирдлага</span></div>
+                        <div class="d-stat"><b>25</b><span>Автоматик хяналт</span></div>
+                        <div class="d-stat"><b>13</b><span>Сервер программ</span></div>
+                        <div class="d-stat"><b>6</b><span>Камер</span></div>
+                        <div class="d-stat"><b>4</b><span>Холбоо сүлжээ</span></div>
+                    </div>
+
+                    <div class="card-grid">
+                        <div class="detail-panel">
+                            <div class="detail-section">
+                                <h3>Үндсэн гүйцэтгэсэн ажил</h3>
+                                <ul class="detail-list">
+                                    <li>Лаг усгүйжүүлэх байгууламжийн гном насосны <b>дээд түвшний хөвүүр</b>-ийг сольж
+                                        автомат
+                                        ажиллагааг сэргээсэн.
+                                    </li>
+                                    <li>Усан сангийн <b>түвшин хэмжигчийн сигналын кабель</b> хайлж гэмтсэнийг сольж
+                                        хэвийн
+                                        болгосон.
+                                    </li>
+                                    <li>Температур мэдрэгчийн <b>хяналтын дэлгэц</b>-ийг сольж тохируулсан.</li>
+                                    <li>96-р УТУТ-ийн <b>тог баригч</b>-ийг шинээр сольж ашиглалтад оруулсан.</li>
+                                    <li>Хотын захын насос станцын <b>3-р насос</b>-нд концвек тохиргоо хийсэн.</li>
+                                    <li>327-р УТУТ-ийн <b>5V тог бууруулагч</b>-ийг сольж төхөөрөмжийг сэргээсэн.</li>
+                                    <li>FM-7, FM-8 зардал хэмжигчийг шалгаж, <b>FM-10 дэлгэцээр</b> сольж тохируулсан.
+                                    </li>
+                                    <li>Идэвхит лаг насос станцийн <b>реле, контактор</b>-ыг цэвэрлэж, сольж ажиллагаанд
+                                        оруулсан.
+                                    </li>
+                                    <li>Насос, худаг, усан сангуудын <b>алсын удирдлага</b>-ын гэмтлийг арилгасан.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="detail-panel">
+                            <h2>Дуудлага барагдуулалт</h2>
+                            <div class="chart-box">
+                                <canvas id="barChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-grid">
+                        <!-- NETWORK & CAMERA -->
+                        <div class="detail-panel">
+                            <div class="detail-section">
+                                <h3>Камер, сүлжээ, холбоо</h3>
+                                <ul class="detail-list">
+                                    <li>Камерын бичлэгийн төхөөрөмж, дэлгэцийн гэмтлийг илрүүлж засварласан.</li>
+                                    <li>Шилэн кабель, медиа конвертерийн гэмтлийг засварлаж мэдээлэл дамжуулалтыг
+                                        сэргээсэн.
+                                    </li>
+                                    <li>Нэвтрэх систем, дугаар таних программын гацалтыг дахин ачаалж хэвийн болгосон.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <section class="gallery-section">
+                            <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+                            <div class="gallery-track" id="galleryTrack">
+                                <img src="assets/hynalt/1.jpg"/>
+                                <img src="assets/hynalt/2.jpg"/>
+                                <img src="assets/hynalt/3.jpg"/>
+                                <img src="assets/hynalt/Picture1.png"/>
+                                <img src="assets/hynalt/5.png"/>
+
+                                <img src="assets/hynalt/1.jpg"/>
+                                <img src="assets/hynalt/2.jpg"/>
+                                <img src="assets/hynalt/3.jpg"/>
+                                <img src="assets/hynalt/Picture1.png"/>
+                                <img src="assets/hynalt/5.png"/>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- CONCLUSION -->
+                    <div class="detail-section">
+                        <h3>Дүгнэлт</h3>
+                        <p>
+                            Тайлант хугацаанд хяналт, автоматжуулалтын тоног төхөөрөмжүүдийн
+                            найдвартай ажиллагааг хангаж, дуудлагад цаг тухайд нь шуурхай
+                            хариу өгч, засвар үйлчилгээг бүрэн гүйцэтгэсэн.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </section>
+    </div>
+</section>
+
+<footer style="">
+    © 2025 | Мэдээллийн технологи, автоматжуулалтын алба
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<!-- DataLabels plugin (тоо харуулах) -->
+<!--<script src="camera-chart.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="tailan.js"></script>
+</body>
+</html>

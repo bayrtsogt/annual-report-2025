@@ -106,10 +106,197 @@
     background: #a3cdf3;
 }
 
+/* ===============================
+   FORCE STACK IT -> OT (≥1024)
+================================ */
+/*@media (min-width: 1024px) {*/
+
+/*    !* Албаны даргын доорх үндсэн түвшин *!*/
+/*    .org-tree .tree > ul {*/
+/*        display: flex !important;*/
+/*        flex-direction: column !important; !* 🔥 гол нь энэ *!*/
+/*        align-items: center;*/
+/*        gap: 48px;*/
+/*    }*/
+
+/*    !* IT, OT тус бүр *!*/
+/*    .org-tree .tree > ul > li {*/
+/*        width: 100%;*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*    }*/
+
+/*    !* IT / OT доторх хэлтсүүд – хэвтээ хэвээр *!*/
+/*    .org-tree .tree > ul > li > ul {*/
+/*        display: flex !important;*/
+/*        justify-content: center;*/
+/*        flex-wrap: wrap;*/
+/*        gap: 24px;*/
+/*        margin-top: 24px;*/
+/*    }*/
+/*}*/
+/* =================================================
+   ORG TREE – CLEAN DESKTOP (>=1024px)
+================================================= */
+/*@media (min-width: 1024px) {*/
+
+/*    !* бүх connection шугамуудыг бүр мөсөн унтраана *!*/
+/*    .tree li::before,*/
+/*    .tree li::after,*/
+/*    .tree ul::before {*/
+/*        display: none !important;*/
+/*    }*/
+
+/*    !* үндсэн бүтэц *!*/
+/*    .tree {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*        gap: 64px;*/
+/*    }*/
+
+/*    !* Албаны даргын доорх UL *!*/
+/*    .tree > li > ul {*/
+/*        display: flex;*/
+/*        flex-direction: column;   !* IT дээр, OT доор *!*/
+/*        align-items: center;*/
+/*        gap: 80px;*/
+/*    }*/
+
+/*    !* IT / OT container *!*/
+/*    .tree > li > ul > li {*/
+/*        width: 100%;*/
+/*        max-width: 1100px;*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*        gap: 32px;*/
+/*    }*/
+
+/*    !* IT / OT нэр *!*/
+/*    .tree > li > ul > li > .node {*/
+/*        font-size: 18px;*/
+/*        font-weight: 700;*/
+/*        padding: 14px 28px;*/
+/*    }*/
+
+/*    !* IT / OT доторх хэлтсүүд → GRID *!*/
+/*    .tree > li > ul > li > ul {*/
+/*        display: grid;*/
+/*        grid-template-columns: repeat(2, minmax(360px, 1fr));*/
+/*        gap: 40px 60px;*/
+/*        justify-content: center;*/
+/*    }*/
+
+/*    !* нэг хэлтэс *!*/
+/*    .tree > li > ul > li > ul > li {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*        gap: 14px;*/
+/*    }*/
+
+/*    !* албан тушаалууд *!*/
+/*    .tree > li > ul > li > ul > li > ul {*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        gap: 12px;*/
+/*    }*/
+
+/*    !* node хэмжээ тогтвортой *!*/
+/*    .node {*/
+/*        width: 100%;*/
+/*        max-width: 360px;*/
+/*        text-align: center;*/
+/*    }*/
+/*}*/
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+}
+
+.report-table th {
+    background: #0a5ea8;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.report-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.report-table tr:hover {
+    background: #f9fbff;
+}
+
+/* хэсгийн гарчиг */
+.section-row td {
+    background: #f1f5f9;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* гүйцэтгэлийн хувь */
+.percent {
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 999px;
+}
+
+.percent.done {
+    background: #e6f4ea;
+    color: #2e7d32;
+}
+
+.percent.mid {
+    background: #fff8e1;
+    color: #f57c00;
+}
+
+.percent.zero {
+    background: #fdecea;
+    color: #c62828;
+}
+
+/* асуудалтай мөр */
+tr.danger {
+    background: #fff5f5;
+}
+
+@media (max-width: 768px) {
+    .report-table thead {
+        display: none;
+    }
+
+    .report-table tr {
+        display: block;
+        margin-bottom: 14px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    }
+
+    .report-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 12px;
+    }
+
+    .report-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #475569;
+    }
+}
+
 /* responsive */
 @media (max-width: 768px) {
 
-    /* бүх tree-ийг босоо болгоно */
     .org-tree {
         padding: 10px;
         overflow-x: auto;
@@ -363,13 +550,13 @@
 }
 
 /* ================= DETAIL ================= */
+/* hero-detail-ийг шууд харуулах */
 .hero-detail {
-    max-height: 0;
-    overflow: hidden;
-    background: #f4f6f8;
-    padding: 0 24px;
-    transition: max-height .6s ease, padding .6s ease;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 32px 0 !important;
 }
+
 
 .hero-detail.open {
     max-height: 9999px; /* ❗ БҮРЭН НЭЭГДЭХ */
@@ -1268,6 +1455,16 @@ svg {
     gap: 16px;
     width: max-content; /* 🔑 хамгийн чухал */
     animation: scrollGallery 30s linear infinite;
+}
+
+@keyframes scrollGallery {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+    /* JS clone-той уялдана */
 }
 
 .gallery-track1 img {
