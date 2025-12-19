@@ -977,21 +977,21 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "bar",
         data: {
             labels: [
-                "Ажил 1", "Ажил 2", "Ажил 3", "Ажил 4",
-                "Ажил 5", "Ажил 6", "Ажил 7", "Ажил 8",
-                "Ажил 9", "Ажил 10", "Ажил 11"
+                "Бага оврийн станц", "ИЛНС", "ТҮНС", "ЮВ",
+                "БС", "ШЗНС", "ХЗНС", "ЛУБ",
+                "АС", "Өргөх станц", "Бусад"
             ],
             datasets: [
                 {
                     label: "2024 оны нийт 188",
                     data: [61, 26, 22, 1, 2, 8, 11, 13, 9, 25, 13],
-                    backgroundColor: "#9fc5e8",
+                    backgroundColor: "#9cc9ee",
                     barThickness: 22
                 },
                 {
                     label: "2025 оны нийт 174",
                     data: [64, 14, 7, 2, 3, 13, 10, 16, 2, 16, 28],
-                    backgroundColor: "#f6b26b",
+                    backgroundColor: "#8fd04f",
                     barThickness: 22
                 }
             ]
