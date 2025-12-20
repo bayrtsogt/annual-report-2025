@@ -51,10 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 datalabels: {
                     anchor: "end",
+                    color: "000",
                     align: "top",
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     },
                     formatter: (value) => value
                 }
@@ -62,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scales: {
                 y: {
                     beginAtZero: true,
+                    color: "#000",
                     title: {
                         display: true,
                         text: "Тоо"
@@ -158,13 +160,29 @@ new Chart(ctx, {
                 align: 'end',
                 font: {
                     weight: 'bold',
-                    size: 12
+                    size: 16
                 },
                 formatter: (value) => value
             }
         },
         scales: {
-            y: {beginAtZero: true}
+            x: {
+                ticks: {
+                    color: "rgb(19,19,19)"
+                },
+                grid: {
+                    display: false
+                }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: "#ccc"
+                },
+                grid: {
+                    color: "#333"
+                }
+            }
         }
     },
     plugins: [ChartDataLabels] // 🔥 заавал
@@ -215,16 +233,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     align: "end",
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     },
                     formatter: (value) => value
                 }
             },
             scales: {
+                x: {
+                    ticks: {
+                        color: "rgb(19,19,19)"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        stepSize: 50
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#333"
                     }
                 }
             }
@@ -266,11 +295,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     anchor: "end",
                     align: "end",
                     color: "#000",
-                    font: {weight: "bold"}
+                    font: {weight: "bold", size: 16}
                 }
             },
             scales: {
-                y: {beginAtZero: true}
+                x: {
+                    ticks: {
+                        color: "rgb(19,19,19)"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#333"
+                    }
+                }
             }
         },
         plugins: [ChartDataLabels]
@@ -361,13 +406,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     anchor: "center",
                     align: "center",
                     color: "#000",
-                    font: {weight: "bold"}
+                    font: {weight: "bold", size: 16}
                 }
             },
             scales: {
+                x: {
+                    ticks: {
+                        color: "rgb(19,19,19)"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
                 y: {
                     beginAtZero: true,
-                    ticks: {stepSize: 2}
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#333"
+                    }
                 }
             }
         },
@@ -422,16 +480,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     align: "end",
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     },
                     formatter: (value) => value
                 }
             },
             scales: {
+                x: {
+                    ticks: {
+                        color: "rgb(19,19,19)"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        stepSize: 50
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#333"
                     }
                 }
             }
@@ -480,16 +549,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     align: "end",
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     },
                     formatter: (value) => value
                 }
             },
             scales: {
+                x: {
+                    ticks: {
+                        color: "rgb(19,19,19)"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        stepSize: 50
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#333"
                     }
                 }
             }
@@ -531,11 +611,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     color: "#000",
                     anchor: "end",
                     align: "end",
-                    font: {weight: "bold", size: 12}
+                    font: {weight: "bold", size: 16}
                 }
             },
             scales: {
-                y: {beginAtZero: true}
+                x: {
+                    ticks: {
+                        color: "rgb(19,19,19)"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#ccc"
+                    },
+                    grid: {
+                        color: "#333"
+                    }
+                }
             }
         },
         plugins: [ChartDataLabels]
@@ -561,13 +657,13 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [
                 {
                     label: "2024",
-                    data: [238, 19, 33, 32, 27, 76, 210, 104, 110, 55, 45, 83, 48, 67, 0, 0, 0],
+                    data: [338, 49, 33, 32, 103, 210, 104, 45, 83, 48, 115, 0],
                     backgroundColor: "#9cc9ee",
                     barThickness: 16
                 },
                 {
                     label: "2025",
-                    data: [151, 166, 48, 27, 24, 13, 79, 27, 46, 88, 188, 109, 105, 107, 80, 125, 91, 93, 27, 47],
+                    data: [365, 75, 13, 79, 73, 88, 188, 107, 88, 187, 184, 82],
                     backgroundColor: "#8fd04f",
                     barThickness: 16
                 }
@@ -590,13 +686,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     offset: 2,
                     clip: false,                    // 🔴 маш чухал
                     formatter: (v) => v > 0 ? v : "",
-                    font: {weight: "bold", size: 10}
+                    font: {weight: "bold", size: 12}
                 }
             },
             scales: {
                 x: {
                     ticks: {
-                        color: "#ccc",
+                        color: "#151515",
                         autoSkip: false,               // 🔴 бүгд гарна
                         maxRotation: 60,
                         minRotation: 60
@@ -667,7 +763,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     align: "end",
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     },
                     formatter: v => v
                 }
@@ -675,7 +771,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scales: {
                 x: {
                     ticks: {
-                        color: "#ccc"
+                        color: "#151515"
                     },
                     grid: {
                         display: false
@@ -809,8 +905,8 @@ document.addEventListener("DOMContentLoaded", () => {
             scales: {
                 x: {
                     ticks: {
-                        color: "#aaa",
-                        font: {size: 12}
+                        color: "#151515",
+                        font: {size: 16}
                     },
                     grid: {
                         color: "#333"
@@ -884,7 +980,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     align: "end",
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     },
                     formatter: v => v
                 }
@@ -892,7 +988,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scales: {
                 x: {
                     ticks: {
-                        color: "#ccc"
+                        color: "#131313"
                     },
                     grid: {
                         display: false
@@ -961,7 +1057,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     align: "end",
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     },
                     formatter: v => v
                 }
@@ -969,7 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scales: {
                 x: {
                     ticks: {
-                        color: "#ccc"
+                        color: "#131313"
                     },
                     grid: {
                         display: false
@@ -1032,7 +1128,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 legend: {
                     position: "bottom",
                     labels: {
-                        color: "#ccc",
+                        color: "#131313",
                         boxWidth: 14
                     }
                 },
@@ -1046,14 +1142,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     formatter: v => v,
                     font: {
                         weight: "bold",
-                        size: 12
+                        size: 16
                     }
                 }
             },
             scales: {
                 x: {
                     ticks: {
-                        color: "#ccc"
+                        color: "rgb(19,19,19)"
                     },
                     grid: {
                         display: false
@@ -1130,7 +1226,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scales: {
                 x: {
                     ticks: {
-                        color: "#ccc"
+                        color: "#151515"
                     },
                     grid: {display: false}
                 },
@@ -1248,8 +1344,24 @@ new Chart(document.getElementById("barChart"), {
             }
         },
         scales: {
-            y: {beginAtZero: true}
-        }
+            x: {
+                ticks: {
+                    color: "rgb(19,19,19)"
+                },
+                grid: {
+                    display: false
+                }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: "#ccc"
+                },
+                grid: {
+                    color: "#333"
+                }
+            }
+        },
     },
     plugins: [ChartDataLabels]
 });

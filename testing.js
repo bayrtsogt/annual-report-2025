@@ -135,57 +135,35 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         options: {
             responsive: true,
-            plugins: {
-                legend: {
-                    position: "bottom"
-                },
-                datalabels: {
-                    color: "#000",
-                    font: {
-                        weight: "bold",
-                        size: 11
-                    },
-                    formatter: (value, context) => {
-                        if (!value || value === 0) return "";
+            maintainAspectRatio: false,
 
-                        const percentLabel = context.dataset.label; // "100%", "75%" ...
-                        const index = context.dataIndex;
-
-                        // НИЙТ тоо (баганын нийлбэр)
-                        const total = context.chart.data.datasets.reduce(
-                            (sum, ds) => sum + (ds.data[index] || 0),
-                            0
-                        );
-
-                        const isLastDataset =
-                            context.datasetIndex === context.chart.data.datasets.length - 1;
-
-                        // 🔹 Сегмент дотор: "75%-тай 1"
-                        // 🔹 Дээд талд: "8" (нийт)
-                        return isLastDataset
-                            ? total
-                            : `${percentLabel}-тай ${value}`;
-                    },
-                    anchor: (context) =>
-                        context.datasetIndex === context.chart.data.datasets.length - 1
-                            ? "end"
-                            : "center",
-                    align: (context) =>
-                        context.datasetIndex === context.chart.data.datasets.length - 1
-                            ? "end"
-                            : "center"
-                }
-            },
             scales: {
                 x: {
-                    stacked: true
+                    ticks: {
+                        maxRotation: 0,
+                        minRotation: 0,
+                        autoSkip: false,
+                        font: {
+                            size: window.innerWidth < 768 ? 10 : 12
+                        }
+                    }
                 },
                 y: {
-                    stacked: true,
                     beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: "Ажлын тоо"
+                    ticks: {
+                        stepSize: 10
+                    }
+                }
+            },
+
+            plugins: {
+                legend: {
+                    position: "bottom",
+                    labels: {
+                        boxWidth: 14,
+                        font: {
+                            size: 12
+                        }
                     }
                 }
             }
