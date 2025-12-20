@@ -412,6 +412,24 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: [ChartDataLabels]
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("navToggle");
+    const menu = document.getElementById("navMenu");
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        document.body.classList.toggle("menu-open");
+        toggle.textContent = menu.classList.contains("open") ? "✕" : "☰";
+    });
+
+    menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+            menu.classList.remove("open");
+            document.body.classList.remove("menu-open");
+            toggle.textContent = "☰";
+        });
+    });
+});
 const dropdownToggle = document.querySelector(".dropdown-toggle");
 const dropdown = document.querySelector(".dropdown");
 
