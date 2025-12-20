@@ -928,6 +928,137 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const arrow = document.getElementById("scrollArrow");
+    const cards = document.querySelectorAll(".detail-card");
+
+    if (!arrow || !cards.length) {
+        console.error("Arrow эсвэл detail-card олдсонгүй");
+        return;
+    }
+
+    let cardIndex = 0;
+    let atEnd = false;
+    console.log("CLICK BARIGDSAN");
+    arrow.addEventListener("click", () => {
+        const card = cards[cardIndex];
+
+        if (!atEnd) {
+            // ✅ 1️⃣ Доод хэсгийг найдвартай олно
+            let bottomTarget =
+                card.querySelector(".gallery-section") ||
+                card.querySelector(".chart-wrap") ||
+                card.querySelector(".detail-grid:last-of-type") ||
+                card; // fallback
+
+            bottomTarget.scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            });
+
+            atEnd = true;
+            return;
+        }
+
+        // ✅ 2️⃣ Дараагийн card
+        cardIndex++;
+
+        if (cardIndex >= cards.length) {
+            window.scrollTo({top: 0, behavior: "smooth"});
+            cardIndex = 0;
+            atEnd = false;
+            return;
+        }
+
+        cards[cardIndex]
+            .querySelector(".detail-head")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        atEnd = false;
+    });
+    // arrow.addEventListener("click", () => {
+    //     const card = cards[cardIndex];
+    //
+    //     if (!atEnd) {
+    //         // ✅ card-ын ЖИНХЭНЭ доод хэсэг рүү
+    //         const bottomTarget =
+    //             card.querySelector(".gallery-section, .detail-grid:last-child");
+    //
+    //         bottomTarget.scrollIntoView({
+    //             behavior: "smooth",
+    //             block: "end"
+    //         });
+    //
+    //         atEnd = true;
+    //     } else {
+    //         cardIndex++;
+    //
+    //         if (cardIndex >= cards.length) {
+    //             window.scrollTo({top: 0, behavior: "smooth"});
+    //             cardIndex = 0;
+    //             atEnd = false;
+    //             return;
+    //         }
+    //
+    //         cards[cardIndex]
+    //             .querySelector(".detail-head")
+    //             .scrollIntoView({
+    //                 behavior: "smooth",
+    //                 block: "start"
+    //             });
+    //
+    //         atEnd = false;
+    //     }
+    // });
+    // arrow.addEventListener("click", () => {
+    //
+    //     const card = cards[cardIndex];
+    //     const head = card.querySelector(".detail-head");
+    //
+    //     if (!atEnd) {
+    //         // 1️⃣ card-ын ТӨГСГӨЛ хүртэл
+    //         const y =
+    //             card.offsetTop +
+    //             card.offsetHeight -
+    //             window.innerHeight + 40;
+    //
+    //         window.scrollTo({
+    //             top: y,
+    //             behavior: "smooth"
+    //         });
+    //
+    //         atEnd = true;
+    //
+    //     } else {
+    //         // 2️⃣ дараагийн card-ын ТОЛГОЙ
+    //         cardIndex++;
+    //
+    //         if (cardIndex >= cards.length) {
+    //             // бүгд дууссан → буцаад эхэнд
+    //             window.scrollTo({top: 0, behavior: "smooth"});
+    //             cardIndex = 0;
+    //             atEnd = false;
+    //             arrow.classList.remove("up");
+    //             return;
+    //         }
+    //
+    //         cards[cardIndex]
+    //             .querySelector(".detail-head")
+    //             .scrollIntoView({
+    //                 behavior: "smooth",
+    //                 block: "start"
+    //             });
+    //
+    //         atEnd = false;
+    //     }
+    //
+    //     arrow.classList.toggle("up", cardIndex === cards.length - 1 && atEnd);
+    // });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("vehicleChart");
@@ -1365,6 +1496,7 @@ new Chart(document.getElementById("barChart"), {
     },
     plugins: [ChartDataLabels]
 });
+
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menuToggle");
     const menu = document.getElementById("menu");

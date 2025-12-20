@@ -18,6 +18,51 @@
     opacity: 0.9;
 }
 
+#scrollArrow {
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    z-index: 2147483647 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    user-select: none;
+}
+
+
+.scroll-arrow {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0a5cff;
+    color: #fff;
+    font-size: 26px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    z-index: 999999; /* 🔴 хамгийн чухал */
+}
+
+.detail-head {
+    scroll-margin-top: 96px; /* header өндөрт тааруулж */
+}
+
+@media (max-width: 768px) {
+    #scrollArrow {
+        display: none !important;
+    }
+}
+
+/*.gallery-section {*/
+/*    scroll-margin-top: 24px;*/
+/*}*/
+
+.scroll-arrow.up {
+    transform: rotate(180deg);
+}
+
 .report-table th,
 .report-table td {
     text-align: center;

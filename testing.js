@@ -108,66 +108,82 @@ document.addEventListener("DOMContentLoaded", () => {
                 "1.5 Аж ахуйн эд хогшил",
                 "3.1 Тоног төхөөрөмжийн",
                 "4. БУСАД",
-                "НИЙТ"
             ],
             datasets: [
                 {
                     label: "100%",
-                    data: [7, 11, 5, 8, 3, 34],
+                    data: [7, 11, 5, 8, 3],
                     backgroundColor: "#4caf50"
                 },
                 {
                     label: "75%",
-                    data: [0, 0, 0, 1, 2, 3],
+                    data: [0, 0, 0, 1, 2],
                     backgroundColor: "#ffc107"
                 },
                 {
                     label: "50%",
-                    data: [0, 0, 0, 0, 0, 0],
+                    data: [0, 0, 0, 0, 0],
                     backgroundColor: "#ff9800"
                 },
                 {
                     label: "0%",
-                    data: [1, 0, 0, 3, 0, 4],
+                    data: [1, 0, 0, 3, 0],
                     backgroundColor: "#f44336"
                 }
             ]
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: false,
-
             scales: {
                 x: {
+                    stacked: false,
                     ticks: {
                         maxRotation: 0,
-                        minRotation: 0,
-                        autoSkip: false,
-                        font: {
-                            size: window.innerWidth < 768 ? 10 : 12
-                        }
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 10
+                        minRotation: 0
                     }
                 }
             },
-
-            plugins: {
-                legend: {
-                    position: "bottom",
-                    labels: {
-                        boxWidth: 14,
-                        font: {
-                            size: 12
-                        }
-                    }
+            datasets: {
+                bar: {
+                    categoryPercentage: window.innerWidth <= 768 ? 0.6 : 0.8,
+                    barPercentage: window.innerWidth <= 768 ? 0.6 : 0.9
                 }
             }
         },
+        // options: {
+        //     responsive: true,
+        //     maintainAspectRatio: false,
+        //
+        //     scales: {
+        //         x: {
+        //             ticks: {
+        //                 maxRotation: 0,
+        //                 minRotation: 0,
+        //                 autoSkip: false,
+        //                 font: {
+        //                     size: window.innerWidth < 768 ? 10 : 12
+        //                 }
+        //             }
+        //         },
+        //         y: {
+        //             beginAtZero: true,
+        //             ticks: {
+        //                 stepSize: 10
+        //             }
+        //         }
+        //     },
+        //
+        //     plugins: {
+        //         legend: {
+        //             position: "bottom",
+        //             labels: {
+        //                 boxWidth: 14,
+        //                 font: {
+        //                     size: 12
+        //                 }
+        //             }
+        //         }
+        //     }
+        // },
         plugins: [ChartDataLabels]
     });
 });
@@ -290,23 +306,41 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: {
-                    position: "bottom"
-                },
                 datalabels: {
-                    anchor: "end",
-                    align: "top",
-                    color: "#333",
+                    display: (context) => {
+                        return window.innerWidth > 768; // 🔥 утас дээр false
+                    },
                     rotation: -90,
+                    anchor: "end",
+                    align: "end",
                     font: {
                         weight: "bold",
                         size: 11
                     },
                     formatter: (value) => {
+                        if (!value) return "";
                         return value.toLocaleString() + " ₮";
                     }
                 }
             },
+            // plugins: {
+            //     legend: {
+            //         position: "bottom"
+            //     },
+            //     datalabels: {
+            //         anchor: "end",
+            //         align: "top",
+            //         color: "#333",
+            //         rotation: -90,
+            //         font: {
+            //             weight: "bold",
+            //             size: 11
+            //         },
+            //         formatter: (value) => {
+            //             return value.toLocaleString() + " ₮";
+            //         }
+            //     }
+            // },
             scales: {
                 y: {
                     beginAtZero: true,
