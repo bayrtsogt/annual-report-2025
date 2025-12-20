@@ -331,6 +331,63 @@ document.addEventListener("DOMContentLoaded", () => {
         track.appendChild(clone);
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("kiberchart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: ["Вирус, хорт программын эсрэг хамгаалсан", "Халдлагаас урьдчилан сэргийлсэн", "Автомат халдлагын эсрэг хамгаалсан", "Нийт"],
+            datasets: [
+                {
+                    label: "Кибер аюулгүй байдал",
+                    data: [648, 549, 711, 1908],
+                    backgroundColor: ["rgba(189,0,0,0.84)", "#fbf82d", "#fb9a2b", "#92fb2d"]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: "Халдлагаас хамгаалсан тоо (2025)"
+                },
+                datalabels: {
+                    color: "#000000",
+                    anchor: "end",
+                    align: "top",
+                    font: {
+                        weight: "bold",
+                        size: 16
+                    },
+                    formatter: (value) => value
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "rgb(19,19,19)"
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 16
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("navToggle");

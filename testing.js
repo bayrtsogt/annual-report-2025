@@ -135,11 +135,38 @@ document.addEventListener("DOMContentLoaded", () => {
         options: {
             scales: {
                 x: {
-                    stacked: false,
                     ticks: {
+                        autoSkip: false,
                         maxRotation: 0,
-                        minRotation: 0
+                        minRotation: 0,
+                        font: {
+                            size: window.innerWidth <= 768 ? 10 : 12
+                        },
+                        callback: function (value) {
+                            const label = this.getLabelForValue(value);
+                            return label.split(" "); // 🔥 үг бүрийг шинэ мөр болгоно
+                        }
                     }
+                }
+            },
+            plugins: {
+                datalabels: {
+                    display: (context) => {
+                        // 🔥 утас (≤768px) дээр нуух
+                        if (window.innerWidth <= 768) return false;
+
+                        const value = context.dataset.data[context.dataIndex];
+                        return value > 0; // 0 бол desktop дээр ч нуух
+                    },
+                    anchor: "end",   // баганын дээр
+                    align: "top",
+                    offset: 4,
+                    color: "#000",
+                    font: {
+                        weight: "bold",
+                        size: 12
+                    },
+                    formatter: (value) => value
                 }
             },
             datasets: {
@@ -272,15 +299,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                     label: "2025 төлөвлөгөө (сая ₮)",
                     data: [
-                        3221679900,
-                        64755100,
-                        3868000,
-                        263198400,
-                        201883600,
-                        21487200,
+                        3221679900.00,
+                        64755100.00,
+                        3868000.00,
+                        263198400.00,
+                        201883600.00,
+                        21487200.00,
                         "",
-                        3400000,
-                        1507818900
+                        3400000.00,
+                        1507818900.00
                     ],
                     backgroundColor: "#8fd04f"
                 },
@@ -306,9 +333,12 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
+                legend: {
+                    position: "bottom",
+                },
                 datalabels: {
                     display: (context) => {
-                        return window.innerWidth > 768; // 🔥 утас дээр false
+                        return window.innerWidth > 768;
                     },
                     rotation: -90,
                     anchor: "end",
@@ -318,29 +348,30 @@ document.addEventListener("DOMContentLoaded", () => {
                         size: 11
                     },
                     formatter: (value) => {
-                        if (!value) return "";
-                        return value.toLocaleString() + " ₮";
+                        if (!value || value === "") return "";
+
+                        const million = value / 1_000_000;
+                        const fixed = million.toFixed(2); // "2823.34"
+
+                        const [intPart, decimalPart] = fixed.split(".");
+
+                        // 🔥 мянгын тусгаарлагчийг . болгох
+                        const formattedInt = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                        return `${formattedInt}.${decimalPart}`;
                     }
                 }
             },
-            // plugins: {
-            //     legend: {
-            //         position: "bottom"
-            //     },
-            //     datalabels: {
-            //         anchor: "end",
-            //         align: "top",
-            //         color: "#333",
-            //         rotation: -90,
-            //         font: {
-            //             weight: "bold",
-            //             size: 11
-            //         },
-            //         formatter: (value) => {
-            //             return value.toLocaleString() + " ₮";
-            //         }
-            //     }
-            // },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: (value) => {
+                            return (value / 1_000_000).toLocaleString();
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
