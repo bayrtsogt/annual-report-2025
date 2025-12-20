@@ -179,6 +179,296 @@ body {
     z-index: 10;
 }
 
+/* === STEP WITH IMAGE === */
+.step {
+    grid-template-columns: 42px 1fr 260px;
+    align-items: center;
+}
+
+/* image container */
+.step .media {
+    position: relative;
+    width: 240px;
+    height: 160px;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(60px) rotateY(18deg) scale(.9);
+    clip-path: inset(0 100% 0 0);
+    transition: opacity .6s ease,
+    transform .9s cubic-bezier(.2, .8, .2, 1),
+    clip-path .9s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* image */
+.step .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.05) saturate(1.05);
+    transform: scale(1.08);
+    transition: transform 1.2s ease;
+}
+
+/* ACTIVE STEP IMAGE */
+.step.active .media {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg) scale(1);
+    clip-path: inset(0 0 0 0);
+}
+
+.step.active .media img {
+    transform: scale(1);
+}
+
+.step .content b {
+    font-size: 17px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* === FORCE ALL CONTENT VISIBLE (NO HOVER NEEDED) === */
+
+/* Timeline бүх step-ийг анхнаасаа тод */
+.timeline .step {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    background: rgba(255, 255, 255, .07);
+}
+
+/* Active / inactive ялгааг багасгана */
+.timeline .step.active {
+    background: rgba(255, 255, 255, .09);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
+
+/* Hover дээр өөрчлөгдөхийг болиулна */
+.timeline .step:hover {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+}
+
+/* Бүх текст тод */
+.timeline b {
+    color: rgba(255, 255, 255, .95);
+}
+
+.timeline p {
+    color: rgba(255, 255, 255, .75);
+}
+
+/* Circle icon байнга тод */
+.timeline .circle {
+    background: linear-gradient(
+            135deg,
+            rgba(88, 255, 210, .9),
+            rgba(125, 140, 255, .9)
+    );
+    box-shadow: 0 0 0 6px rgba(88, 255, 210, .18),
+    0 0 24px rgba(88, 255, 210, .35);
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 260px;
+    background: rgba(255, 255, 255, .04);
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 18px;
+}
+
+.gallery .thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.gallery .thumbs img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 👈 НЭГ ХЭВ */
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    opacity: .75;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.gallery .thumbs img.active {
+    opacity: 1;
+    border-color: #4fe3b3;
+    box-shadow: 0 0 0 2px rgba(79, 227, 179, .35);
+}
+
+/* TEXT + IMAGE зэрэгцэх хэсэг */
+.step .row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* TEXT */
+.step .text {
+    flex: 1;
+    min-width: 0;
+}
+
+.step .text b {
+    font-size: 17px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.step .text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, .75);
+}
+
+/* GALLERY */
+.step .gallery {
+    flex: 1;
+    max-width: 420px; /* projector дээр хэт томрохоос сэргийлнэ */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* main image */
+.gallery .main {
+    height: 180px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .14);
+}
+
+.gallery .main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* thumbnails */
+.gallery .thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+}
+
+@media (max-width: 900px) {
+    .step .row {
+        flex-direction: column;
+    }
+
+    .step .gallery {
+        max-width: 100%;
+    }
+}
+
+.gallery .thumbs img {
+    height: 46px;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: .7;
+    border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.gallery .thumbs img.active {
+    opacity: 1;
+    border-color: #4fe3b3;
+}
+
+/* main image */
+.gallery .main {
+    height: 160px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .15);
+}
+
+.gallery .main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* thumbs */
+.gallery .thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+}
+
+.gallery .thumbs img {
+    height: 46px;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: .7;
+    cursor: pointer;
+    transition: all .25s ease;
+    border: 1px solid rgba(255, 255, 255, .12);
+}
+
+.gallery .thumbs img.active {
+    opacity: 1;
+    border-color: rgba(88, 255, 210, .9);
+    box-shadow: 0 0 0 2px rgba(88, 255, 210, .25);
+}
+
+/* Зураг (media) байнга харагдана */
+.timeline .media {
+    opacity: 1 !important;
+    filter: none !important;
+    clip-path: inset(0 0 0 0) !important;
+    transform: none !important;
+}
+
+/* Hover blur устгана */
+.timeline:hover .step {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.step .subtitle {
+    font-size: 13px;
+    color: rgba(125, 140, 255, .9);
+    margin-bottom: 6px;
+}
+
+.step .content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, .72);
+}
+
+/* inactive steps fade */
+.step:not(.active) .media {
+    filter: blur(2px);
+}
+
+/* mobile */
+@media (max-width: 900px) {
+    .step {
+        grid-template-columns: 42px 1fr;
+    }
+
+    .step .media {
+        width: 100%;
+        height: 180px;
+        margin-top: 14px;
+        transform: translateY(30px) scale(.95);
+    }
+}
+
 /* Dots */
 .dots {
     position: fixed;
@@ -425,8 +715,8 @@ h1 {
 
 .step {
     display: grid;
-    grid-template-columns: 42px 1fr;
-    gap: 12px;
+    grid-template-columns: 42px 1.2fr 1fr;
+    gap: 18px;
     padding: 14px 14px;
     border-radius: 20px;
     border: 1px solid var(--stroke);
