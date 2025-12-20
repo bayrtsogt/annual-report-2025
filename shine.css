@@ -296,6 +296,341 @@ body {
     animation: gridMove 20s linear infinite;
 }
 
+/* =========================
+   MOBILE FULL-WIDTH FIX
+   (iPhone 12 Pro, ≤430px)
+   ========================= */
+@media (max-width: 430px) {
+
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* NAV BAR */
+    .topbar,
+    .topbar .wrap {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    /* ГАДНА WRAPPER-ууд */
+    #heseg,
+    .detail-grid-col-all,
+    .hero-block,
+    .hero-detail {
+        width: 100%;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* CARD */
+    .detail-card {
+        width: 100%;
+        max-width: 100% !important;
+        margin: 0 0 16px 0 !important;
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    /* 2 багана → 1 багана */
+    .r-split,
+    .detail-grid,
+    .card-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 18px;
+    }
+
+    /* CHART / CANVAS */
+    canvas {
+        width: 100% !important;
+        height: 320px !important;
+    }
+
+    /* STAT BOX */
+    .detail-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .d-stat {
+        flex: 1 1 45%;
+        min-width: 140px;
+    }
+
+    /* GALLERY */
+    .gallery-section {
+        padding: 0;
+    }
+
+    .gallery-track {
+        animation: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 12px;
+    }
+
+    .gallery-track img {
+        width: 220px;
+        height: 150px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
+
+    /* TEXT */
+    h2 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p, li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 16px 12px;
+        text-align: center;
+        font-size: 13px;
+    }
+}
+
+/* ===============================
+   MOBILE IMAGE FULL FIX
+   =============================== */
+@media (max-width: 430px) {
+
+    /* row -> column */
+    .r-split {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* figure reset */
+    .r-media {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* IMAGE */
+    .r-media img {
+        width: 100%;
+        max-width: 100%;
+        height: auto; /* 🔑 хамгийн чухал */
+        object-fit: contain; /* 🔑 зүсэхгүй */
+        border-radius: 14px;
+        display: block;
+    }
+
+    /* CANVAS (chart) */
+    .r-media canvas {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* ===============================
+   ROW + GALLERY MOBILE FIX
+   (iPhone 12 Pro)
+   =============================== */
+/* ===============================
+   STEP STACK FALLBACK (MOBILE)
+   =============================== */
+@media (max-width: 430px) {
+
+    /* STEP бүхэлдээ card болно */
+    .step {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px 0;
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* CIRCLE – шууд дээр нь, голд */
+    .step .circle {
+        position: static !important;
+        margin: 0 auto 12px auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #38bdf8;
+        color: #000;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ROW → COLUMN */
+    .step .row {
+        display: block !important;
+        width: 100%;
+    }
+
+    /* TEXT */
+    .step .text {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 12px;
+    }
+
+    .step .text b {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .step .text p {
+        font-size: 14px;
+        line-height: 1.6;
+        word-break: break-word;
+    }
+
+    /* GALLERY */
+    .step .gallery {
+        width: 100%;
+    }
+
+    .step .gallery .main img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 12px;
+        display: block;
+    }
+
+    /* THUMBS → swipe */
+    .step .gallery .thumbs {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+        overflow-x: auto;
+    }
+
+    .step .gallery .thumbs img {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 430px) {
+
+    /* 🔒 Бүх хажуу overflow-г зогсооно */
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* STEP */
+    .step {
+        width: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+    }
+
+    /* CIRCLE – дээд талд */
+    .step .circle {
+        margin: 0 auto 12px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #38bdf8;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+    }
+
+    /* 🔥 ROW-ийг бүрэн UNAGAAH */
+    .step .row {
+        display: block !important;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* TEXT */
+    .step .text {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+
+    .step .text b {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .step .text p {
+        font-size: 14px;
+        line-height: 1.6;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    /* GALLERY */
+    .step .gallery {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .step .gallery .main img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        object-fit: contain;
+        display: block;
+    }
+
+    /* THUMBS – хажуу тийш гулсдаг */
+    .step .gallery .thumbs {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+        overflow-x: auto;
+    }
+
+    .step .gallery .thumbs img {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
 @keyframes gridMove {
     from {
         background-position: 0 0, 0 0;
