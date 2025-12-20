@@ -1219,7 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     formatter: v => v,
                     font: {
                         weight: "bold",
-                        size: 11
+                        size: 16
                     }
                 }
             },

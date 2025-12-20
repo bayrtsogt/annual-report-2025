@@ -286,6 +286,57 @@ body {
     gap: 18px;
 }
 
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(transparent 95%, rgba(255, 255, 255, .04) 96%),
+    linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, .04) 96%);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    from {
+        background-position: 0 0, 0 0;
+    }
+    to {
+        background-position: 60px 60px, 60px 60px;
+    }
+}
+
+/* ===== AURORA BACKGROUND ===== */
+.bg-aurora {
+    position: fixed;
+    inset: -40%;
+    z-index: 0;
+    pointer-events: none;
+
+    background: radial-gradient(40% 35% at 20% 30%, rgba(88, 255, 210, .18), transparent 60%),
+    radial-gradient(45% 40% at 80% 20%, rgba(110, 170, 255, .22), transparent 60%),
+    radial-gradient(40% 45% at 60% 80%, rgba(255, 140, 200, .18), transparent 60%);
+
+    filter: blur(80px);
+    animation: auroraMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(-6%, -4%) scale(1.08);
+    }
+}
+
+/* cards дээр давхарлахаас сэргийлнэ */
+.detail-card,
+.hero-block,
+.hero-detail {
+    position: relative;
+    z-index: 2;
+}
+
 .gallery .thumbs {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
