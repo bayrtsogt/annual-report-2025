@@ -819,6 +819,85 @@ tr.danger {
     }
 }
 
+@media (max-width: 768px) {
+
+    /* table wrapper */
+    .table-wrap {
+        overflow: visible;
+    }
+
+    .report-table {
+        width: 100%;
+        border: 0;
+    }
+
+    /* header-ийг нуух */
+    .report-table thead {
+        display: none;
+    }
+
+    /* мөр бүр card болно */
+    .report-table tr {
+        display: block;
+        margin-bottom: 16px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+        padding: 10px 0;
+    }
+
+    /* section row */
+    .report-table tr.section-row {
+        box-shadow: none;
+        background: #f1f5f9;
+        padding: 12px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    /* нүд бүр */
+    .report-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 14px;
+        border-bottom: 1px dashed #e5e7eb;
+        font-size: 14px;
+    }
+
+    .report-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* label (зүүн талын нэр) */
+    .report-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #475569;
+        margin-right: 10px;
+        text-align: left;
+    }
+
+    /* percent төвд */
+    .report-table td .percent {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-detail,
+    .detail-panel {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .r-media {
     margin: 0;
     /*background: var(--card);*/
