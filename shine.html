@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>МТАА | ТАЙЛАН 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="shine.css">
+    <link rel="icon" href="assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ===== NAV BAR ===== -->
+<div class="topbar">
+    <div class="wrap">
+        <div class="brand">
+            <span class="brand-dot"></span>
+            <span style="font-size: 18px">MTAA | ТАЙЛАН 2025</span>
+        </div>
+        <button class="nav-toggle" id="navToggle">☰</button>
+        <ul class="menu" id="navMenu">
+            <li class="highlight-soft"><a href="index.html" class="active">Нүүр</a></li>
+            <li class="highlight-soft"><a href="testing.html">Мэдээллийн ил тод байдал</a></li>
+            <li class="dropdown highlight-soft">
+                <a href="#" class="dropdown-toggle">
+                    Онцлох тайлан <span class="arrow">▾</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="tailan.html">Office хэсэг</a></li>
+                    <li><a href="tailan1.html">Дата хяналт хэсэг</a></li>
+                    <li><a href="tailan2.html">Программын хэсэг</a></li>
+                    <li><a href="tailan3.html">Хяналт удирдлагын хэсэг</a></li>
+                    <li><a href="tailan4.html">Цэвэр усны тоног төхөөрөмжийн засварын хэсэг</a></li>
+                    <li><a href="tailan5.html">Бохир усны тоног төхөөрөмжийн засварын хэсэг</a></li>
+                    <li><a href="tailan6.html">ХАБЭА</a></li>
+                </ul>
+            </li>
+            <li class="highlight-soft"><a href="power.html">power BI</a></li>
+            <li class="highlight-soft"><a href="shine.html">Шинээр санаачилсан ажил</a></li>
+        </ul>
+    </div>
+</div>
+<div class="glow" id="glow"></div>
+<div class="noise"></div>
+<div class="bar"><i id="bar"></i></div>
+<div class="dots" id="dots"></div>
+<main class="scroller" id="scroller">
+    <!-- Scene 3 -->
+    <section class="scene s3" data-title="03">
+        <div class="wrap">
+            <div class="glass timeline">
+                <div class="kicker"><i class="kdot"></i> Scene 03 • Алхамууд</div>
+
+                <h1 style="margin-top:2px;">
+                    <span class="reveal-line"><span>Timeline</span></span>
+                    <span class="reveal-line"><span>өөр бүтэцтэй</span></span>
+                </h1>
+
+                <div class="step">
+                    <div class="circle">1</div>
+                    <div>
+                        <b>Судалгаа / анализ</b>
+                        <p>Одоо байгаа процесс, асуудлыг задлан шинжилсэн.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="circle">2</div>
+                    <div>
+                        <b>Шийдлийн загвар</b>
+                        <p>UI/UX, архитектур, өгөгдлийн урсгалыг тодорхойлсон.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="circle">3</div>
+                    <div>
+                        <b>Хэрэгжилт & нэвтрүүлэлт</b>
+                        <p>Тест + гүйцэтгэл + хэрэглэгчийн туршилт.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2025 | Мэдээллийн технологи, автоматжуулалтын алба
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+    const scroller = document.getElementById('scroller');
+    const scenes = [...document.querySelectorAll('.scene')];
+    const dots = document.getElementById('dots');
+    const bar = document.getElementById('bar');
+
+    // Dots build
+    scenes.forEach((s, i) => {
+        const b = document.createElement('button');
+        b.title = s.dataset.title || `0${i + 1}`;
+        b.onclick = () => go(i);
+        dots.appendChild(b);
+    });
+
+    function go(i) {
+        const el = scenes[i];
+        if (!el) return;
+        scroller.scrollTo({top: el.offsetTop, behavior: 'smooth'});
+    }
+
+    // Active scene + inview
+    let active = 0;
+    const io = new IntersectionObserver(entries => {
+        const v = entries.filter(e => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!v) return;
+
+        const idx = scenes.indexOf(v.target);
+        if (idx >= 0) {
+            active = idx;
+            scenes.forEach((s, j) => s.classList.toggle('inview', j === idx));
+            [...dots.children].forEach((d, j) => d.classList.toggle('active', j === idx));
+            bar.style.width = `${(idx / (scenes.length - 1)) * 100}%`;
+        }
+    }, {root: scroller, threshold: [0.55, 0.75, 0.9]});
+    scenes.forEach(s => io.observe(s));
+
+    // Buttons
+    document.getElementById('next').onclick = () => go(Math.min(active + 1, scenes.length - 1));
+    document.getElementById('prev').onclick = () => go(Math.max(active - 1, 0));
+    document.getElementById('top').onclick = () => go(0);
+
+    // Keyboard
+    window.addEventListener('keydown', (e) => {
+        if (['ArrowDown', 'PageDown'].includes(e.key)) {
+            e.preventDefault();
+            document.getElementById('next').click();
+        }
+        if (['ArrowUp', 'PageUp'].includes(e.key)) {
+            e.preventDefault();
+            document.getElementById('prev').click();
+        }
+    }, {passive: false});
+
+    // Cursor glow
+    const glow = document.getElementById('glow');
+    let gx = innerWidth / 2, gy = innerHeight / 2;
+    window.addEventListener('mousemove', (e) => {
+        gx = e.clientX;
+        gy = e.clientY;
+    });
+    (function rafGlow() {
+        glow.style.left = gx + 'px';
+        glow.style.top = gy + 'px';
+        requestAnimationFrame(rafGlow);
+    })();
+
+    // Magnetic buttons (simple)
+    document.querySelectorAll('.magnetic').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const r = btn.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width) * 100;
+            const y = ((e.clientY - r.top) / r.height) * 100;
+            btn.style.setProperty('--mx', x + '%');
+            btn.style.setProperty('--my', y + '%');
+        });
+    });
+
+    // 3D Tilt cards
+    const tilts = [...document.querySelectorAll('[data-tilt]')];
+    tilts.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const r = card.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width;
+            const py = (e.clientY - r.top) / r.height;
+            const rx = (py - 0.5) * -10;
+            const ry = (px - 0.5) * 12;
+            card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(900px) rotateX(0deg) rotateY(0deg)`;
+        });
+    });
+
+    // Parallax posters
+    const posters = [...document.querySelectorAll('[data-parallax]')];
+    scroller.addEventListener('scroll', () => {
+        const st = scroller.scrollTop;
+        posters.forEach(p => {
+            const speed = parseFloat(p.dataset.parallax || '0.2');
+            const top = p.closest('.scene').offsetTop;
+            const y = (st - top) * speed;
+            const img = p.querySelector('img');
+            if (img) img.style.transform = `translateY(${y * -0.15}px) scale(1.05)`;
+        });
+    }, {passive: true});
+
+    // Count up (once per scene)
+    const started = new WeakSet();
+
+    function count(el) {
+        const to = Number(el.dataset.to || 0);
+        const dur = 900;
+        const start = performance.now();
+        const from = 0;
+
+        function tick(now) {
+            const t = Math.min(1, (now - start) / dur);
+            const eased = 1 - Math.pow(1 - t, 3);
+            const val = Math.round(from + (to - from) * eased);
+            el.textContent = val.toLocaleString();
+            if (t < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+    }
+
+    const counterIO = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const counters = e.target.querySelectorAll('.counter');
+            counters.forEach(c => {
+                if (started.has(c)) return;
+                started.add(c);
+                count(c);
+            });
+        });
+    }, {root: scroller, threshold: 0.6});
+    scenes.forEach(s => counterIO.observe(s));
+    const steps = document.querySelectorAll('.timeline .step');
+
+    const stepObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                steps.forEach(s => s.classList.remove('active'));
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.6
+    });
+
+    steps.forEach(step => stepObserver.observe(step));
+</script>
+</body>
+</html>

@@ -286,6 +286,52 @@ document.addEventListener("DOMContentLoaded", () => {
         track.appendChild(clone);
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("navToggle");
+    const menu = document.getElementById("navMenu");
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        document.body.classList.toggle("menu-open");
+        toggle.textContent = menu.classList.contains("open") ? "✕" : "☰";
+    });
+
+    menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+            menu.classList.remove("open");
+            document.body.classList.remove("menu-open");
+            toggle.textContent = "☰";
+        });
+    });
+});
+
+document.querySelectorAll(".menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelectorAll(".menu a")
+            .forEach(a => a.classList.remove("active"));
+        link.classList.add("active");
+    });
+});
+const scrollElements = document.querySelectorAll(".animate-on-scroll, .animate-card");
+const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            if (entry.target.classList.contains('stat-box')) {
+                const num = entry.target.querySelector('.counter');
+                if (num && !num.dataset.started) {
+                    num.dataset.started = "true";
+                    runCounter(num);
+                }
+            }
+            obs.unobserve(entry.target);
+        }
+    });
+}, {threshold: 0.15});
+
+scrollElements.forEach(el => observer.observe(el));
+console.log(document.body.scrollHeight)
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("monthlyCallChart");
 
