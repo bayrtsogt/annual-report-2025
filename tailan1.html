@@ -15,7 +15,6 @@
 </head>
 <body>
 
-<!-- ===== NAV BAR ===== -->
 <div class="topbar">
     <div class="wrap">
         <div class="brand">
@@ -45,7 +44,19 @@
         </ul>
     </div>
 </div>
-
+<div class="fab-hover-area">
+    <div class="fab-container">
+        <div class="fab-actions">
+            <a href="tailan.html" class="fab-action" data-label="Office хэсэг">💼</a>
+            <a href="tailan1.html" class="fab-action" data-label="Дата хяналт">📊</a>
+            <a href="tailan2.html" class="fab-action" data-label="Программын хэсэг">🧠</a>
+            <a href="tailan3.html" class="fab-action" data-label="Хяналт удирдлага">🖥️</a>
+            <a href="tailan4.html" class="fab-action" data-label="Цэвэр усны тоног төхөөрөмжийн засварын хэсэг">🚰</a>
+            <a href="tailan5.html" class="fab-action" data-label="Бохир усны тоног төхөөрөмжийн засварын хэсэг">♻️</a>
+            <a href="tailan6.html" class="fab-action" data-label="ХАБЭА">🦺</a>
+        </div>
+    </div>
+</div>
 <section id="heseg">
     <!-- ===== Компьютер ===== -->
     <div class="detail-grid-col-all">
@@ -221,29 +232,26 @@
                         <div class="detail-panel">
                             <div class="detail-section">
                                 <h3>Видео</h3>
-                                <video class="tele" autoplay muted loop playsinline>
-                                    <source src="assets/telemetr/худаг%20доторлогоо%202.mp4" type="video/mp4">
-                                    Таны браузер видеог дэмжихгүй байна.
-                                </video>
-                                <video class="tele1" autoplay muted loop playsinline>
-                                    <source src="assets/telemetr/Худаг%20доторлогоо.mp4" type="video/mp4">
-                                    Таны браузер видеог дэмжихгүй байна.
-                                </video>
+                                <div class="video-row">
+                                    <div class="blur"></div>
+                                    <video class="tele" autoplay muted loop playsinline>
+                                        <source src="assets/telemetr/худаг%20доторлогоо%202.mp4" type="video/mp4">
+                                        Таны браузер видеог дэмжихгүй байна.
+                                    </video>
+                                    <video class="tele" autoplay muted loop playsinline>
+                                        <source src="assets/telemetr/Худаг%20доторлогоо.mp4" type="video/mp4">
+                                        Таны браузер видеог дэмжихгүй байна.
+                                    </video>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="detail-card" id="gps">
                     <div class="detail-head">
                         <h2>Тээврийн хэрэгслийн байршил, хөдөлгөөний хяналтын систем(GPS)</h2>
-                        <!--                        <p class="detail-sub">-->
-                        <!--&lt;!&ndash;                            2025 оны жилийн эцсийн нэгдсэн тайлан Тээврийн хэрэгслийн байршил, хөдөлгөөний хяналтын&ndash;&gt;-->
-                        <!--&lt;!&ndash;                            систем&ndash;&gt;-->
-                        <!--                        </p>-->
                     </div>
                     <div class="detail-stats">
-                        <!--                        <div class="d-stat"><b>23</b><span>ХАБЭА ажлын зөвшөөрөл</span></div>-->
                         <div class="d-stat"><b>113</b><span>Нийт</span></div>
                         <div class="d-stat"><b>12</b><span>Бохир усны машин</span></div>
                         <div class="d-stat"><b>70</b><span>Цэвэр усны машин</span></div>
@@ -283,28 +291,13 @@
                         </div>
                         <div class="detail-section">
                             <h3>Видео</h3>
+                            <div class="video-row">
                             <video class="texnik" autoplay muted loop playsinline>
                                 <source src="assets/gps/5.Bichleg.mp4" type="video/mp4">
                                 Таны браузер видеог дэмжихгүй байна.
                             </video>
+                            </div>
                         </div>
-                        <!--                            <div class="detail-section highlight">-->
-                        <!--                                <h3>Шинэ санаачлага</h3>-->
-                        <!--                                <p>-->
-                        <!--                                    Түлш хэмжигч болон байршил тогтоох төхөөрөмжийн-->
-                        <!--                                    тэжээлийн, сигналийн кабелийг-->
-                        <!--                                    засвар үйлчилгээний үед гэмтэхээс-->
-                        <!--                                    сэргийлэх зорилгоор-->
-                        <!--                                    туршилтаар-->
-                        <!--                                    <b>21-37УНТ</b> улсын дугаартай-->
-                        <!--                                    тээврийн хэрэгслийн кабелийн-->
-                        <!--                                    монтажийг илүү бат бөх,-->
-                        <!--                                    даац сайтай-->
-                        <!--                                    <b>PVC хоолойд</b>-->
-                        <!--                                    хийж суурилуулсан.-->
-                        <!--                                </p>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
                     </div>
                     <div class="detail-grid">
                         <div class="detail-panel">
@@ -313,7 +306,6 @@
                                 <div style="height: 344px;width: 100%;background:#fff;border-radius:16px;padding:16px;">
                                     <canvas id="vehicleChart"></canvas>
                                 </div>
-                                <!--                                <small class="note">* График дээр тоо автоматаар харагдана</small>-->
                             </div>
                         </div>
                         <section class="gallery-section">
@@ -385,7 +377,6 @@
         </section>
     </div>
 </section>
-<button id="scrollArrow" class="scroll-arrow">↓</button>
 <footer style="">
     © 2025 | Мэдээллийн технологи, автоматжуулалтын алба
 </footer>

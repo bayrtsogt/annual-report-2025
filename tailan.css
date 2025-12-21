@@ -47,6 +47,7 @@
 .detail-head {
     scroll-margin-top: 96px; /* header өндөрт тааруулж */
 }
+
 /*.gallery-section {*/
 /*    scroll-margin-top: 24px;*/
 /*}*/
@@ -206,8 +207,6 @@
 tr.danger {
     background: #fff5f5;
 }
-
-
 
 
 .section-hero {
@@ -572,12 +571,12 @@ canvas {
 
 .d-stat b {
     display: block;
-    font-size: 16px
+    font-size: 20px
 }
 
 .d-stat span {
     display: block;
-    font-size: 12px;
+    font-size: 16px;
     opacity: .75
 }
 
@@ -742,6 +741,37 @@ canvas {
     border-radius: 12px;
 }
 
+
+.video-row {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 16px;
+}
+
+.video-row.blur {
+    background: url('https://picsum.photos/1200') no-repeat center
+}
+
+@media (max-width: 900px) {
+    .video-row {
+        height: 520px;
+    }
+
+    .video-row {
+        flex-direction: column; /* утсан дээр column болно */
+    }
+
+    .tele {
+        width: min(260px, 90%);
+        max-height: 220px;
+    }
+}
+
 .tele {
     max-width: 1000px;
     height: 325px;
@@ -751,6 +781,20 @@ canvas {
 .tele video {
     width: 100%;
     border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .video-wrap {
+        height: 360px;
+    }
+
+    .video-wrap .tele {
+        max-width: 200px;
+    }
+
+    .video-wrap .tele1 {
+        max-width: 200px;
+    }
 }
 
 .texnik {
@@ -764,16 +808,15 @@ canvas {
     border-radius: 12px;
 }
 
-.tele1 {
-    max-width: 1000px;
-    height: 325px;
-    margin: 20px auto;
+
+@media (width: 1024px) {
+    .video-box1 {
+        max-width: 1000px;
+        height: 227px;
+        margin: 20px auto;
+    }
 }
 
-.tele1 video {
-    width: 100%;
-    border-radius: 12px;
-}
 
 .tsewer {
     max-width: 1000px;
@@ -1205,6 +1248,102 @@ svg {
     color: #1f3a5f;
 }
 
+.fab-hover-area {
+    position: fixed;
+    /*right: 24px; !* баруун зах *!*/
+    top: 50%; /* 🔥 дэлгэцийн дунд */
+    transform: translateY(-50%);
+    width: 120px;
+    height: auto;
+    z-index: 1000;
+}
+
+.fab-container {
+    position: relative; /* absolute хэрэггүй */
+    right: 0;
+}
+
+.fab-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    bottom: 70px;
+    right: 0;
+}
+
+.fab-hover-area:hover .fab-actions {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fab-main {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: #0a5e02;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+}
+
+.fab-action {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+}
+
+.fab-action.active {
+    background: #0f766e; /* цэнхэр */
+    color: #fff;
+}
+
+.fab-action::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 110%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1f2d3d;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease;
+    z-index: 10000;
+}
+
+.fab-action::before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #1f2d3d;
+    opacity: 0;
+    transition: opacity .15s ease;
+    z-index: 10000;
+}
+
+.fab-action:hover::after,
+.fab-action:hover::before {
+    opacity: 1;
+}
+
 .report-card h4 {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -1262,6 +1401,7 @@ svg {
     #scrollArrow {
         display: none !important;
     }
+
     .report-table thead {
         display: none;
     }
@@ -1573,6 +1713,7 @@ svg {
     .report-table td .percent {
         margin-left: auto;
     }
+
     .hero-detail,
     .detail-panel {
         max-height: none !important;
@@ -1653,6 +1794,7 @@ svg {
         opacity: 0.3;
         transform: scale(0.7);
     }
+
     .gallery-track img {
         width: 220px;
         height: 150px;

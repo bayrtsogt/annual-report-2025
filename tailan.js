@@ -9,7 +9,14 @@ document.querySelectorAll(".r-thumb").forEach(img => {
         lb.setAttribute("aria-hidden", "false");
     });
 });
+const currentPage = location.pathname.split("/").pop();
 
+document.querySelectorAll(".fab-action").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+        link.classList.add("active");
+    }
+});
 // ===== ORG TREE NODE TOGGLE =====
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("hab");
