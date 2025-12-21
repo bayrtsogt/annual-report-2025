@@ -606,9 +606,11 @@ canvas {
 
 .detail-panel {
     background: #fff;
-    border: 1px solid #eef2f6;
-    border-radius: 14px;
-    padding: 14px;
+    padding: 10px;
+}
+.detail-panel:not(:last-child) {
+    padding-right: 30px;
+    border-right: 1px solid #e6ecf5;
 }
 
 .detail-panel h4 {
@@ -1351,10 +1353,12 @@ svg {
 }
 
 .summary {
+    margin: 15px 0;
     background: #f4f8ff;
     padding: 12px 16px;
     border-left: 4px solid #4a90e2;
     border-radius: 8px;
+    font-size: 14px;
 }
 
 .saving {

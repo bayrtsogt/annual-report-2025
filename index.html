@@ -2,7 +2,7 @@
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
-    <title>МТАА | Хэсгийн тайлан 2025</title>
+    <title>МТАА | 2025</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="tailan.css">
@@ -12,54 +12,13 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggle = document.getElementById("navToggle");
-            const menu = document.getElementById("navMenu");
-
-            toggle.addEventListener("click", () => {
-                menu.classList.toggle("open");
-                document.body.classList.toggle("menu-open");
-                toggle.textContent = menu.classList.contains("open") ? "✕" : "☰";
-            });
-
-            menu.querySelectorAll("a").forEach(a => {
-                a.addEventListener("click", () => {
-                    menu.classList.remove("open");
-                    document.body.classList.remove("menu-open");
-                    toggle.textContent = "☰";
-                });
-            });
-        });
-
-        document.querySelectorAll(".menu a").forEach(link => {
-            link.addEventListener("click", () => {
-                document.querySelectorAll(".menu a")
-                    .forEach(a => a.classList.remove("active"));
-                link.classList.add("active");
-            });
-        });
-        const scrollElements = document.querySelectorAll(".animate-on-scroll, .animate-card");
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("in-view");
-                    if (entry.target.classList.contains('stat-box')) {
-                        const num = entry.target.querySelector('.counter');
-                        if (num && !num.dataset.started) {
-                            num.dataset.started = "true";
-                            runCounter(num);
-                        }
-                    }
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, {threshold: 0.15});
-
-        scrollElements.forEach(el => observer.observe(el));
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="testing.js"></script>
+    <script src="snow.js" defer></script>
 </head>
 <body>
+<div id="snow-container"></div>
+
 <!-- ===== NAV BAR ===== -->
 <div class="topbar">
     <div class="wrap">
@@ -69,21 +28,21 @@
         <button class="nav-toggle" id="navToggle">☰</button>
         <ul class="menu" id="navMenu">
             <li class="highlight-soft"><a href="index.html" class="active">Нүүр</a></li>
-            <li class="highlight-soft"><a href="testing.html">Мэдээллийн ил тод байдал</a></li>
-            <li class="dropdown highlight-soft">
-                <a href="#" class="dropdown-toggle">
-                    Онцлох тайлан <span class="arrow">▾</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="tailan.html">Office хэсэг</a></li>
-                    <li><a href="tailan1.html">Дата хяналт хэсэг</a></li>
-                    <li><a href="tailan2.html">Программын хэсэг</a></li>
-                    <li><a href="tailan3.html">Хяналт удирдлагын хэсэг</a></li>
-                    <li><a href="tailan4.html">Цэвэр усны тоног төхөөрөмжийн засварын хэсэг</a></li>
-                    <li><a href="tailan5.html">Бохир усны тоног төхөөрөмжийн засварын хэсэг</a></li>
-                    <li><a href="tailan6.html">ХАБЭА</a></li>
-                </ul>
-            </li>
+            <li class="highlight-soft"><a href="special_report.html" class="active">Онцлох тайлан</a></li>
+<!--            <li class="dropdown highlight-soft">-->
+<!--                <a href="#" class="dropdown-toggle">-->
+<!--                    Онцлох тайлан <span class="arrow">▾</span>-->
+<!--                </a>-->
+<!--                <ul class="dropdown-menu">-->
+<!--                    <li><a href="tailan.html">Office хэсэг</a></li>-->
+<!--                    <li><a href="tailan1.html">Дата хяналт хэсэг</a></li>-->
+<!--                    <li><a href="tailan2.html">Программын хэсэг</a></li>-->
+<!--                    <li><a href="tailan3.html">Хяналт удирдлагын хэсэг</a></li>-->
+<!--                    <li><a href="tailan4.html">Цэвэр усны тоног төхөөрөмжийн засварын хэсэг</a></li>-->
+<!--                    <li><a href="tailan5.html">Бохир усны тоног төхөөрөмжийн засварын хэсэг</a></li>-->
+<!--                    <li><a href="tailan6.html">ХАБЭА</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
             <li class="highlight-soft"><a href="power.html">power BI</a></li>
             <li class="highlight-soft"><a href="shine.html">Шинээр санаачилсан ажил</a></li>
         </ul>
@@ -131,108 +90,176 @@
     </div>
 </div>
 
-<div class="sidebar-menu">
+<div class="sidebar-menu  reveal-on-content">
     <ul>
-        <li class="selected">Албаны бүтэц</li>
-        <li>Хүний нөөц</li>
-        <li>Санхүү</li>
-        <li>Хөрөнгө оруулалт</li>
-        <li>Гүйцэтгэл</li>
-        <li>Дүгнэлт, цаашдын зорилт</li>
+        <li class="selected" data-target="butets">Албаны бүтэц</li>
+        <li data-target="hr">Хүний нөөц</li>
+        <li data-target="nebo">Санхүү</li>
+        <li data-target="investment">Хөрөнгө оруулалт</li>
+        <li data-target="gvitsetgel">Гүйцэтгэл</li>
+        <li data-target="summary">Дүгнэлт, цаашдын зорилт</li>
     </ul>
 </div>
 <div class="content">
-    <section id="butets">
+    <section id="butets" class="section">
         <h1>Албаны бүтэц</h1>
         <p>IT, OT багууд бүхий 56 ажилтны орон тоотой ажиллаж байна.</p>
         <img src="assets/structure.png" alt="structure" class="structure-img">
     </section>
-    <section id="hr">
+    <section id="hr"  class="section">
         <h1>Хүний нөөц</h1>
         <p>Мэргэшсэн инженерүүд, тасралтгүй сургалт, мэдлэгийн урсгал.</p>
+        <div class="hr-grid" style="margin-top: 20px">
+            <div class="graph">
+                <div class="count-box">
+                    <center><p>Нийт ажилтан</p></center>
+                    <center><h2>56</h2></center>
+                </div>
+            </div>
+            <div class="graph">
+                <div class="count-box">
+                    <center><p>Удирдлага</p></center>
+                    <center><h2>1</h2></center>
+                </div>
+            </div>
+            <div class="graph">
+                <div class="count-box">
+                    <center><p>Инженер</p></center>
+                    <center><h2>26</h2></center>
+                </div>
+            </div>
+            <div class="graph">
+                <div class="count-box">
+                    <center><p>Албан хаагч</p></center>
+                    <center><h2>3</h2></center>
+                </div>
+            </div>
+            <div class="graph">
+                <div class="count-box">
+                    <center><p>Техникч</p></center>
+                    <center><h2>15</h2></center>
+                </div>
+            </div>
+            <div class="graph">
+                <div class="count-box">
+                    <center><p>Засварчин</p></center>
+                    <center><h2>11</h2></center>
+                </div>
+            </div>
+        </div>
         <div class="hr-grid">
-
-            <div class="detail-panel">
+            <div class="graph">
                 <div class="chart-box">
+                    <center><h4>Хүйсийн харьцаа</h4></center>
                     <canvas id="huis"></canvas>
                 </div>
             </div>
-            <div class="detail-panel">
+            <div class="graph">
                 <div class="chart-box">
+                    <center><h4>Насны ангилал</h4></center>
                     <canvas id="nas"></canvas>
                 </div>
             </div>
-            <div class="detail-panel">
+            <div class="graph">
                 <div class="chart-box">
+                    <center><h4>Сургалтын тоо</h4></center>
                     <canvas id="surgalt"></canvas>
                 </div>
             </div>
         </div>
     </section>
-<!--    <section id="hr" class="section light animate-on-scroll">-->
-<!--        <h2>Хүний нөөц, сургалт</h2>-->
-<!--        <p class="section-subtitle">-->
-<!--            Мэргэшсэн инженерүүд, тасралтгүй сургалт, мэдлэгийн урсгал.-->
-<!--        </p>-->
-<!--    </section>-->
 
-    <section id="nebo" class="section animate-on-scroll">
-        <h2>Санхүү</h2>
-        <div class="hr-grid">
-            <div class="detail-panel">
-                <h3>2025 оны зардлын гүйцэтгэлийн товч дүгнэлт</h3>
-                <p class="summary">
-                    2025 онд зардлын гүйцэтгэл <strong>4,694.24 сая төгрөг</strong>-т хүрч,
-                    төлөвлөснөөс <span class="saving">378,557.14 мянган төгрөгөөр хэмнэсэн</span> байна.
-                </p>
-                <h4>Төлөвлөснөөс их хэмжээгээр хэмнэгдсэн зардлууд</h4>
-                <ul class="expense-list">
-                    <li>
-                        <span class="title">Боловсон хүчний зардал</span>
-                        <span class="amount negative">-309.04 сая ₮</span>
-                        <div class="desc">
-                            Нийт <strong>7 орон тоо дутуу</strong> ажилласантай холбоотой.
-                        </div>
-                    </li>
-                    <li>
-                        <span class="title">Шатахууны зардал</span>
-                        <span class="amount negative">-4.67 сая ₮</span>
-                        <div class="desc">
-                            Машин захиалгын программ хэрэгжиж эхэлснээр машин хүрэлцэхгүй байх,
-                            цэг салбаруудад хүрэлцэж ажиллаж чадаагүй тохиолдлууд гарсан.
-                            Эдгээр асуудлууд өглөөний шуурхай ярианд тэмдэглэгдсэн.
-                        </div>
-                    </li>
 
-                    <li>
-                        <span class="title">ТТҮ засварын зардал</span>
-                        <span class="amount negative">-39.61 сая ₮</span>
-                        <div class="desc">
-                            Төлөвлөсөн <strong>244.7 сая ₮-ийн 12 ажлаас</strong> 8 ажлын гүйцэтгэл хийгдэж,
-                            4 ажил дахин тендер зарлагдсан.
+    <section id="nebo" class="section">
+        <h1>Санхүү</h1>
+        <p>2025 оны зардлын гүйцэтгэлийн товч дүгнэлт</p>
+
+        <div class="hr-grid" style="margin-top: 20px; gap: 30px">
+            <div >
+                <div class="finance-summary">
+                    <div class="kpi-card plan">
+                        <div class="kpi-title">Нийт гүйцэтгэл</div>
+                        <div class="kpi-value">4,694.24</div>
+                        <div class="kpi-unit">сая ₮</div>
+                    </div>
+
+                    <div class="kpi-card saving">
+                        <div class="kpi-title">Хэмнэлт</div>
+                        <div class="kpi-value">378,557.14</div>
+                        <div class="kpi-unit">мянган ₮</div>
+                    </div>
+                </div>
+                <div class="invoice-box">
+                    <div class="invoice-header">
+                        <div>
+                            <h3>Хэмнэсэн онцлох зардлууд</h3>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+
+                    <table class="invoice-table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Зардлын төрөл</th>
+                            <th>Тайлбар</th>
+                            <th>Дүн</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><strong>Боловсон хүчний зардал</strong></td>
+                            <td>Нийт <strong>7 орон тоо дутуу</strong> ажилласантай холбоотой.</td>
+                            <td class="amount negative">-309.04 сая ₮</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong>Шатахууны зардал</strong></td>
+                            <td>
+                                Машин хүрэлцэхгүй байх, эвдрэл гэмтэл гарах зэргээс шалтгаалан
+                                цэг салбаруудад хүрэлцэж ажиллаж чадаагүй тохиолдлууд гарсан.
+                            </td>
+                            <td class="amount negative">-4.67 сая ₮</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><strong>ТТҮ засварын зардал</strong></td>
+                            <td>
+                                Төлөвлөсөн <strong>244.7 сая ₮-ийн 12 ажлаас</strong> 8 ажлын гүйцэтгэл хийгдэж,
+                                4 ажил дахин тендер зарлагдсан.
+                            </td>
+                            <td class="amount negative">-39.61 сая ₮</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
-            <!--        <div class="report-card">-->
-            <div class="detail-panel">
+            <div class="">
                 <div class="chart-box">
+                    <center><h4>2025 оны зардал</h4></center>
                     <canvas id="expenseChart"></canvas>
                 </div>
+<!--                <div class="chart-box">-->
+<!--                    <center><h4>2025 оны зардал</h4></center>-->
+<!--                    <canvas id="pieExpense"></canvas>-->
+<!--                </div>-->
             </div>
         </div>
 
     </section>
 
     <!-- ===== HR ===== -->
-    <section class="section light animate-on-scroll">
-        <h2>2025оны хөрөнгө оруулалтаар хийгдсэн ажлууд</h2>
+    <section id="investment" class="section ">
+        <h1>Хөрөнгө оруулалт</h1>
+        <p>2025 оны хөрөнгө оруулалтаар хийгдсэн ажлууд</p>
+        <h2></h2>
         <div class="hr-grid">
             <div class="card">
                 <h3>Нийт ажил</h3>
 
                 <p class="summary">2025 оны 12-р сарын 20-ны байдлаар нийт 41 ажлаас 34 ажил бүрэн хийгдэж дууссан,
-                    3 ажил гүйцэтгэл 75%-тай, 4 ажил нийлүүлэгч шалгараагүй.</p>
+                    2 ажил гүйцэтгэл 75%-тай, 3 ажил нийлүүлэгч шалгараагүй.</p>
             </div>
             <div class="detail-panel">
                 <div class="chart-box">
@@ -241,345 +268,352 @@
             </div>
         </div>
     </section>
-    <div class="detail-panel light ">
-        <h2>2025оны хөрөнгө оруулалтаар хийгдсэн гүйцэтгэл</h2>
-        <table class="report-table">
-            <thead>
-            <tr>
-                <th>№</th>
-                <th>Ажлын төрөл</th>
-                <th>Хэмжих нэгж</th>
-                <th>Тоо</th>
-                <th>Байршил</th>
-                <th>Гүйцэцтэл %</th>
-            </tr>
-            </thead>
-            <tbody>
+    <section id="gvitsetgel" class="section ">
+        <h1>Гүйцэтгэл</h1>
+        <p>2025оны хөрөнгө оруулалтаар хийгдсэн гүйцэтгэл</p>
+        <div class="detail-panel">
+            <table class="report-table">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Ажлын төрөл</th>
+                    <th>Хэмжих нэгж</th>
+                    <th>Тоо</th>
+                    <th>Байршил</th>
+                    <th>Гүйцэцтэл %</th>
+                </tr>
+                </thead>
+                <tbody>
 
-            <!-- ========================= -->
-            <!-- 1. ТЕХНИК ТЕХНОЛОГИЙН ШИНЭЧЛЭЛ -->
-            <!-- ========================= -->
-            <tr class="section-row">
-                <td colspan="6">1. ТЕХНИК ТЕХНОЛОГИЙН ШИНЭЧЛЭЛ</td>
-            </tr>
+                <!-- ========================= -->
+                <!-- 1. ТЕХНИК ТЕХНОЛОГИЙН ШИНЭЧЛЭЛ -->
+                <!-- ========================= -->
+                <tr class="section-row">
+                    <td colspan="6">1. ТЕХНИК ТЕХНОЛОГИЙН ШИНЭЧЛЭЛ</td>
+                </tr>
 
-            <tr class="section-row">
-                <td colspan="6">1.1 Тоног төхөөрөмж</td>
-            </tr>
+                <tr class="section-row">
+                    <td colspan="6">1.1 Тоног төхөөрөмж</td>
+                </tr>
 
-            <tr>
-                <td>1</td>
-                <td>Серверийн өрөөний зориулалтын кондишн</td>
-                <td>ш</td>
-                <td>2</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Серверийн өрөөний зориулалтын кондишн</td>
+                    <td>ш</td>
+                    <td>2</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>2</td>
-                <td>ХУТ-н нэвтрэх систем</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ХУТ-н нэвтрэх систем</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>3</td>
-                <td>Starlink nomad + LAN/WiFi (30–100м)</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>-</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Starlink nomad + LAN/WiFi (30–100м)</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>-</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr class="danger">
-                <td>4</td>
-                <td>3D холограмм самбар</td>
-                <td>ш</td>
-                <td>2</td>
-                <td>Хяналтын цэгийн инженер</td>
-                <td><span class="percent zero">0%</span></td>
-            </tr>
+                <tr class="danger">
+                    <td>4</td>
+                    <td>3D холограмм самбар</td>
+                    <td>ш</td>
+                    <td>2</td>
+                    <td>Хяналтын цэгийн инженер</td>
+                    <td><span class="percent zero">0%</span></td>
+                </tr>
 
-            <tr>
-                <td>5</td>
-                <td>Зөөврийн генератор</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>Хяналтын цэгүүдэд</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Зөөврийн генератор</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>Хяналтын цэгүүдэд</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>6</td>
-                <td>Хийн компрессор 220V</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Хийн компрессор 220V</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>7</td>
-                <td>Оссилограф</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>Автомат хянах хэмжих хэрэгслийн инженер</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Оссилограф</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>Автомат хянах хэмжих хэрэгслийн инженер</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>8</td>
-                <td>Проекторын самбар</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>4 давхарт</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Проекторын самбар</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>4 давхарт</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <!-- ========================= -->
-            <!-- 1.4 Компьютер техник хэрэгсэл -->
-            <!-- ========================= -->
-            <tr class="section-row">
-                <td colspan="6">1.4 Компьютер техник хэрэгсэл</td>
-            </tr>
+                <!-- ========================= -->
+                <!-- 1.4 Компьютер техник хэрэгсэл -->
+                <!-- ========================= -->
+                <tr class="section-row">
+                    <td colspan="6">1.4 Компьютер техник хэрэгсэл</td>
+                </tr>
 
-            <tr>
-                <td>1</td>
-                <td>NAS 10 TB хард диск</td>
-                <td>ш</td>
-                <td>8</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>1</td>
+                    <td>NAS 10 TB хард диск</td>
+                    <td>ш</td>
+                    <td>8</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>2</td>
-                <td>Тог баригч</td>
-                <td>ш</td>
-                <td>8</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Тог баригч</td>
+                    <td>ш</td>
+                    <td>8</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>3</td>
-                <td>Компьютер i9</td>
-                <td>ш</td>
-                <td>4</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Компьютер i9</td>
+                    <td>ш</td>
+                    <td>4</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>4</td>
-                <td>Зөөврийн компьютер</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Зөөврийн компьютер</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>5</td>
-                <td>3 үйлдэлт принтер /A3 хар/</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>5</td>
+                    <td>3 үйлдэлт принтер /A3 хар/</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>6</td>
-                <td>Дэлгэц 27</td>
-                <td>ш</td>
-                <td>2</td>
-                <td>Сүлжээний инженер, Холбооны инженер, GPS</td>
+                <tr>
+                    <td>6</td>
+                    <td>Дэлгэц 27</td>
+                    <td>ш</td>
+                    <td>2</td>
+                    <td>Сүлжээний инженер, Холбооны инженер, GPS</td>
 
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>7</td>
-                <td>3 үйлдэлт принтер /A3 өнгөт/</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>1101 өрөө ХЦИ</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>7</td>
+                    <td>3 үйлдэлт принтер /A3 өнгөт/</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>1101 өрөө ХЦИ</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>8</td>
-                <td>Серверийн өрөөний тог баригч 60kW</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Серверийн өрөөний тог баригч 60kW</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>9</td>
-                <td>SCADA хяналтын 55 инч дэлгэц</td>
-                <td>ш</td>
-                <td>12</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>9</td>
+                    <td>SCADA хяналтын 55 инч дэлгэц</td>
+                    <td>ш</td>
+                    <td>12</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>10</td>
-                <td>Хатуу гадаргуу дээр хэвчлэгч</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>ХЦИ</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Хатуу гадаргуу дээр хэвчлэгч</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>ХЦИ</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>11</td>
-                <td>Managed сүлжээ салаалагч</td>
-                <td>ш</td>
-                <td>2</td>
-                <td>УСУГ</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Managed сүлжээ салаалагч</td>
+                    <td>ш</td>
+                    <td>2</td>
+                    <td>УСУГ</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <!-- ========================= -->
-            <!-- 1.5 Аж ахуйн эд хогшил -->
-            <!-- ========================= -->
-            <tr class="section-row">
-                <td colspan="6">1.5 Аж ахуйн эд хогшил</td>
-            </tr>
+                <!-- ========================= -->
+                <!-- 1.5 Аж ахуйн эд хогшил -->
+                <!-- ========================= -->
+                <tr class="section-row">
+                    <td colspan="6">1.5 Аж ахуйн эд хогшил</td>
+                </tr>
 
-            <tr>
-                <td>1</td>
-                <td>Сандал</td>
-                <td>ш</td>
-                <td>9</td>
-                <td>Шинэ орон тоо</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Сандал</td>
+                    <td>ш</td>
+                    <td>9</td>
+                    <td>Шинэ орон тоо</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>2</td>
-                <td>Ажилчдын хувцасны төмөр шүүгээ (3 хаалгатай)</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>Засварчдад</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ажилчдын хувцасны төмөр шүүгээ (3 хаалгатай)</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>Засварчдад</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>3</td>
-                <td>Ширээ, тумбочка</td>
-                <td>ш</td>
-                <td>4</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ширээ, тумбочка</td>
+                    <td>ш</td>
+                    <td>4</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>4</td>
-                <td>Бичгийн шкаф</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>1101 ХЦИ</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Бичгийн шкаф</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>1101 ХЦИ</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>5</td>
-                <td>Хос дэлгэц тогтоогч суурь</td>
-                <td>ш</td>
-                <td>2</td>
-                <td>МТАА</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Хос дэлгэц тогтоогч суурь</td>
+                    <td>ш</td>
+                    <td>2</td>
+                    <td>МТАА</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <!-- ========================= -->
-            <!-- 3. УРСГАЛ ЗАСВАР -->
-            <!-- ========================= -->
-            <tr class="section-row">
-                <td colspan="6">3. УРСГАЛ ЗАСВАР</td>
-            </tr>
+                <!-- ========================= -->
+                <!-- 3. УРСГАЛ ЗАСВАР -->
+                <!-- ========================= -->
+                <tr class="section-row">
+                    <td colspan="6">3. УРСГАЛ ЗАСВАР</td>
+                </tr>
 
-            <tr class="danger">
-                <td>2</td>
-                <td>Сүлжээний халдлагаас хамгаалах лиценз</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>МТАА</td>
-                <td><span class="percent zero">0%</span></td>
-            </tr>
+                <tr class="danger">
+                    <td>2</td>
+                    <td>Сүлжээний халдлагаас хамгаалах лиценз</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>МТАА</td>
+                    <td><span class="percent zero">0%</span></td>
+                </tr>
 
-            <tr class="danger">
-                <td>5</td>
-                <td>Microsoft Office програмын лиценз</td>
-                <td>ш</td>
-                <td>10</td>
-                <td>МТАА</td>
-                <td><span class="percent zero">0%</span></td>
-            </tr>
+                <tr class="danger">
+                    <td>5</td>
+                    <td>Microsoft Office програмын лиценз</td>
+                    <td>ш</td>
+                    <td>10</td>
+                    <td>МТАА</td>
+                    <td><span class="percent zero">0%</span></td>
+                </tr>
 
-            <tr>
-                <td>12</td>
-                <td>ABB давтамж хувиргагчийн сервис, засвар</td>
-                <td>багц</td>
-                <td>1</td>
-                <td>УХА, ЦБА, ШАЗА</td>
-                <td><span class="percent mid">75%</span></td>
-            </tr>
+                <tr>
+                    <td>12</td>
+                    <td>ABB давтамж хувиргагчийн сервис, засвар</td>
+                    <td>багц</td>
+                    <td>1</td>
+                    <td>УХА, ЦБА, ШАЗА</td>
+                    <td><span class="percent mid">75%</span></td>
+                </tr>
 
-            <!-- ========================= -->
-            <!-- 4. БУСАД -->
-            <!-- ========================= -->
-            <tr class="section-row">
-                <td colspan="6">4. БУСАД</td>
-            </tr>
+                <!-- ========================= -->
+                <!-- 4. БУСАД -->
+                <!-- ========================= -->
+                <tr class="section-row">
+                    <td colspan="6">4. БУСАД</td>
+                </tr>
 
-            <tr>
-                <td>1</td>
-                <td>Plant SCADA 2023 R2 unlimited licence</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>УСУГ</td>
-                <td><span class="percent done">100%</span></td>
-            </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Plant SCADA 2023 R2 unlimited licence</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>УСУГ</td>
+                    <td><span class="percent done">100%</span></td>
+                </tr>
 
-            <tr>
-                <td>3</td>
-                <td>SCADA мэдээллийн API сервис</td>
-                <td>ш</td>
-                <td>1</td>
-                <td>УСУГ</td>
-                <td><span class="percent mid">75%</span></td>
-            </tr>
+                <tr>
+                    <td>3</td>
+                    <td>SCADA мэдээллийн API сервис</td>
+                    <td>ш</td>
+                    <td>1</td>
+                    <td>УСУГ</td>
+                    <td><span class="percent mid">75%</span></td>
+                </tr>
 
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-    <section id="summary" class="section light animate-on-scroll">
+    <section id="summary" class="section light ">
         <h2> Дүгнэлт, цаашдын зорилт</h2>
         <p class="section-subtitle">
-            Хиймэл оюун, автомат удирдлагын бүрэн нэвтрэлт, усны дата төвшинд суурилсан удирдлага.
+
         </p>
-        <p>
-            2026 онд хиймэл оюун ухаан, автомат удирдлагыг бүрэн нэвтрүүлэх зорилготой.
-            SCADA, IoT, байгууллагын дотоод системүүдийг нэгдсэн data platform дээр нэгтгэж,
-            ус хангамжийн системийг дата-д суурилсан, ухаалаг шийдвэр гаргалттай болгох
-            стратегийг хэрэгжүүлнэ.
-        </p>
+        <div>
+
+        <ul>
+        <li>Мэдээллийн аюулгүй байдлыг хамгаалах</li>
+        <li>Кибер аюулгүй байдлыг хамгаалах</li>
+        <li>Скада сүлжээний автоматжуулалтыг идэвхитэй хэрэгжүүлэх</li>
+        <li>Их өгөгдөлд суурилсан Хиймэл оюун хөгжүүлэх баазын бэлтгэл ажлыг гүйцэтгэх</li>
+        <li>Аюул ослоос сэргийлэх Дохиоллын менежментийг нэвтрүүлэх</li>
+        <li>Програм хангамжийн уялдаа холбоо хэрэглээг хялбаршуулж хэрэглэгч ажилтнуудад нэг системээс үйлчилгээ авах боломжийг бий болгох</li>
+
+    </ul>
+        </div>
     </section>
 
 </div>
-<script src="testing.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 <footer>
     © 2025 | Мэдээллийн технологи, автоматжуулалтын алба
 </footer>
+
 </body>
 </html>
