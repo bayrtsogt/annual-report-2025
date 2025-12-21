@@ -64,11 +64,6 @@
     color: #4b5563;
 }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
-}
-
 /* Icon circle */
 .card-icon.circle-icon {
     width: 38px;
