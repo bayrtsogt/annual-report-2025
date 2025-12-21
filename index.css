@@ -18,10 +18,40 @@ body {
     background: #f5f6fa;
     color: #1e1e1e;
 }
+.sidebar-menu {
+    position: fixed;
+    margin: 20px 40px;
+    top: 30vh;
+    right: 0;
+    width: 300px;
+    border-radius: 14px;
+    z-index: 1;
+    padding: 16px 20px;
+}
+.sidebar-menu ul {
+    text-align: start;
+    list-style: none;
 
-/* =========================
-   TOPBAR / NAVBAR
-========================= */
+}
+.sidebar-menu ul li{
+    margin-bottom: 30px;
+}
+.sidebar-menu ul li.selected{
+    font-weight: bold;
+    color: #16395E;
+}
+.content{
+    width: 80vw;
+    padding: 40px 0;
+}
+section{
+    padding: 50px;
+}
+.structure-img{
+    width: 70vw;
+    height: auto;
+}
+
 .menu-toggle {
     display: none;
     background: none;
@@ -96,14 +126,16 @@ body {
 }
 
 .topbar {
-    position: sticky;
+    position: absolute;
+    margin: 20px 40px;
     top: 0;
-    z-index: 7000;
-    /*display: flex;*/
+    width: calc(100% - 80px);
+    border-radius: 14px;
+    z-index: 1;
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    background: rgba(9, 35, 55, .9);
+    background: rgba(41, 41, 41, 0.24);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, .12);
 }
@@ -176,7 +208,7 @@ body {
 .dropdown-toggle {
     color: #d6ecff;
     font-size: 13px;
-    padding: 6px 0;
+    padding: 6px 15px;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -265,12 +297,13 @@ body {
    HERO
 ========================= */
 .hero {
-    position: relative;
-    min-height: 100vh;
-    padding: 40px 0;
-    text-align: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
     overflow: hidden;
+    width: 100vw;
 }
 
 .water-hero {
@@ -296,10 +329,8 @@ body {
     display: grid;
     grid-template-columns:1fr auto 1fr;
     align-items: center;
-    gap: 60px;
-    /*max-width: 1400px;*/
+    gap: 100px;
     margin: 0 auto;
-    /*padding: 0 20px;*/
 }
 
 .center-block {
@@ -307,10 +338,6 @@ body {
     z-index: 3;
 }
 
-.year-block img {
-    width: 80%;
-    max-width: 420px;
-}
 
 .main-title {
     font-size: clamp(28px, 4vw, 54px);
@@ -470,10 +497,10 @@ body {
         display: none;
     }
 
-    /* hero layout */
     .card-grid-header {
-        grid-template-columns:1fr;
-        gap: 30px;
+        grid-template-columns: 1fr; /* нэг колон */
+        gap: 50px;
+        justify-items: center;
     }
 
     .logo {
@@ -481,17 +508,13 @@ body {
     }
 
     .hero {
-        min-height: 100svh;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        overflow: hidden;
+        width: 100vw;
         display: flex;
-        align-items: center; /* босоогоор төв */
-        justify-content: center; /* хэвтээгээр төв */
-        padding: 14px 0px 0px 0px; /* navbar зай */
-    }
-
-    .card-grid-header {
-        grid-template-columns: 1fr; /* нэг колон */
-        gap: 24px;
-        justify-items: center;
     }
 
     .center-block {

@@ -538,7 +538,7 @@ document.querySelectorAll(".node").forEach(node => {
         const children = li.querySelectorAll(":scope > ul");
         if (!children.length) return;
 
-        // open / close
+        // open / close,
         const isOpen = li.classList.contains("open");
 
         children.forEach(ul => {

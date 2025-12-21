@@ -1,9 +1,8 @@
 .org-tree {
-    /*max-width: 1100px;*/
-    margin: 60px auto;
+    max-width: 40vw;
+    margin: 60px;
     padding: 20px;
     text-align: center;
-    overflow-x: auto;
 }
 
 /* RIGHT SIDE MONGOL TEXT */
@@ -48,13 +47,6 @@
 .detail-head {
     scroll-margin-top: 96px; /* header өндөрт тааруулж */
 }
-
-@media (max-width: 768px) {
-    #scrollArrow {
-        display: none !important;
-    }
-}
-
 /*.gallery-section {*/
 /*    scroll-margin-top: 24px;*/
 /*}*/
@@ -142,8 +134,8 @@
     display: inline-block;
     padding: 10px 16px;
     background: white;
-    border-radius: 12px;
-    border: 2px solid #0a5ea8;
+    border-radius: 8px;
+    border: 1px solid #0a5ea8;
     font-size: 0.9rem;
     cursor: pointer;
     min-width: 140px;
@@ -157,112 +149,6 @@
 .node.leaf {
     background: #a3cdf3;
 }
-
-/* ===============================
-   FORCE STACK IT -> OT (≥1024)
-================================ */
-/*@media (min-width: 1024px) {*/
-
-/*    !* Албаны даргын доорх үндсэн түвшин *!*/
-/*    .org-tree .tree > ul {*/
-/*        display: flex !important;*/
-/*        flex-direction: column !important; !* 🔥 гол нь энэ *!*/
-/*        align-items: center;*/
-/*        gap: 48px;*/
-/*    }*/
-
-/*    !* IT, OT тус бүр *!*/
-/*    .org-tree .tree > ul > li {*/
-/*        width: 100%;*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*    }*/
-
-/*    !* IT / OT доторх хэлтсүүд – хэвтээ хэвээр *!*/
-/*    .org-tree .tree > ul > li > ul {*/
-/*        display: flex !important;*/
-/*        justify-content: center;*/
-/*        flex-wrap: wrap;*/
-/*        gap: 24px;*/
-/*        margin-top: 24px;*/
-/*    }*/
-/*}*/
-/* =================================================
-   ORG TREE – CLEAN DESKTOP (>=1024px)
-================================================= */
-/*@media (min-width: 1024px) {*/
-
-/*    !* бүх connection шугамуудыг бүр мөсөн унтраана *!*/
-/*    .tree li::before,*/
-/*    .tree li::after,*/
-/*    .tree ul::before {*/
-/*        display: none !important;*/
-/*    }*/
-
-/*    !* үндсэн бүтэц *!*/
-/*    .tree {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*        gap: 64px;*/
-/*    }*/
-
-/*    !* Албаны даргын доорх UL *!*/
-/*    .tree > li > ul {*/
-/*        display: flex;*/
-/*        flex-direction: column;   !* IT дээр, OT доор *!*/
-/*        align-items: center;*/
-/*        gap: 80px;*/
-/*    }*/
-
-/*    !* IT / OT container *!*/
-/*    .tree > li > ul > li {*/
-/*        width: 100%;*/
-/*        max-width: 1100px;*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*        gap: 32px;*/
-/*    }*/
-
-/*    !* IT / OT нэр *!*/
-/*    .tree > li > ul > li > .node {*/
-/*        font-size: 18px;*/
-/*        font-weight: 700;*/
-/*        padding: 14px 28px;*/
-/*    }*/
-
-/*    !* IT / OT доторх хэлтсүүд → GRID *!*/
-/*    .tree > li > ul > li > ul {*/
-/*        display: grid;*/
-/*        grid-template-columns: repeat(2, minmax(360px, 1fr));*/
-/*        gap: 40px 60px;*/
-/*        justify-content: center;*/
-/*    }*/
-
-/*    !* нэг хэлтэс *!*/
-/*    .tree > li > ul > li > ul > li {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*        gap: 14px;*/
-/*    }*/
-
-/*    !* албан тушаалууд *!*/
-/*    .tree > li > ul > li > ul > li > ul {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        gap: 12px;*/
-/*    }*/
-
-/*    !* node хэмжээ тогтвортой *!*/
-/*    .node {*/
-/*        width: 100%;*/
-/*        max-width: 360px;*/
-/*        text-align: center;*/
-/*    }*/
-/*}*/
 
 .report-table {
     width: 100%;
@@ -321,138 +207,8 @@ tr.danger {
     background: #fff5f5;
 }
 
-@media (max-width: 768px) {
-    .report-table thead {
-        display: none;
-    }
 
-    .report-table tr {
-        display: block;
-        margin-bottom: 14px;
-        border-radius: 12px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-    }
 
-    .report-table td {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 12px;
-    }
-
-    .report-table td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: #475569;
-    }
-}
-
-/* responsive */
-@media (max-width: 768px) {
-
-    .org-tree {
-        padding: 10px;
-        overflow-x: auto;
-    }
-
-    /* root түвшин */
-    .tree > ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* бүх li-үүд full width */
-    .tree li {
-        padding: 10px 0;
-        width: 100%;
-    }
-
-    /* root сум */
-    .tree .node.root::after {
-        content: "▸"; /* ▶ */
-        position: absolute;
-        right: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 18px;
-        font-weight: bold;
-        color: #ffffff; /* root нь цэнхэр */
-        transition: transform .25s ease;
-        pointer-events: none;
-    }
-
-    .tree li.open > .node.root::after {
-        transform: translateY(-50%) rotate(90deg); /* ▼ */
-    }
-
-    /* node-уудыг card маягтай */
-    .node {
-        width: 90%;
-        max-width: 420px;
-        margin: 0 auto;
-        font-size: 14px;
-        line-height: 1.4;
-    }
-
-    .node .leaf {
-        background: #73b6ef;
-    }
-
-    /* хүүхэд салбарууд – accordion */
-    .tree li > ul {
-        position: static;
-        transform: none;
-        background: transparent;
-        box-shadow: none;
-        padding: 6px 0 0;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* хаалттай үед харагдахгүй */
-    .tree li:not(.open) > ul {
-        display: none;
-    }
-
-    /* connection шугамууд mobile дээр хэрэггүй */
-    .tree li::before,
-    .tree li::after,
-    .tree ul::before {
-        display: none;
-    }
-
-    /* IT / OT хоёр багана биш */
-    .tree > ul > li {
-        width: 100%;
-    }
-
-    .tree .node {
-        position: relative;
-        padding-right: 38px; /* суманд зай */
-    }
-
-    /* зөвхөн хүүхэдтэй node дээр сум гарна */
-    .tree li:has(> ul) > .node::after {
-        content: "▸"; /* ▶ */
-        position: absolute;
-        right: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 16px;
-        color: #0a5ea8;
-        transition: transform .25s ease;
-    }
-
-    /* нээгдсэн үед сум доош эргэнэ */
-    .tree li.open > .node::after {
-        transform: translateY(-50%) rotate(90deg); /* ▼ */
-    }
-
-    /* leaf дээр сум байхгүй */
-    .tree .node.leaf::after {
-        content: "";
-    }
-
-}
 
 .section-hero {
     background: #f4f6f8;
@@ -616,26 +372,6 @@ tr.danger {
 }
 
 /* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-    .hero-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .hero-text {
-        min-width: 0;
-    }
-
-    .r-kpis {
-        margin-left: 0;
-        flex-wrap: wrap;
-    }
-
-    .hero-hint {
-        margin-left: 0;
-        margin-top: 6px;
-    }
-}
 
 /* ===== DETAIL CARD ===== */
 .detail-card {
@@ -734,208 +470,6 @@ tr.danger {
     align-items: start
 }
 
-@media (max-width: 768px) {
-
-    /* 2 багана → 1 багана */
-    .r-split {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* chart, canvas хэт өргөн болохоос сэргийлнэ */
-    .r-media,
-    .detail-grid-col {
-        width: 100%;
-    }
-
-    /* canvas-ууд mobile-д тохирох өндөр */
-    .r-media canvas,
-    .kamer canvas,
-    .holboo canvas {
-        height: 320px !important;
-    }
-
-    /* статистик box-ууд */
-    .detail-stats {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .d-stat {
-        min-width: 140px;
-        flex: 1 1 45%;
-    }
-
-    /* gallery mobile дээр */
-    .gallery-track {
-        animation: none; /* auto scroll унтраана */
-        overflow-x: auto; /* swipe */
-        scroll-snap-type: x mandatory;
-    }
-
-    .gallery-track img {
-        scroll-snap-align: start;
-        width: 220px;
-        height: 150px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* бүх grid-үүд 1 багана болно */
-    .detail-grid,
-    .r-split,
-    .card-grid {
-        display: grid;
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-    }
-
-    /* grid column wrapper */
-    .detail-grid-col,
-    .detail-grid-col-all {
-        width: 100%;
-    }
-
-    /* chart / canvas тохиргоо */
-    .detail-panel canvas,
-    .chart-wrap canvas,
-    .chart-box canvas,
-    .kamer canvas,
-    .holboo canvas {
-        width: 100% !important;
-        height: 320px !important;
-    }
-
-    /* video box-ууд */
-    video,
-    .video-box1,
-    .tele,
-    .tele1,
-    .texnik {
-        width: 100%;
-        height: auto;
-        max-height: 360px;
-    }
-
-    /* статистик картууд */
-    .detail-stats {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .d-stat {
-        flex: 1 1 45%;
-        min-width: 140px;
-    }
-
-    /* gallery – auto animation унтрааж swipe болгох */
-    .gallery-track {
-        animation: none;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 12px;
-    }
-
-    .gallery-track img {
-        width: 220px;
-        height: 150px;
-        scroll-snap-align: start;
-        flex-shrink: 0;
-    }
-
-    /* гарчгууд */
-    .detail-head h2 {
-        font-size: 20px;
-        line-height: 1.3;
-        text-align: center;
-    }
-
-    .detail-section h3,
-    .gallery-title {
-        text-align: center;
-    }
-
-    /* card padding багасгана */
-    .detail-card {
-        padding: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* table wrapper */
-    .table-wrap {
-        overflow: visible;
-    }
-
-    .report-table {
-        width: 100%;
-        border: 0;
-    }
-
-    /* header-ийг нуух */
-    .report-table thead {
-        display: none;
-    }
-
-    /* мөр бүр card болно */
-    .report-table tr {
-        display: block;
-        margin-bottom: 16px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-        padding: 10px 0;
-    }
-
-    /* section row */
-    .report-table tr.section-row {
-        box-shadow: none;
-        background: #f1f5f9;
-        padding: 12px;
-        text-align: center;
-        font-weight: 700;
-    }
-
-    /* нүд бүр */
-    .report-table td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 14px;
-        border-bottom: 1px dashed #e5e7eb;
-        font-size: 14px;
-    }
-
-    .report-table td:last-child {
-        border-bottom: none;
-    }
-
-    /* label (зүүн талын нэр) */
-    .report-table td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: #475569;
-        margin-right: 10px;
-        text-align: left;
-    }
-
-    /* percent төвд */
-    .report-table td .percent {
-        margin-left: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-detail,
-    .detail-panel {
-        max-height: none !important;
-        overflow: visible !important;
-    }
-}
 
 .table-wrap {
     width: 100%;
@@ -1064,97 +598,6 @@ canvas {
 /* =========================
    HERO – MOBILE RESPONSIVE
    ========================= */
-@media (max-width: 768px) {
-
-    .hero {
-        padding: 40px 16px;
-    }
-
-    .card-grid-header {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    /* Монгол бичгийг утсан дээр нуух */
-    .mongol-strip {
-        display: none;
-    }
-
-    .center-block {
-        width: 100%;
-    }
-
-    .hero-content {
-        text-align: center;
-        padding: 0;
-    }
-
-    .hero-chip {
-        font-size: 12px;
-        padding: 6px 12px;
-        margin-bottom: 12px;
-    }
-
-    .hero-title {
-        font-size: 20px;
-        line-height: 1.4;
-    }
-
-    .hero-title span {
-        display: block;
-        font-size: 18px;
-    }
-
-    /* Лого – доороо дараалж */
-    .hero-content img {
-        width: 70px;
-        margin: 8px;
-    }
-
-    .mongol-strip {
-        display: flex;
-        justify-content: center;
-        margin-top: 12px;
-    }
-
-    .topbar {
-        position: relative;
-    }
-
-    .mongol-right {
-
-        font-size: 14px;
-        opacity: 0.85;
-        text-align: center;
-    }
-
-    .hero-subtitle {
-        font-size: 14px;
-        line-height: 1.6;
-        margin-top: 12px;
-    }
-
-    /* Shooting background animation багасгах */
-    .shooting-bg span {
-        opacity: 0.3;
-        transform: scale(0.7);
-    }
-}
-
-@media (max-width: 420px) {
-    .hero-title {
-        font-size: 18px;
-    }
-
-    .hero-title span {
-        font-size: 16px;
-    }
-
-    .hero-subtitle {
-        font-size: 13px;
-    }
-}
 
 .detail-grid-col-all {
     display: grid;
@@ -1232,16 +675,6 @@ canvas {
 .hero-detail.open {
     max-height: 9999px;
     padding: 28px 24px 40px
-}
-
-@media (max-width: 980px) {
-    .detail-grid {
-        grid-template-columns:1fr
-    }
-
-    .d-stat {
-        min-width: 140px
-    }
 }
 
 .carousel {
@@ -1758,14 +1191,6 @@ svg {
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .gallery-track img {
-        width: 220px;
-        height: 150px;
-    }
-}
-
 .report-card {
     background: #ffffff;
     border-radius: 14px;
@@ -1833,3 +1258,448 @@ svg {
     font-size: 14px;
 }
 
+@media (max-width: 768px) {
+    #scrollArrow {
+        display: none !important;
+    }
+    .report-table thead {
+        display: none;
+    }
+
+    .report-table tr {
+        display: block;
+        margin-bottom: 14px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    }
+
+    .report-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 12px;
+    }
+
+    .report-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #475569;
+    }
+
+    .org-tree {
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    /* root түвшин */
+    .tree > ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* бүх li-үүд full width */
+    .tree li {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    /* root сум */
+    .tree .node.root::after {
+        content: "▸"; /* ▶ */
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff; /* root нь цэнхэр */
+        transition: transform .25s ease;
+        pointer-events: none;
+    }
+
+    .tree li.open > .node.root::after {
+        transform: translateY(-50%) rotate(90deg); /* ▼ */
+    }
+
+    /* node-уудыг card маягтай */
+    .node {
+        width: 90%;
+        max-width: 420px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .node .leaf {
+        background: #73b6ef;
+    }
+
+    /* хүүхэд салбарууд – accordion */
+    .tree li > ul {
+        position: static;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 6px 0 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* хаалттай үед харагдахгүй */
+    .tree li:not(.open) > ul {
+        display: none;
+    }
+
+    /* connection шугамууд mobile дээр хэрэггүй */
+    .tree li::before,
+    .tree li::after,
+    .tree ul::before {
+        display: none;
+    }
+
+    /* IT / OT хоёр багана биш */
+    .tree > ul > li {
+        width: 100%;
+    }
+
+    .tree .node {
+        position: relative;
+        padding-right: 38px; /* суманд зай */
+    }
+
+    /* зөвхөн хүүхэдтэй node дээр сум гарна */
+    .tree li:has(> ul) > .node::after {
+        content: "▸"; /* ▶ */
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #0a5ea8;
+        transition: transform .25s ease;
+    }
+
+    /* нээгдсэн үед сум доош эргэнэ */
+    .tree li.open > .node::after {
+        transform: translateY(-50%) rotate(90deg); /* ▼ */
+    }
+
+    /* leaf дээр сум байхгүй */
+    .tree .node.leaf::after {
+        content: "";
+    }
+
+    /* 2 багана → 1 багана */
+    .r-split {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* chart, canvas хэт өргөн болохоос сэргийлнэ */
+    .r-media,
+    .detail-grid-col {
+        width: 100%;
+    }
+
+    /* canvas-ууд mobile-д тохирох өндөр */
+    .r-media canvas,
+    .kamer canvas,
+    .holboo canvas {
+        height: 320px !important;
+    }
+
+    /* статистик box-ууд */
+    .detail-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .d-stat {
+        min-width: 140px;
+        flex: 1 1 45%;
+    }
+
+    /* gallery mobile дээр */
+    .gallery-track {
+        animation: none; /* auto scroll унтраана */
+        overflow-x: auto; /* swipe */
+        scroll-snap-type: x mandatory;
+    }
+
+    .gallery-track img {
+        scroll-snap-align: start;
+        width: 220px;
+        height: 150px;
+    }
+
+    /* бүх grid-үүд 1 багана болно */
+    .detail-grid,
+    .r-split,
+    .card-grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* grid column wrapper */
+    .detail-grid-col,
+    .detail-grid-col-all {
+        width: 100%;
+    }
+
+    /* chart / canvas тохиргоо */
+    .detail-panel canvas,
+    .chart-wrap canvas,
+    .chart-box canvas,
+    .kamer canvas,
+    .holboo canvas {
+        width: 100% !important;
+        height: 320px !important;
+    }
+
+    /* video box-ууд */
+    video,
+    .video-box1,
+    .tele,
+    .tele1,
+    .texnik {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+    }
+
+    /* статистик картууд */
+    .detail-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .d-stat {
+        flex: 1 1 45%;
+        min-width: 140px;
+    }
+
+    /* gallery – auto animation унтрааж swipe болгох */
+    .gallery-track {
+        animation: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 12px;
+    }
+
+    .gallery-track img {
+        width: 220px;
+        height: 150px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+
+    /* гарчгууд */
+    .detail-head h2 {
+        font-size: 20px;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .detail-section h3,
+    .gallery-title {
+        text-align: center;
+    }
+
+    /* card padding багасгана */
+    .detail-card {
+        padding: 16px;
+    }
+
+    /* table wrapper */
+    .table-wrap {
+        overflow: visible;
+    }
+
+    .report-table {
+        width: 100%;
+        border: 0;
+    }
+
+    /* header-ийг нуух */
+    .report-table thead {
+        display: none;
+    }
+
+    /* мөр бүр card болно */
+    .report-table tr {
+        display: block;
+        margin-bottom: 16px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+        padding: 10px 0;
+    }
+
+    /* section row */
+    .report-table tr.section-row {
+        box-shadow: none;
+        background: #f1f5f9;
+        padding: 12px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    /* нүд бүр */
+    .report-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 14px;
+        border-bottom: 1px dashed #e5e7eb;
+        font-size: 14px;
+    }
+
+    .report-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* label (зүүн талын нэр) */
+    .report-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #475569;
+        margin-right: 10px;
+        text-align: left;
+    }
+
+    /* percent төвд */
+    .report-table td .percent {
+        margin-left: auto;
+    }
+    .hero-detail,
+    .detail-panel {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .hero {
+        padding: 40px 16px;
+    }
+
+    .card-grid-header {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Монгол бичгийг утсан дээр нуух */
+    .mongol-strip {
+        display: none;
+    }
+
+    .center-block {
+        width: 100%;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 0;
+    }
+
+    .hero-chip {
+        font-size: 12px;
+        padding: 6px 12px;
+        margin-bottom: 12px;
+    }
+
+    .hero-title {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .hero-title span {
+        display: block;
+        font-size: 18px;
+    }
+
+    /* Лого – доороо дараалж */
+    .hero-content img {
+        width: 70px;
+        margin: 8px;
+    }
+
+    .mongol-strip {
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+    }
+
+    .topbar {
+        position: relative;
+    }
+
+    .mongol-right {
+
+        font-size: 14px;
+        opacity: 0.85;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 12px;
+    }
+
+    /* Shooting background animation багасгах */
+    .shooting-bg span {
+        opacity: 0.3;
+        transform: scale(0.7);
+    }
+    .gallery-track img {
+        width: 220px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-title {
+        font-size: 18px;
+    }
+
+    .hero-title span {
+        font-size: 16px;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 980px) {
+    .detail-grid {
+        grid-template-columns:1fr
+    }
+
+    .d-stat {
+        min-width: 140px
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-text {
+        min-width: 0;
+    }
+
+    .r-kpis {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .hero-hint {
+        margin-left: 0;
+        margin-top: 6px;
+    }
+}
