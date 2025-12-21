@@ -45,6 +45,12 @@
     color: #666;
     margin-top: auto;
 }
+.innovation-meta span{
+    padding: 6px 18px;
+    background: #e3f2fd;
+    border-radius: 999px;
+    border: 1px solid #0090ff;
+}
 
 .innovation-gallery {
     background: #fff;

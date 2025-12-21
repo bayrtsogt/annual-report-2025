@@ -2,19 +2,77 @@
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
-    <title>МТАА | ТАЙЛАН 2025</title>
+    <title>МТАА | 2025</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="tailan.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="shine.css">
     <link rel="icon" href="assets/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="newtailan.js"></script>
+    <script src="newtailan1.js"></script>
+    <script src="snow.js" defer></script>
+    <link rel="stylesheet" href="shine.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const content = document.querySelector(".content");
+            const sidebar = document.querySelector(".sidebar-menu");
+            const sections = document.querySelectorAll(".section");
+            const sidebarItems = document.querySelectorAll(".sidebar-menu li");
+
+            if (!content || !sidebar) return;
+
+            // 👉 Sidebar show / hide (таны логик)
+            const contentObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        sidebar.classList.add("show");
+                    } else {
+                        sidebar.classList.remove("show");
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            contentObserver.observe(content);
+
+            // 👉 Section харагдахад sidebar active солих
+            const sectionObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        sidebarItems.forEach(li => li.classList.remove("selected"));
+                        document
+                            .querySelector(`.sidebar-menu li[data-target="${id}"]`)
+                            ?.classList.add("selected");
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            sections.forEach(sec => sectionObserver.observe(sec));
+
+            // 👉 Sidebar click → smooth scroll
+            sidebarItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    const targetId = item.dataset.target;
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
+<div>
+    <img src="assets/santa.gif"  style="position: fixed; bottom: 10px; right: 10px; width: 150px; height: auto; z-index: 1000" alt=""/>
+    <img src="assets/lights.gif"  style="position: fixed; top: -15px; left: 10px; width: 300px; height: auto; z-index: 1000" alt=""/>
+</div>
+<div id="snow-container"></div>
+<!-- ===== NAV BAR ===== -->
 <div class="topbar">
     <div class="wrap">
         <div class="brand">
@@ -23,254 +81,317 @@
         <button class="nav-toggle" id="navToggle">☰</button>
         <ul class="menu" id="navMenu">
             <li class="highlight-soft"><a href="index.html" class="active">Нүүр</a></li>
-            <li class="highlight-soft"><a href="testing.html">Мэдээллийн ил тод байдал</a></li>
-            <li class="dropdown highlight-soft">
-                <a href="#" class="dropdown-toggle">
-                    Онцлох тайлан <span class="arrow">▾</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="tailan.html">Office хэсэг</a></li>
-                    <li><a href="tailan1.html">Дата хяналт хэсэг</a></li>
-                    <li><a href="tailan2.html">Программын хэсэг</a></li>
-                    <li><a href="tailan3.html">Хяналт удирдлагын хэсэг</a></li>
-                    <li><a href="tailan4.html">Цэвэр усны тоног төхөөрөмжийн засварын хэсэг</a></li>
-                    <li><a href="tailan5.html">Бохир усны тоног төхөөрөмжийн засварын хэсэг</a></li>
-                    <li><a href="tailan6.html">ХАБЭА</a></li>
-                </ul>
-            </li>
+            <li class="highlight-soft"><a href="special_report.html" class="active">Онцлох тайлан</a></li>
+            <!--            <li class="dropdown highlight-soft">-->
+            <!--                <a href="#" class="dropdown-toggle">-->
+            <!--                    Онцлох тайлан <span class="arrow">▾</span>-->
+            <!--                </a>-->
+            <!--                <ul class="dropdown-menu">-->
+            <!--                    <li><a href="tailan.html">Office хэсэг</a></li>-->
+            <!--                    <li><a href="tailan1.html">Дата хяналт хэсэг</a></li>-->
+            <!--                    <li><a href="tailan2.html">Программын хэсэг</a></li>-->
+            <!--                    <li><a href="tailan3.html">Хяналт удирдлагын хэсэг</a></li>-->
+            <!--                    <li><a href="tailan4.html">Цэвэр усны тоног төхөөрөмжийн засварын хэсэг</a></li>-->
+            <!--                    <li><a href="tailan5.html">Бохир усны тоног төхөөрөмжийн засварын хэсэг</a></li>-->
+            <!--                    <li><a href="tailan6.html">ХАБЭА</a></li>-->
+            <!--                </ul>-->
+            <!--            </li>-->
             <li class="highlight-soft"><a href="power.html">power BI</a></li>
             <li class="highlight-soft"><a href="shine.html">Шинээр санаачилсан ажил</a></li>
         </ul>
     </div>
 </div>
-<section id="heseg">
-    <div class="detail-grid-col-all">
-        <section class="hero-block">
-            <section class="hero-detail">
-                <div class="detail-card" id="tele">
-                    <!--                    <div class="kicker"><i class="kdot"></i> МТАА 2025 • Шинээр санаачилсан ажлууд</div>-->
-                    <div class="detail-panel">
-                        <div class="innovation-section">
-                            <div class="innovation-grid">
-                                <div class="innovation-card">
-                                    <div class="badge">🆕 Шинэ санаачилга</div>
-                                    <h3 class="innovation-title">
-                                        📡 Телеметр: Шинэ санаачилга
-                                    </h3>
-                                    <p class="innovation-text">
-                                        Телеметр хяналтын КТМС цэгт цахилгаан хаалт суурилуулж,
-                                        алсын удирдлагатай болгосон.
-                                        Цахилгаан тэжээл татах боломжгүй цэгүүдэд
-                                        нарны эрчим хүч суурилуулж хэвийн ажиллагаанд оруулсан.
-                                    </p>
 
-                                    <div class="innovation-meta">
-                                        <span>📍 Ф-250</span>
-                                        <span>🏭 Сансар Петровис</span>
-                                    </div>
-                                </div>
-                                <section class="gallery-section">
-                                    <h2 class="gallery-title">Ажлын явцын зургууд</h2>
-                                    <div class="gallery-track" >
-                                        <img src="assets/telemetr/zurag%207.jpg" class="active" alt="">-->
-                                        <img src="assets/telemetr/zurag%208.jpg" alt="">
-                                        <img src="assets/telemetr/zurag%209.jpg">
-                                        <img src="assets/telemetr/zurag%2010.jpg">
-                                        <img src="assets/telemetr/zurag%2011.jpg">
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="detail-card" id="gps">
-                    <div class="detail-panel">
-                        <div class="innovation-section">
-                            <div class="innovation-grid">
-                                <div class="innovation-card">
-                                    <div class="badge">🆕 Шинэ санаачилга</div>
-                                    <h3 class="innovation-title">📍 GPS: Шинэ санаачилга
-                                    </h3>
-                                    <p class="innovation-text">
-                                        Авто баазын тээврийн хэрэгслүүдийн түлш хэмжигч төхөөрөмжөөс, байршил
-                                        тогтоох
-                                        төхөөрөмж
-                                        рүү холбогдсон тэжээлийн болон сигналийн кабелийн монтажийг уян хар
-                                        хоолойгоор
-                                        явуулсан
-                                        байгаа боловч засвар үйлчилгээ хийх үеэр кабин сөхөж буулгах, холголт үүсэх
-                                        гэх мэт
-                                        бусад механик хүчин зүйлсээс хамаарч тусгаарлалт муудаж тасарч, гэмтэх
-                                        тохиолдолд
-                                        үүсдэг. Үүнээс сэргийлж туршилтаар 21-37УНТ улсын дугаартай тээврийн
-                                        хэрэгслийн
-                                        кабелийн
-                                        монтажийг илүү даац, тэсвэр сайтай PVC хоолойнд хийж татсан.
-                                    </p>
-                                </div>
-                                <section class="gallery-section">
-                                    <h2 class="gallery-title">Ажлын явцын зургууд</h2>
+<div class="hero water-hero">
+    <div class="card-grid-header">
+        <div class="mongol-strip">
+            <span class="mongol-right">ᠮᠡᠳᠡᢉᠡᠯᠡᠯ ᠦ᠋ᠨ ᠲᠧᠻᠨᠣᠯᠣᢉᠢ᠂</span>
+            <span class="mongol-right">ᠠᠦᠲ᠋ᠤᠮᠠᠲ᠋ᠵᠢᠭᠤᠯᠤᠯᠲᠠ ᠶ᠋ᠢᠨ ᠠᠯᠪᠠ</span>
+        </div>
+        <div class="center-block">
+            <div class="logo-row">
+                <img src="assets/logo.png" class="logo" alt="">
+                <img src="assets/mtan.png" class="logo" alt="">
+            </div>
+            <div class="year-block">
+                <img src="assets/central.png" alt="" style="width: 30vw; margin: 30px 0 10px 0">
+            </div>
+            <img src="assets/santa-hat-christmas.gif" class="logo" alt=""
+                 style="
+                     width: 200px;
+                     height:auto;
+                     position: absolute;
+                     top: 140px;
+                     left: 440px;
+                     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+">
+            <h1 class="main-title">
+                МЭДЭЭЛЛИЙН ТЕХНОЛОГИ,<br>
+                <span>АВТОМАТЖУУЛАЛТЫН АЛБА</span>
+            </h1>
+        </div>
+        <div class="mongol-strip">
+            <span class="mongol-right">᠒᠐᠒᠕ ᠣᠨ ᠤ᠋ ᠵᠢᠯ ᠦ᠋ᠨ ᠰᠢᠨ᠎ᠡ</span>
+            <span class="mongol-right"> ᠪᠡᠷ ᠰᠠᠨᠠᠭᠠᠴᠢᠯᠠᠭᠰᠠᠨ ᠠᠵᠢᠯ</span>
+        </div>
 
-                                    <div class="gallery-track" >
-                                        <img src="assets/gps/Zurag3.png"/>
-                                        <img src="assets/gps/Zurag1.png"/>
-                                        <img src="assets/gps/Zurag2.png"/>
-                                        <img src="assets/gps/Zurag4.JPG"/>
-                                        <img src="assets/gps/Zurag5.JPG"/>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="detail-card" id="tsewer">
-                    <div class="detail-panel">
-                        <div class="innovation-section">
-                            <div class="innovation-grid">
-                                <div class="innovation-card">
-                                    <div class="badge">🆕 Шинэ санаачилга</div>
-                                    <h3 class="innovation-title">
-                                        🚰 Цэвэр усны засварын хэсэг: Шинэ санаачилга
-                                    </h3>
-                                    <p class="innovation-text">
-                                        <li> Багахангай ус суваг ашиглалтын товчооны 1-р өргөгчийн худаг усан сангийн
-                                            түвшингөөс
-                                            хамаарч хүний оролцоогүй автомат ажиллагаатай болсон.
-                                        </li>
-                                        <li>
-                                            Хүйтний улиралд усан сангуудын түвшин хэмжигч цантах, гацах, гэмтэх
-                                            механик
-                                            эрсдэл
-                                            үүссэний улмаас усан сан халих хоосрох эрсдэл үүсдэг. Энэ асуудыг шийдэх
-                                            зорилгоор
-                                            21-р
-                                            хорооллын усан санд халилт, хоосролтын мэдрэгч суурилуулж Баруун
-                                            дүүргийн насос
-                                            станцыг
-                                            мэдрэгчээс хамаарч насос ажиллах, зогсох автомат ажиллагаатай болгосон.
-                                        </li>
-                                    </p>
-                                    <div class="innovation-meta">
-                                        <span>📍 Багахангай / 21-р хороо</span>
-                                        <span>🚰 Цэвэр ус</span>
-                                        <span>🤖 Автомат удирдлага</span>
-                                    </div>
-                                </div>
-                                <section class="gallery-section">
-                                    <h2 class="gallery-title">Ажлын явцын зургууд</h2>
-
-                                    <div class="gallery-track" >
-                                        <img src="assets/tsewer/zurag-10.jpg" class="active">
-                                        <img src="assets/tsewer/zurag-11.jpg">
-                                        <img src="assets/tsewer/zurag-12.jpg">
-                                        <img src="assets/tsewer/zurag-13.jpg" class="active">
-                                        <img src="assets/tsewer/zurag-14.jpg">
-                                        <img src="assets/tsewer/zurag-15.jpg">
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="detail-card" id="bohir">
-                    <div class="detail-panel">
-                        <div class="innovation-section">
-                            <div class="innovation-grid">
-                                <div class="innovation-card">
-                                    <div class="badge">🆕 Шинэ санаачилга</div>
-                                    <h3 class="innovation-title">
-                                        ♻️ Бохир усны засварын хэсэг: Шинэ санаачилга
-                                    </h3>
-                                    <p class="innovation-text">
-                                        Яармаг 1, 2 бохир усны өргөх насос станцыг дотоод нөөц бололцоогоо ашиглаж
-                                        складын
-                                        үлэгдэлээр хяналтын камержуулсан.
-                                    </p>
-                                    <div class="innovation-meta">
-                                        <span>📍 Яармаг 1, 2</span>
-                                        <span>📹 Камержуулалт</span>
-                                        <span>♻️ Дотоод нөөц</span>
-                                    </div>
-                                </div>
-                                <section class="gallery-section">
-                                    <h2 class="gallery-title">Ажлын явцын зургууд</h2>
-
-                                    <div class="gallery-track" >
-                                        <img src="assets/bohir/photo_2025-12-19_16-19-35.jpg" class="active">
-                                        <img src="assets/bohir/photo_2025-12-19_16-19-33.jpg">
-                                        <img src="assets/bohir/photo_2025-08-27_12-08-09.jpg">
-                                        <img src="assets/bohir/4.jpg">
-                                        <img src="assets/bohir/3.jpg">
-                                        <img src="assets/bohir/1.jpg">
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="detail-card" id="shilen">
-                    <div class="detail-panel">
-                        <div class="innovation-section">
-                            <div class="innovation-grid">
-                                <div class="innovation-card">
-                                    <div class="badge">🆕 Шинэ санаачилга</div>
-                                    <h3 class="innovation-title">
-                                        📡 Шилэн кабел: Шинэ санаачилга
-                                    </h3>
-                                    <p class="innovation-text">
-                                        Гачууртын эх үүсвэрийн алсын удирдлагын системийг Хяналт удирдлагын төвд
-                                        шууд холбох боломжгүй байсан тул шинээр шилэн кабель татах шаардлага үүссэн.
-                                        Харин одоогийн сүлжээний бүтцийг судалж, хамгийн бага зардалтай,
-                                        хялбар холболтын шийдлийг хэрэгжүүлсэн.
-                                    </p>
-
-                                    <div class="innovation-meta">
-                                        <span>📍 Гачуурт</span>
-                                        <span>🔌 Шилэн кабель</span>
-                                        <span>💰 Бага зардал</span>
-                                    </div>
-                                </div>
-                                <section class="gallery-section">
-                                    <h2 class="gallery-title">Ажлын явцын зургууд</h2>
-
-                                    <div class="gallery-track" >
-                                        <img src="assets/komputer/shilen/photo_2025-06-30_13-23-18.jpg"
-                                             class="active">
-                                        <img src="assets/komputer/shilen/photo_2025-05-29_13-27-17.jpg">
-                                        <img src="assets/komputer/shilen/photo_2025-06-02_14-29-52.jpg">
-                                        <img src="assets/komputer/shilen/photo_2025-06-30_13-23-18.jpg">
-                                        <img src="assets/komputer/shilen/photo_2025-10-21_15-32-15%20(2).jpg">
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
     </div>
-</section>
+    <div class="water-drops">
+        <span class="drop d1"></span>
+        <span class="drop d2"></span>
+        <span class="drop d3"></span>
+        <span class="drop d4"></span>
+        <span class="drop d5"></span>
+        <span class="drop d6"></span>
+        <span class="drop d7"></span>
+        <span class="drop d8"></span>
+        <span class="drop d9"></span>
+        <span class="drop d10"></span>
+        <span class="drop d11"></span>
+        <span class="drop d12"></span>
+    </div>
+</div>
 
-<!--</section>-->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".gallery").forEach(gallery => {
-            const mainImg = gallery.querySelector(".main img");
-            const thumbs = gallery.querySelectorAll(".thumbs img");
+<div class="sidebar-menu reveal-on-content">
+    <ul>
+        <li class="selected" data-target="tele">Телеметр</li>
+        <li data-target="tsewer">Цэвэр усны засварын хэсэг</li>
+        <li data-target="bohir">Бохир усны засварын хэсэг</li>
+        <li data-target="soft">Программ хангамж</li>
+        <li data-target="shilen">Шилэн кабел</li>
+        <li data-target="gps">GPS</li>
+    </ul>
+</div>
 
-            if (!mainImg || thumbs.length === 0) return;
+<div class="content" style="">
+    <div class="section" id="tele" style="padding: 0 50px; margin-bottom: 20px">
+        <!--                    <div class="kicker"><i class="kdot"></i> МТАА 2025 • Шинээр санаачилсан ажлууд</div>-->
+        <div style="margin: 20px 0; padding: 0 20px; border-radius: 20px"  class="detail-panel">
+            <div class="innovation-section">
+                <div class="innovation-grid">
+                    <div class="innovation-card">
+                        <h3 class="innovation-title">
+                            📡 Телеметр
+                        </h3>
+                        <p class="innovation-text">
+                            Телеметр хяналтын КТМС цэгт цахилгаан хаалт суурилуулж,
+                            алсын удирдлагатай болгосон.
+                            Цахилгаан тэжээл татах боломжгүй цэгүүдэд
+                            нарны эрчим хүч суурилуулж хэвийн ажиллагаанд оруулсан.
+                        </p>
 
-            thumbs.forEach(thumb => {
-                thumb.addEventListener("click", () => {
-                    mainImg.src = thumb.src;
+                        <div class="innovation-meta">
+                            <span>📍 Ф-250</span>
+                            <span>🏭 Сансар Петровис</span>
+                        </div>
+                    </div>
+                    <section class="gallery-section">
+                        <h4 class="gallery-title">Ажлын явцын зургууд</h4>
+                        <div class="gallery-track" >
+                            <img src="assets/telemetr/zurag%207.jpg" class="active" alt="">-->
+                            <img src="assets/telemetr/zurag%208.jpg" alt="">
+                            <img src="assets/telemetr/zurag%209.jpg">
+                            <img src="assets/telemetr/zurag%2010.jpg">
+                            <img src="assets/telemetr/zurag%2011.jpg">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="tsewer">
+        <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
+            <div class="innovation-section">
+                <div class="innovation-grid">
+                    <div class="innovation-card">
+                        <h3 class="innovation-title">
+                            🚰 Цэвэр усны засварын хэсэг
+                        </h3>
+                        <p class="innovation-text">
+                            <li> Багахангай ус суваг ашиглалтын товчооны 1-р өргөгчийн худаг усан сангийн
+                                түвшингөөс
+                                хамаарч хүний оролцоогүй автомат ажиллагаатай болсон.
+                            </li>
+                            <li>
+                                Хүйтний улиралд усан сангуудын түвшин хэмжигч цантах, гацах, гэмтэх
+                                механик
+                                эрсдэл
+                                үүссэний улмаас усан сан халих хоосрох эрсдэл үүсдэг. Энэ асуудыг шийдэх
+                                зорилгоор
+                                21-р
+                                хорооллын усан санд халилт, хоосролтын мэдрэгч суурилуулж Баруун
+                                дүүргийн насос
+                                станцыг
+                                мэдрэгчээс хамаарч насос ажиллах, зогсох автомат ажиллагаатай болгосон.
+                            </li>
+                        </p>
+                        <div class="innovation-meta">
+                            <span>📍 Багахангай / 21-р хороо</span>
+                            <span>🚰 Цэвэр ус</span>
+                            <span>🤖 Автомат удирдлага</span>
+                        </div>
+                    </div>
+                    <section class="gallery-section">
+                        <h4 class="gallery-title">Ажлын явцын зургууд</h4>
 
-                    thumbs.forEach(t => t.classList.remove("active"));
-                    thumb.classList.add("active");
-                });
-            });
-        });
+                        <div class="gallery-track" >
+                            <img src="assets/tsewer/zurag-10.jpg" class="active">
+                            <img src="assets/tsewer/zurag-11.jpg">
+                            <img src="assets/tsewer/zurag-12.jpg">
+                            <img src="assets/tsewer/zurag-13.jpg" class="active">
+                            <img src="assets/tsewer/zurag-14.jpg">
+                            <img src="assets/tsewer/zurag-15.jpg">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="bohir">
+        <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
+            <div class="innovation-section">
+                <div class="innovation-grid">
+                    <div class="innovation-card">
+                        <h3 class="innovation-title">
+                            ♻️ Бохир усны засварын хэсэг
+                        </h3>
+                        <p class="innovation-text">
+                            Яармаг 1, 2 бохир усны өргөх насос станцыг дотоод нөөц бололцоогоо ашиглаж
+                            складын
+                            үлэгдэлээр хяналтын камержуулсан.
+                        </p>
+                        <div class="innovation-meta">
+                            <span>📍 Яармаг 1, 2</span>
+                            <span>📹 Камержуулалт</span>
+                            <span>♻️ Дотоод нөөц</span>
+                        </div>
+                    </div>
+                    <section class="gallery-section">
+                        <h4 class="gallery-title">Ажлын явцын зургууд</h4>
 
-    });
-</script>
+                        <div class="gallery-track" >
+                            <img src="assets/bohir/photo_2025-12-19_16-19-35.jpg" class="active">
+                            <img src="assets/bohir/photo_2025-12-19_16-19-33.jpg">
+                            <img src="assets/bohir/photo_2025-08-27_12-08-09.jpg">
+                            <img src="assets/bohir/4.jpg">
+                            <img src="assets/bohir/3.jpg">
+                            <img src="assets/bohir/1.jpg">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="soft">
+        <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
+            <div class="innovation-section">
+                <div class="innovation-grid">
+                    <div class="innovation-card">
+                        <h3 class="innovation-title">
+                            📡 Программ хангамж
+                        </h3>
+                        <p class="innovation-text">
+                            Сервер болон програм хангамжуулын хэвийн найдвартай үйл ажиллагааг хангах зорилгоор нээлттэй эхийн сан Graffana-г хэрэгжүүлж, Серверүүдийн Физик ашиглалтыг хянах боломжийг бүрдүүлсэн. Мөн түүнд Telegram-н чатбот-ийг ашиглан хэрэглээ нь ихэссэн үед дохиолол илгээх холболтыг хийж гүйцэтгэсэн.
+                        </p>
+
+                        <div class="innovation-meta">
+                            <span> Сервер</span>
+                            <span> Програм хангамж</span>
+                        </div>
+                    </div>
+                    <section class="gallery-section">
+                        <h4 class="gallery-title">Ажлын явцын зургууд</h4>
+
+                        <div class="gallery-track" >
+                            <img src="assets/program/photo_2025-12-19_16-00-49.jpg"
+                                 class="active">
+                            <img src="assets/program/img_1.png">
+                            <img src="assets/program/img_2.png">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="shilen">
+        <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
+            <div class="innovation-section">
+                <div class="innovation-grid">
+                    <div class="innovation-card">
+                        <h3 class="innovation-title">
+                            📡 Шилэн кабел
+                        </h3>
+                        <p class="innovation-text">
+                            Гачууртын эх үүсвэрийн алсын удирдлагын системийг Хяналт удирдлагын төвд
+                            шууд холбох боломжгүй байсан тул шинээр шилэн кабель татах шаардлага үүссэн.
+                            Харин одоогийн сүлжээний бүтцийг судалж, хамгийн бага зардалтай,
+                            хялбар холболтын шийдлийг хэрэгжүүлсэн.
+                        </p>
+
+                        <div class="innovation-meta">
+                            <span>📍 Гачуурт</span>
+                            <span>🔌 Шилэн кабель</span>
+                            <span>💰 Бага зардал</span>
+                        </div>
+                    </div>
+                    <section class="gallery-section">
+                        <h4 class="gallery-title">Ажлын явцын зургууд</h4>
+
+                        <div class="gallery-track" >
+                            <img src="assets/komputer/shilen/photo_2025-06-30_13-23-18.jpg"
+                                 class="active">
+                            <img src="assets/komputer/shilen/photo_2025-05-29_13-27-17.jpg">
+                            <img src="assets/komputer/shilen/photo_2025-06-02_14-29-52.jpg">
+                            <img src="assets/komputer/shilen/photo_2025-06-30_13-23-18.jpg">
+                            <img src="assets/komputer/shilen/photo_2025-10-21_15-32-15%20(2).jpg">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div  class="section" style="padding: 0 50px; margin-bottom: 20px" id="gps">
+        <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
+            <div class="innovation-section">
+                <div class="innovation-grid">
+                    <div class="innovation-card">
+                        <h3 class="innovation-title">📍 GPS
+                        </h3>
+                        <p class="innovation-text">
+                            Авто баазын тээврийн хэрэгслүүдийн түлш хэмжигч төхөөрөмжөөс, байршил
+                            тогтоох
+                            төхөөрөмж
+                            рүү холбогдсон тэжээлийн болон сигналийн кабелийн монтажийг уян хар
+                            хоолойгоор
+                            явуулсан
+                            байгаа боловч засвар үйлчилгээ хийх үеэр кабин сөхөж буулгах, холголт үүсэх
+                            гэх мэт
+                            бусад механик хүчин зүйлсээс хамаарч тусгаарлалт муудаж тасарч, гэмтэх
+                            тохиолдолд
+                            үүсдэг. Үүнээс сэргийлж туршилтаар 21-37УНТ улсын дугаартай тээврийн
+                            хэрэгслийн
+                            кабелийн
+                            монтажийг илүү даац, тэсвэр сайтай PVC хоолойнд хийж татсан.
+                        </p>
+                    </div>
+                    <section class="gallery-section">
+                        <h4 class="gallery-title">Ажлын явцын зургууд</h4>
+
+                        <div class="gallery-track" >
+                            <img src="assets/gps/Zurag3.png"/>
+                            <img src="assets/gps/Zurag1.png"/>
+                            <img src="assets/gps/Zurag2.png"/>
+                            <img src="assets/gps/Zurag4.JPG"/>
+                            <img src="assets/gps/Zurag5.JPG"/>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    © 2025 | Ус Сувгийн Удирдах газар /Мэдээллийн технологи, автоматжуулалтын алба/
+</footer>
 </body>
 </html>
