@@ -1310,7 +1310,7 @@ svg {
 .fab-action::after {
     content: attr(data-label);
     position: absolute;
-    right: 110%;
+    left: 110%;
     top: 50%;
     transform: translateY(-50%);
     background: #1f2d3d;
