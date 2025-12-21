@@ -2,6 +2,25 @@ const lb = document.getElementById("lightbox");
 const lbImg = document.getElementById("lbImg");
 const lbClose = document.getElementById("lbClose");
 
+// =========================
+// 🔒 Global safety helpers
+// =========================
+if (window.ChartDataLabels && !Chart._dlRegistered) {
+    Chart.register(ChartDataLabels);
+    Chart._dlRegistered = true;
+}
+
+// canvas байвал л chart үүсгэнэ
+window.safeChart = (id, config, plugins = []) => {
+    const el = document.getElementById(id);
+    if (!el) {
+        console.warn("Canvas not found:", id);
+        return null;
+    }
+    return new Chart(el, config, plugins.length ? plugins : undefined);
+};
+
+
 document.querySelectorAll(".r-thumb").forEach(img => {
     img.addEventListener("click", () => {
         lbImg.src = img.src;
@@ -86,6 +105,24 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         plugins: [ChartDataLabels]
     });
+
+    const content = document.querySelector(".content");
+    const sidebar = document.querySelector(".sidebar-menu");
+
+    if (!content || !sidebar) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                sidebar.classList.add("show");
+            }else {
+                sidebar.classList.remove("show");
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
 });
 
 
@@ -270,63 +307,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const ctx = document.getElementById("callTypeChart");
-
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: [
-                "Сүлжээний ажил",
-                "Шилэн кабель",
-                "Дотоод дуудлага",
-                "ХҮТ-ээс ирсэн дуудлага",
-                "Бусад (камер, компьютер)",
-                "Үзлэг үйлчилгээ"
-            ],
-            datasets: [{
-                label: "2025 он",
-                data: [38, 106, 46, 11, 8, 76],
-                backgroundColor: "#4f78c4"
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: "Дуудлага барагдуулалт (ажлын төрлөөр)"
-                },
-                legend: {display: false},
-                datalabels: {
-                    anchor: "end",
-                    align: "end",
-                    color: "#000",
-                    font: {weight: "bold", size: 16}
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "rgb(19,19,19)"
-                    },
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: "#ccc"
-                    },
-                    grid: {
-                        color: "#333"
-                    }
-                }
-            }
-        },
-        plugins: [ChartDataLabels]
-    });
 });
 document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById("galleryTrack");
@@ -779,81 +759,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("simpleChart");
 
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: [
-                "Гэмтлийн акт",
-                "Хяналт удирдлагын төвөөс ирсэн дуудлага ",
-                "Программ тохиргоо",
-                "Автоматик",
-                "Засвар үйлчилгээ",
-                "Сүлжээний тохиргоо",
-                "Бусад"
-            ],
-            datasets: [
-                {
-                    label: "2024",
-                    data: [32, 28, 41, 307, 26, 19, 33],
-                    backgroundColor: "#9cc9ee"
-                },
-                {
-                    label: "2025",
-                    data: [24, 31, 48, 276, 22, 15, 29],
-                    backgroundColor: "#8fd04f"
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            layout: {
-                padding: {top: 20}
-            },
-            plugins: {
-                legend: {
-                    position: "bottom",
-                    labels: {
-                        color: "#000000",
-                        boxWidth: 14
-                    }
-                },
-                datalabels: {
-                    color: "#000",
-                    backgroundColor: "#fff",
-                    borderRadius: 4,
-                    padding: 4,
-                    anchor: "end",
-                    align: "end",
-                    font: {
-                        weight: "bold",
-                        size: 16
-                    },
-                    formatter: v => v
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#151515"
-                    },
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: "#ccc"
-                    },
-                    grid: {
-                        color: "#000000"
-                    }
-                }
-            }
-        },
-        plugins: [ChartDataLabels]
-    });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -917,79 +822,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById("tele");
 
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: [
-                "Модем / мэдээлэл гацах",
-                "Тохиргоо",
-                "Хуваарийн дагуу\nүзлэг шалгалт",
-                "Акт"
-            ],
-            datasets: [{
-                label: "Дуудлага барагдуулалт",
-                data: [22, 49, 179, 3],
-                backgroundColor: [
-                    "#E6FF00", // шар
-                    "#9cc9ee", // цэнхэр
-                    "#8fd04f", // ягаан
-                    "#92D050"  // ногоон
-                ],
-                barThickness: 42
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            layout: {
-                padding: {top: 30}
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: "2025 оны үзлэг үйлчилгээний график",
-                    color: "#aaa",
-                    font: {size: 20, weight: "bold"},
-                    padding: {bottom: 20}
-                },
-                legend: {
-                    display: false
-                },
-                datalabels: {
-                    color: "#000000",
-                    anchor: "end",
-                    align: "end",
-                    font: {
-                        size: 16,
-                        weight: "bold"
-                    },
-                    formatter: v => v
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#151515",
-                        font: {size: 16}
-                    },
-                    grid: {
-                        color: "#333"
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: "#aaa",
-                        stepSize: 20
-                    },
-                    grid: {
-                        color: "#333"
-                    }
-                }
-            }
-        },
-        plugins: [ChartDataLabels]
-    });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

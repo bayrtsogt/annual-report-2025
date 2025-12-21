@@ -361,7 +361,6 @@ tr.danger {
 .hero-detail {
     max-height: none !important;
     overflow: visible !important;
-    padding: 32px 0 !important;
 }
 
 
@@ -396,25 +395,30 @@ tr.danger {
 /* ===== STATS ===== */
 .detail-stats {
     display: flex;
+    justify-content: space-between;
     gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
+    margin: 12px 0 16px;
 }
 
 .d-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: auto;
     background: #f4f6f8;
-    border-radius: 10px;
-    padding: 8px 12px;
-    min-width: 120px;
+    border-radius: 12px;
+    padding: 10px 12px;
 }
 
 .d-stat b {
-    font-size: 16px;
+    font-size: 16px
 }
 
 .d-stat span {
     font-size: 12px;
-    opacity: .7;
+    opacity: .75
 }
 
 /* ===== TEXT ===== */
@@ -555,30 +559,6 @@ canvas {
 }
 
 /* ===== STATS ===== */
-.detail-stats {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 12px 0 16px;
-}
-
-.d-stat {
-    background: #f4f6f8;
-    border-radius: 12px;
-    padding: 10px 12px;
-    min-width: 160px;
-}
-
-.d-stat b {
-    display: block;
-    font-size: 20px
-}
-
-.d-stat span {
-    display: block;
-    font-size: 16px;
-    opacity: .75
-}
 
 /* ===== GRID ===== */
 .detail-grid {
@@ -1222,7 +1202,7 @@ svg {
 }
 
 .gallery-section {
-    padding: 40px 0;
+    padding: 10px 0;
     background: #fff;
     overflow: hidden;
 }
@@ -1685,7 +1665,7 @@ svg {
     .gallery-track {
         animation: none;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        scroll-snap-type: y mandatory;
         gap: 12px;
     }
 
