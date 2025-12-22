@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         flake.className = "snowflake";
         flake.innerHTML = "&#10052;"; // ❄ U+2744
 
-        const size = Math.random() * 7 + 20; // 🔥 томруулах
+        const size = Math.random() * 7 + 4; // 🔥 томруулах
         const left = Math.random() * 100;
         const fallDur = Math.random() * 8 + 6;
         const swayDur = Math.random() * 4 + 3;
-        const delay = Math.random() * -20;
+        const delay = Math.random() * -100;
 
         flake.style.left = left + "vw";
         flake.style.fontSize = size + "px";

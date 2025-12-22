@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="tailan.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap"
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
@@ -34,7 +35,7 @@
                         sidebar.classList.remove("show");
                     }
                 });
-            }, { threshold: 0.1 });
+            }, {threshold: 0.1});
 
             contentObserver.observe(content);
 
@@ -49,7 +50,7 @@
                             ?.classList.add("selected");
                     }
                 });
-            }, { threshold: 0.4 });
+            }, {threshold: 0.4});
 
             sections.forEach(sec => sectionObserver.observe(sec));
 
@@ -59,7 +60,7 @@
                     const targetId = item.dataset.target;
                     const target = document.getElementById(targetId);
                     if (target) {
-                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        target.scrollIntoView({behavior: "smooth", block: "start"});
                     }
                 });
             });
@@ -68,8 +69,10 @@
 </head>
 <body>
 <div>
-    <img src="assets/santa.gif"  style="position: fixed; bottom: 10px; right: 10px; width: 150px; height: auto; z-index: 1000" alt=""/>
-    <img src="assets/lights.gif"  style="position: fixed; top: -15px; left: 10px; width: 300px; height: auto; z-index: 1000" alt=""/>
+    <img src="assets/santa.gif"
+         style="position: fixed; bottom: 10px; right: 10px; width: 150px; height: auto; z-index: 1000" alt=""/>
+    <img src="assets/lights.gif"
+         style="position: fixed; top: -15px; left: 10px; width: 300px; height: auto; z-index: 1000" alt=""/>
 </div>
 <div id="snow-container"></div>
 <!-- ===== NAV BAR ===== -->
@@ -166,7 +169,7 @@
 <div class="content" style="">
     <div class="section" id="tele" style="padding: 0 50px; margin-bottom: 20px">
         <!--                    <div class="kicker"><i class="kdot"></i> МТАА 2025 • Шинээр санаачилсан ажлууд</div>-->
-        <div style="margin: 20px 0; padding: 0 20px; border-radius: 20px"  class="detail-panel">
+        <div style="margin: 20px 0; padding: 0 20px; border-radius: 20px" class="detail-panel">
             <div class="innovation-section">
                 <div class="innovation-grid">
                     <div class="innovation-card">
@@ -187,7 +190,7 @@
                     </div>
                     <section class="gallery-section">
                         <h4 class="gallery-title">Ажлын явцын зургууд</h4>
-                        <div class="gallery-track" >
+                        <div class="gallery-track">
                             <img src="assets/telemetr/zurag%207.jpg" class="active" alt="">-->
                             <img src="assets/telemetr/zurag%208.jpg" alt="">
                             <img src="assets/telemetr/zurag%209.jpg">
@@ -199,7 +202,7 @@
             </div>
         </div>
     </div>
-    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="tsewer">
+    <div class="section" style="padding: 0 50px; margin-bottom: 20px" id="tsewer">
         <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
             <div class="innovation-section">
                 <div class="innovation-grid">
@@ -234,7 +237,7 @@
                     <section class="gallery-section">
                         <h4 class="gallery-title">Ажлын явцын зургууд</h4>
 
-                        <div class="gallery-track" >
+                        <div class="gallery-track">
                             <img src="assets/tsewer/zurag-10.jpg" class="active">
                             <img src="assets/tsewer/zurag-11.jpg">
                             <img src="assets/tsewer/zurag-12.jpg">
@@ -247,7 +250,7 @@
             </div>
         </div>
     </div>
-    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="bohir">
+    <div class="section" style="padding: 0 50px; margin-bottom: 20px" id="bohir">
         <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
             <div class="innovation-section">
                 <div class="innovation-grid">
@@ -258,7 +261,7 @@
                         <p class="innovation-text">
                             Яармаг 1, 2 бохир усны өргөх насос станцыг дотоод нөөц бололцоогоо ашиглаж
                             складын
-                            үлэгдэлээр хяналтын камержуулсан.
+                            үлдэгдлээр хяналтын камержуулсан.
                         </p>
                         <div class="innovation-meta">
                             <span>📍 Яармаг 1, 2</span>
@@ -269,7 +272,7 @@
                     <section class="gallery-section">
                         <h4 class="gallery-title">Ажлын явцын зургууд</h4>
 
-                        <div class="gallery-track" >
+                        <div class="gallery-track">
                             <img src="assets/bohir/photo_2025-12-19_16-19-35.jpg" class="active">
                             <img src="assets/bohir/photo_2025-12-19_16-19-33.jpg">
                             <img src="assets/bohir/photo_2025-08-27_12-08-09.jpg">
@@ -282,7 +285,7 @@
             </div>
         </div>
     </div>
-    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="soft">
+    <div class="section" style="padding: 0 50px; margin-bottom: 20px" id="soft">
         <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
             <div class="innovation-section">
                 <div class="innovation-grid">
@@ -291,7 +294,10 @@
                             📡 Программ хангамж
                         </h3>
                         <p class="innovation-text">
-                            Сервер болон програм хангамжуулын хэвийн найдвартай үйл ажиллагааг хангах зорилгоор нээлттэй эхийн сан Graffana-г хэрэгжүүлж, Серверүүдийн Физик ашиглалтыг хянах боломжийг бүрдүүлсэн. Мөн түүнд Telegram-н чатбот-ийг ашиглан хэрэглээ нь ихэссэн үед дохиолол илгээх холболтыг хийж гүйцэтгэсэн.
+                            Сервер болон програм хангамжуулын хэвийн найдвартай үйл ажиллагааг хангах зорилгоор нээлттэй
+                            эхийн сан Graffana-г хэрэгжүүлж, Серверүүдийн Физик ашиглалтыг хянах боломжийг бүрдүүлсэн.
+                            Мөн түүнд Telegram-н чатбот-ийг ашиглан хэрэглээ нь ихэссэн үед дохиолол илгээх холболтыг
+                            хийж гүйцэтгэсэн.
                         </p>
 
                         <div class="innovation-meta">
@@ -302,7 +308,7 @@
                     <section class="gallery-section">
                         <h4 class="gallery-title">Ажлын явцын зургууд</h4>
 
-                        <div class="gallery-track" >
+                        <div class="gallery-track">
                             <img src="assets/program/photo_2025-12-19_16-00-49.jpg"
                                  class="active">
                             <img src="assets/program/img_1.png">
@@ -313,7 +319,7 @@
             </div>
         </div>
     </div>
-    <div class="section"  style="padding: 0 50px; margin-bottom: 20px" id="shilen">
+    <div class="section" style="padding: 0 50px; margin-bottom: 20px" id="shilen">
         <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
             <div class="innovation-section">
                 <div class="innovation-grid">
@@ -337,7 +343,7 @@
                     <section class="gallery-section">
                         <h4 class="gallery-title">Ажлын явцын зургууд</h4>
 
-                        <div class="gallery-track" >
+                        <div class="gallery-track">
                             <img src="assets/komputer/shilen/photo_2025-06-30_13-23-18.jpg"
                                  class="active">
                             <img src="assets/komputer/shilen/photo_2025-05-29_13-27-17.jpg">
@@ -350,7 +356,7 @@
             </div>
         </div>
     </div>
-    <div  class="section" style="padding: 0 50px; margin-bottom: 20px" id="gps">
+    <div class="section" style="padding: 0 50px; margin-bottom: 20px" id="gps">
         <div class="detail-panel" style="margin: 20px 0; padding: 0 20px; border-radius: 20px">
             <div class="innovation-section">
                 <div class="innovation-grid">
@@ -361,10 +367,10 @@
                             Авто баазын тээврийн хэрэгслүүдийн түлш хэмжигч төхөөрөмжөөс, байршил
                             тогтоох
                             төхөөрөмж
-                            рүү холбогдсон тэжээлийн болон сигналийн кабелийн монтажийг уян хар
+                            рүү холбогдсон тэжээлийн болон сигналын кабелийн монтажийг уян хар
                             хоолойгоор
                             явуулсан
-                            байгаа боловч засвар үйлчилгээ хийх үеэр кабин сөхөж буулгах, холголт үүсэх
+                            байгаа боловч засвар үйлчилгээ хийх үеэр кабин сөхөж буулгах, холболт үүсгэх
                             гэх мэт
                             бусад механик хүчин зүйлсээс хамаарч тусгаарлалт муудаж тасарч, гэмтэх
                             тохиолдолд
@@ -377,7 +383,7 @@
                     <section class="gallery-section">
                         <h4 class="gallery-title">Ажлын явцын зургууд</h4>
 
-                        <div class="gallery-track" >
+                        <div class="gallery-track">
                             <img src="assets/gps/Zurag3.png"/>
                             <img src="assets/gps/Zurag1.png"/>
                             <img src="assets/gps/Zurag2.png"/>
