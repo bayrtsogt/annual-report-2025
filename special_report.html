@@ -136,8 +136,8 @@
 <div class="hero water-hero">
     <div class="card-grid-header">
         <div class="mongol-strip">
-            <span class="mongol-right">ᠮᠡᠳᠡᢉᠡᠯᠡᠯ ᠦ᠋ᠨ ᠲᠧᠻᠨᠣᠯᠣᢉᠢ᠂</span>
-            <span class="mongol-right">ᠠᠦᠲ᠋ᠤᠮᠠᠲ᠋ᠵᠢᠭᠤᠯᠤᠯᠲᠠ ᠶ᠋ᠢᠨ ᠠᠯᠪᠠ</span>
+            <span class="mongol-right">ᠮᠡᠳᠡᢉᠡᠯᠡᠯ ᠦ᠋ᠨ ᠲᠸᢉᠨᠣᠯᠣᢉᠢ᠂</span>
+            <span class="mongol-right">ᠠᠤᠢᠲ᠋ᠥᠮᠡᠲ᠋ᠵᠢᠭᠦᠯᠦᠯᠳᠠ ᠶ᠋ᠢᠨ ᠠᠯᠪᠠ</span>
         </div>
         <div class="center-block">
             <div class="logo-row">
@@ -312,6 +312,7 @@
                             <figure class="r-media">
                                 <h3>Хяналтын камер</h3>
                                 <div class="detail-stats">
+                                    <div class="d-stat"><b>1032</b><span>Нийт камерын тоо</span></div>
                                     <div class="d-stat"><b>508</b><span>Машины дугаар таниулсан</span></div>
                                     <div class="d-stat"><b>92</b><span>Хувиарт үзлэг</span></div>
                                     <div class="d-stat"><b>31</b><span>Камер шүүх</span></div>
@@ -382,21 +383,14 @@
                                     <div class="d-stat"><b>10</b><span>Системийн нөөцлөлт</span></div>
                                     <div class="d-stat"><b>470</b><span>Нэвтрэх системийн тохируулга </span></div>
                                 </div>
-                                <section class="gallery-section">
-                                    <h4 class="gallery-title">Ажлын явцын зургууд</h4>
-                                    <div class="gallery-track">
-                                        <img src="assets/kiber/waf.jpg" alt=""/>
-                                        <img src="assets/kiber/ppt%20tailan%20zurag.png" alt=""/>
-                                        <img src="assets/kiber/onts%20ded%20butets.jpg" alt=""/>
-                                        <img src="assets/kiber/nevtreh%20system1.jpg" alt=""/>
-                                        <img src="assets/kiber/nevtreh%20system2.jpg" alt=""/>
-                                    </div>
-                                </section>
+                                <div style="height: 400px">
+                                    <canvas id="kiberchart"></canvas>
+                                </div>
                             </figure>
                             <div class="detail-grid-col">
-                                <div class="detail-panel">
+                                <div class="r-card">
                                     <h4>Кибер аюулгүй байдлын ажлууд</h4>
-                                    <ul class="detail-list">
+                                    <ul class="r-list">
                                         <li>Байгууллагын кибер аюулгүй байдлыг хангах үйл ажиллагааны дотоод журмыг
                                             шинэчилж
                                             батлуулсан.
@@ -415,9 +409,19 @@
                                         </li>
                                     </ul>
                                 </div>
+                                    <div class="gallery-section">
+                                        <h4 class="gallery-title">Ажлын явцын зургууд</h4>
+                                        <div class="gallery-track">
+                                            <img src="assets/kiber/waf.jpg" alt=""/>
+                                            <img src="assets/kiber/ppt%20tailan%20zurag.png" alt=""/>
+                                            <img src="assets/kiber/onts%20ded%20butets.jpg" alt=""/>
+                                            <img src="assets/kiber/nevtreh%20system1.jpg" alt=""/>
+                                            <img src="assets/kiber/nevtreh%20system2.jpg" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="detail-card" id="holboo">
                         <div class="r-split">
@@ -521,10 +525,11 @@
                                 <h3>Ус түгээх ухаалаг систем</h3>
                             </div>
                             <div class="detail-stats">
-                                <div class="d-stat"><b>342</b><span>Нийт УТБ</span></div>
+                                <div class="d-stat"><b>332</b><span>Нийт УТБ</span></div>
                                 <div class="d-stat"><b>180</b><span>ШУХА шинэ</span></div>
-                                <div class="d-stat"><b>151</b><span>ШУХА хуучин</span></div>
+                                <div class="d-stat"><b>139</b><span>ШУХА хуучин</span></div>
                                 <div class="d-stat"><b>11</b><span>Зуха</span></div>
+                                <div class="d-stat"><b>10</b><span>Буулгасан</span></div>
                                 <div class="d-stat"><b>99.09%</b><span>Бэлэн байдлын хувь</span></div>
                             </div>
                             <div class="detail-grid">
@@ -790,8 +795,9 @@
                                 <div class="detail-stats">
                                     <div class="d-stat"><b>164</b><span>Нийт цэг</span></div>
                                     <div class="d-stat"><b>132</b><span>Хэвийн ажиллагаатай</span></div>
-                                    <div class="d-stat"><b>32</b><span>Ажиллахгүй байгаа</span></div>
+                                    <div class="d-stat"><b>32</b><span>Мэдээлэл ирээгүй цэгүүд</span></div>
                                     <div class="d-stat"><b>80.4%</b><span>Бэлэн байдлын хувь</span></div>
+                                    <div class="d-stat"><b>100%</b><span>Мэдээлэл дамжихжуулах PLC</span></div>
                                 </div>
                             </div>
                             <div class="detail-grid">
@@ -1258,7 +1264,7 @@
                             <h3>Бохир усны тоног төхөөрөмжийн засварын хэсэг</h3>
                         </div>
                         <div class="detail-stats">
-                            <div class="d-stat"><b>5</b><span>Бага оврийн станц</span></div>
+                            <div class="d-stat"><b>5</b><span>Бага оврийн цэвэрлэх байгууламж</span></div>
                             <div class="d-stat"><b>8</b><span>Төв цэвэрлэх байгууламж</span></div>
                             <div class="d-stat"><b>8</b><span>Өргөх станц</span></div>
                             <div class="d-stat"><b>64</b><span>Давтамж хувиргагч</span></div>
@@ -1272,8 +1278,8 @@
                                     <ul class="detail-list">
                                         <li>
                                             <p style="">
-                                                Морингийн цэвэрлэх байгууламжийн <b>СКАДА системийг SCHNIDER SCADA </b>
-                                                программчилж шинээр хийсэн.
+                                                Морингийн цэвэрлэх байгууламжийн <b>СКАДА системийг SCHNEIDER SCADA </b>
+                                                программчилж шинэчилсэн.
                                             </p>
                                         </li>
                                         <li>

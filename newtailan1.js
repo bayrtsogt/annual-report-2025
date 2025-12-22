@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                     label: "2024",
                     data: [47, 53, 6, 284, 18, 7, 15],
-                    backgroundColor:  bluePalette[1],
+                    backgroundColor: bluePalette[1],
                     barThickness: 28
                 },
                 {
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                     label: "2025",
                     data: [365, 75, 13, 79, 73, 88, 188, 107, 88, 187, 184, 82],
-                    backgroundColor:  bluePalette[5],
+                    backgroundColor: bluePalette[5],
                     barThickness: 16
                 }
             ]
@@ -441,7 +441,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
     Chart.register(ChartDataLabels);
 
     const labels = [
@@ -507,6 +506,61 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         }
+    });
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+    const ctx = document.getElementById("kiberchart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [
+                "Вирус, хорт программын эсрэг хамгаалсан",
+                "Халдлагаас урьдчилан сэргийлсэн",
+                "Автомат халдлагын эсрэг хамгаалсан",
+                "Нийт"
+            ],
+            datasets: [{
+                label: "Кибер аюулгүй байдал",
+                data: [648, 549, 711, 1908],
+                backgroundColor: [
+                    "rgba(189,0,0,0.84)",
+                    "#fbf82d",
+                    "#fb9a2b",
+                    "#92fb2d"
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: "Халдлагаас хамгаалсан тоо (2025)"
+                },
+                datalabels: {
+                    color: "#000",
+                    anchor: "end",
+                    align: "top",
+                    font: {
+                        weight: "bold",
+                        size: 16
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
     });
 
 });
